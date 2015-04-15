@@ -1,0 +1,42 @@
+
+
+PRAGMA foreign_keys = off;
+
+CREATE TABLE businesses (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, address TEXT NOT NULL, address2 TEXT NOT NULL, city TEXT NOT NULL, state TEXT NOT NULL, zip INTEGER NOT NULL);
+
+PRAGMA foreign_keys = on;
+
+
+
+----------------------------------------
+
+PRAGMA foreign_keys = off;
+
+CREATE TABLE IF NOT EXISTS products (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL);
+
+PRAGMA foreign_keys = on;
+
+----------------------------------------
+
+
+PRAGMA foreign_keys = off;
+
+CREATE TABLE machines (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, business_ID NOT NULL REFERENCES businesses (ID), description TEXT NOT NULL, numOfRows INTEGER NOT NULL, numOfColumns INTEGER NOT NULL);
+
+PRAGMA foreign_keys = on;
+
+
+
+----------------------------------------
+
+
+PRAGMA foreign_keys = off;
+
+CREATE TABLE IF NOT EXISTS vendingContent (ID INTEGER PRIMARY KEY NOT NULL, machine_ID INTEGER NOT NULL REFERENCES machines (ID), product INTEGER REFERENCES products (ID) NOT NULL, itemRow INTEGER NOT NULL, itemColumn INTEGER NOT NULL, quantity INTEGER NOT NULL, cost DECIMAL NOT NULL);
+
+PRAGMA foreign_keys = on;
+
+
+----------------------------------------
+
+
