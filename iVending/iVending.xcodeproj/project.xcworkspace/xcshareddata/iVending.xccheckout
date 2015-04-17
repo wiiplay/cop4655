@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2EB3E63B-66B7-4BBF-B06D-B9703CED4138</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iVending</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F0AE6DE2-C266-4FA0-8264-D8ED0901D042</key>
+		<string>https://github.com/wiiplay/cop4655.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iVending/iVending.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F0AE6DE2-C266-4FA0-8264-D8ED0901D042</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wiiplay/cop4655.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F0AE6DE2-C266-4FA0-8264-D8ED0901D042</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F0AE6DE2-C266-4FA0-8264-D8ED0901D042</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cop4655</string>
+		</dict>
+	</array>
+</dict>
+</plist>

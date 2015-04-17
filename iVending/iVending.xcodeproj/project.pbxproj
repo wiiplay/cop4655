@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */; };
+		06EFF8D81AE1C03F006C3EF3 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D71AE1C03F006C3EF3 /* Product.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
 		1AB231FA1ADDC06C0045D319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */; };
 		1AB231FC1ADDC06C0045D319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231FB1ADDC06C0045D319 /* UIKit.framework */; };
@@ -22,8 +24,6 @@
 		1AB232231ADDC06C0045D319 /* iVendingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB232221ADDC06C0045D319 /* iVendingTests.m */; };
 		1AB2322D1ADDC0860045D319 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB2322C1ADDC0860045D319 /* libsqlite3.dylib */; };
 		1AB232381ADDC22F0045D319 /* sqlDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB232371ADDC22F0045D319 /* sqlDB.m */; };
-		1AB2323B1ADDE5CA0045D319 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2323A1ADDE5CA0045D319 /* TempViewController.m */; };
-		1AB2323F1ADDECE50045D319 /* products.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2323E1ADDECE50045D319 /* products.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06EFF8D31AE1BC80006C3EF3 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = SOURCE_ROOT; };
+		06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = SOURCE_ROOT; };
+		06EFF8D61AE1C03F006C3EF3 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = iVending/Classes/Product.h; sourceTree = SOURCE_ROOT; };
+		06EFF8D71AE1C03F006C3EF3 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = iVending/Classes/Product.m; sourceTree = SOURCE_ROOT; };
 		1AB231F41ADDC06C0045D319 /* iVending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB231F71ADDC06C0045D319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,10 +61,6 @@
 		1AB2322C1ADDC0860045D319 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1AB232361ADDC22F0045D319 /* sqlDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlDB.h; sourceTree = "<group>"; };
 		1AB232371ADDC22F0045D319 /* sqlDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sqlDB.m; sourceTree = "<group>"; };
-		1AB232391ADDE5CA0045D319 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TempViewController.h; path = ../../TempViewController.h; sourceTree = "<group>"; };
-		1AB2323A1ADDE5CA0045D319 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TempViewController.m; path = ../../TempViewController.m; sourceTree = "<group>"; };
-		1AB2323D1ADDECE50045D319 /* products.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = products.h; sourceTree = "<group>"; };
-		1AB2323E1ADDECE50045D319 /* products.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = products.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +165,10 @@
 		1AB232351ADDC2100045D319 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				06EFF8D61AE1C03F006C3EF3 /* Product.h */,
+				06EFF8D71AE1C03F006C3EF3 /* Product.m */,
 				1AB232361ADDC22F0045D319 /* sqlDB.h */,
 				1AB232371ADDC22F0045D319 /* sqlDB.m */,
-				1AB2323D1ADDECE50045D319 /* products.h */,
-				1AB2323E1ADDECE50045D319 /* products.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -176,8 +176,8 @@
 		1AB2323C1ADDE5F80045D319 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1AB232391ADDE5CA0045D319 /* TempViewController.h */,
-				1AB2323A1ADDE5CA0045D319 /* TempViewController.m */,
+				06EFF8D31AE1BC80006C3EF3 /* TempViewController.h */,
+				06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,9 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AB2323B1ADDE5CA0045D319 /* TempViewController.m in Sources */,
 				1AB232381ADDC22F0045D319 /* sqlDB.m in Sources */,
-				1AB2323F1ADDECE50045D319 /* products.m in Sources */,
+				06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */,
+				06EFF8D81AE1C03F006C3EF3 /* Product.m in Sources */,
 				1AB232081ADDC06C0045D319 /* AppDelegate.m in Sources */,
 				1AB232041ADDC06C0045D319 /* main.m in Sources */,
 			);
@@ -490,6 +490,7 @@
 				1AB232281ADDC06C0045D319 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AB232291ADDC06C0045D319 /* Build configuration list for PBXNativeTarget "iVendingTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +499,7 @@
 				1AB2322B1ADDC06C0045D319 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,7 +14,7 @@
 
 @implementation TempViewController
 
-@synthesize myDB, myProducts;
+@synthesize myDB, myProducts, myProduct;
 
 - (void)viewDidLoad
 {
@@ -22,7 +22,12 @@
     // Do any additional setup after loading the view.
     
     myDB = [sqlDB getSqlDB];
-    myProducts = [myDB getProductList];
+    myProduct = [[Product alloc] initWithName: @"Cheetos"];
+    [myProduct insertProduct: myProduct];
+    Product *byName = [myProduct getProductByName:myProduct.productName];
+    Product *byID = [myProduct getProductByID: *byName.productID];
+    myProducts = [myProduct getProductList];
+    NSString * type;
 }
 
 - (void)didReceiveMemoryWarning

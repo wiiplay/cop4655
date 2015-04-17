@@ -92,8 +92,6 @@
     return self;
 }
 
-
-
 - (void) showUIAlertWithMessage: (NSString *) message andTitle: (NSString *) title
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
