@@ -11,15 +11,14 @@
 
 @interface Product : NSObject
 
-@property (strong, nonatomic) sqlDB *myDB;
-@property (nonatomic) int *productID;
+@property (nonatomic) int productID;
 @property (strong, nonatomic) NSString *productName;
 
 - (instancetype) initWithName: (NSString *) name;
-- (NSDictionary *) getProductList;
+- (NSDictionary *) getProductList: (sqlDB *) connection;
 
-- (Product *) getProductByID: (int) prodtId;
-- (Product *) getProductByName: (NSString *) prodName;
-- (void) insertProduct: (Product *) product;
+- (Product *) getProductByID: (sqlDB *) connection andProd: (int) prodtId;
+- (Product *) getProductByName: (sqlDB *) connection andProd: (NSString *) prodName;
+- (void) insertProduct: (sqlDB *) connection andProd: (Product *) product;
 
 @end

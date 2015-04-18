@@ -14,6 +14,8 @@
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *vendingDB;
 
+@property (nonatomic, strong) NSString *documentsDirectory;
+
 + (sqlDB *) getSqlDB;
 
 @end

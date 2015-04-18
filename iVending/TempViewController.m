@@ -22,11 +22,12 @@
     // Do any additional setup after loading the view.
     
     myDB = [sqlDB getSqlDB];
+    myProducts = [myProduct getProductList: myDB];
     myProduct = [[Product alloc] initWithName: @"Cheetos"];
-    [myProduct insertProduct: myProduct];
-    Product *byName = [myProduct getProductByName:myProduct.productName];
-    Product *byID = [myProduct getProductByID: *byName.productID];
-    myProducts = [myProduct getProductList];
+    [myProduct insertProduct: myDB andProd: myProduct];
+    Product *byName = [myProduct getProductByName:myDB andProd: myProduct.productName];
+    Product *byID = [myProduct getProductByID: myDB andProd: (byName.productID)];
+    myProducts = [myProduct getProductList: myDB];
     NSString * type;
 }
 
