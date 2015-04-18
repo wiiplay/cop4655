@@ -12,7 +12,7 @@
 @interface TempViewController : UIViewController
 
 @property (nonatomic) sqlDB *myDB;
-@property (strong, nonatomic) Product *myProduct;
+@property (strong, nonatomic) Product *theProduct;
 @property (strong, nonatomic) NSDictionary *myProducts;
 
 

@@ -15,10 +15,11 @@
 @property (strong, nonatomic) NSString *productName;
 
 - (instancetype) initWithName: (NSString *) name;
-- (NSDictionary *) getProductList: (sqlDB *) connection;
 
+- (NSMutableDictionary *) getProductList: (sqlDB *) connection;
 - (Product *) getProductByID: (sqlDB *) connection andProd: (int) prodtId;
 - (Product *) getProductByName: (sqlDB *) connection andProd: (NSString *) prodName;
-- (void) insertProduct: (sqlDB *) connection andProd: (Product *) product;
+- (BOOL) insertProduct: (sqlDB *) connection andProd: (Product *) product;
+- (BOOL) deleteProduct: (sqlDB *) connection andProd: (Product *) product;
 
 @end

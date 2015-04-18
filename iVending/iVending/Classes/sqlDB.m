@@ -54,7 +54,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS businesses (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, address TEXT NOT NULL, address2 TEXT NOT NULL, city TEXT NOT NULL, state TEXT NOT NULL, zip INTEGER NOT NULL)";
+        const char *sql_stmt = "CREATE TABLE businesses (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL UNIQUE ON CONFLICT ROLLBACK, address TEXT NOT NULL, address2 TEXT NOT NULL, city TEXT NOT NULL, state TEXT NOT NULL, zip TEXT NOT NULL )";
         
         if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             [self showUIAlertWithMessage:@"Failed to create business table" andTitle:@"Error"] ;
@@ -65,7 +65,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS products (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL)";
+        const char *sql_stmt = "CREATE TABLE products (ID   INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT    NOT NULL UNIQUE ON CONFLICT ROLLBACK)";
         
         if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             [self showUIAlertWithMessage:@"Failed to create products table" andTitle:@"Error"] ;

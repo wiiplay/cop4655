@@ -40,15 +40,13 @@
                 NSString *name = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 1)] ];
                 product = [[Product alloc] initWithName: name];
             }
-            
-            //release statement
-            sqlite3_finalize(statement);
         }
+        //release statement
+        sqlite3_finalize(statement);
+        
         //close DB connection
         sqlite3_close(vendingDb);
     }
-    else
-        [self showUIAlertWithMessage:@"Unable to connect to db." andTitle: @"Error"];
     
     return product;
 }
@@ -71,22 +69,21 @@
             int prodId =  sqlite3_column_int(statement, 0) ;
             product = [[Product alloc] initWithName: prodName];
             product.productID = prodId;
-            
-            //release statement
-            sqlite3_finalize(statement);
         }
+        
+        //release statement
+        sqlite3_finalize(statement);
+        
         //close DB connection
         sqlite3_close(vendingDb);
     }
-    else
-        [self showUIAlertWithMessage:@"Unable to connect to db." andTitle: @"Error"];
     
     return product;
 }
 
-- (NSDictionary *) getProductList: (sqlDB *) connection
+- (NSMutableDictionary *) getProductList: (sqlDB *) connection
 {
-    NSDictionary * products = [[NSDictionary alloc] init];
+    NSMutableDictionary * products = [[NSMutableDictionary alloc] init];
     
     sqlite3 *vendingDB;
     sqlite3_stmt * statement;
@@ -94,7 +91,7 @@
     
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         
-        NSString * querySQL = @"SELECT * FROM products";
+        NSString * querySQL = @"SELECT * FROM products ORDER BY name";
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, NULL) == SQLITE_OK) {
@@ -103,9 +100,9 @@
                 //get the product name and format it to nsstring;
                 NSString *value = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 1)] ];
                 //get the id from the row and convert it to nsstring
-                NSString *key = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%d",sqlite3_column_int(statement, 0)]];
+                NSNumber *key = [NSNumber numberWithInt: sqlite3_column_int(statement, 0)];
                 //add the product to the products dictionary;
-                [products setValue: value forKey: key ];
+                [products setObject:value forKey: key];
             }
             //release statement
             sqlite3_finalize(statement);
@@ -113,13 +110,10 @@
         //close DB connection
         sqlite3_close(vendingDB);
     }
-    else
-        [self showUIAlertWithMessage:@"Unable to connect to db." andTitle: @"Error"];
-    
     return products;
 }
 
-- (void) insertProduct: (sqlDB *) connection andProd: (Product *) product
+- (BOOL) insertProduct: (sqlDB *) connection andProd: (Product *) product
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -131,20 +125,39 @@
         const char *query_statement = [querySQL UTF8String];        
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
-            [self showUIAlertWithMessage:[NSString stringWithFormat: @"Unable to insert %@ product into the products table.", product.productName] andTitle:@"Error"] ;
+            return NO;
         }
         
         //close DB connection
         sqlite3_close(vendingDB);
     }
     else
-        [self showUIAlertWithMessage:@"Unable to connect to db." andTitle: @"Error"];
+        return NO;
+    return YES;
 }
 
-- (void) showUIAlertWithMessage: (NSString *) message andTitle: (NSString *) title
+- (BOOL) deleteProduct: (sqlDB *) connection andProd: (Product *) product
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+    const char *dbpath = [connection.databasePath UTF8String];
+    
+    sqlite3 *vendingDB;
+    if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
+        char *errMsg;
+        
+        NSString * querySQL = [NSString stringWithFormat: @"DELETE FROM products WHERE name = '%@'", product.productName ];
+        const char *query_statement = [querySQL UTF8String];
+        
+        if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
+            return NO;
+        }
+        
+        //close DB connection
+        sqlite3_close(vendingDB);
+    }
+    else
+        return NO;
+    
+    return YES;
 }
 
 

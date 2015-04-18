@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0695D6591AE2CDF600F1C704 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6581AE2CDF600F1C704 /* Business.m */; };
 		06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */; };
 		06EFF8D81AE1C03F006C3EF3 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D71AE1C03F006C3EF3 /* Product.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0695D6571AE2CDF600F1C704 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
+		0695D6581AE2CDF600F1C704 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		06EFF8D31AE1BC80006C3EF3 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = SOURCE_ROOT; };
 		06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = SOURCE_ROOT; };
 		06EFF8D61AE1C03F006C3EF3 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = iVending/Classes/Product.h; sourceTree = SOURCE_ROOT; };
@@ -169,6 +172,8 @@
 				06EFF8D71AE1C03F006C3EF3 /* Product.m */,
 				1AB232361ADDC22F0045D319 /* sqlDB.h */,
 				1AB232371ADDC22F0045D319 /* sqlDB.m */,
+				0695D6571AE2CDF600F1C704 /* Business.h */,
+				0695D6581AE2CDF600F1C704 /* Business.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				1AB232381ADDC22F0045D319 /* sqlDB.m in Sources */,
 				06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */,
 				06EFF8D81AE1C03F006C3EF3 /* Product.m in Sources */,
+				0695D6591AE2CDF600F1C704 /* Business.m in Sources */,
 				1AB232081ADDC06C0045D319 /* AppDelegate.m in Sources */,
 				1AB232041ADDC06C0045D319 /* main.m in Sources */,
 			);
