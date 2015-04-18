@@ -27,14 +27,18 @@
     //[theProduct insertProduct: myDB andProd: theProduct];
     //theProduct = [[Product alloc] initWithName: @"Cheetos"];
     //[theProduct deleteProduct:myDB andProd: theProduct];
+    theProduct = [[ProductDb alloc] init];
     [theProduct getProductList: myDB];
     
+    theBusiness = [[BusinessDb alloc] init];
+    businessList = [theBusiness getBusinessList:myDB];
+    /*
     theBusiness = [[Business alloc] initWithName: @"MDC North" andAddress: @"112 w 44 PL" andAddress2:@"" andCity: @"Miami" andStat:@"FL" andZip:@"33325"];
     
     [theBusiness deleteBusiness:theBusiness andProd:myDB];
     
     businessList = [theBusiness getBusinessList:myDB];
-    theBusiness = nil;
+     nil;
     theBusiness = [[Business alloc] initWithName: @"MDC North" andAddress: @"112 w 44 PL" andAddress2:@"" andCity: @"Miami" andStat:@"FL" andZip:@"33325"];
     
     [theBusiness insertBusiness:theBusiness andProd:myDB];
@@ -50,6 +54,8 @@
     byName = [byName getBusinessByName:@"MDC North 2" andDb:myDB];
     
     businessList = [theBusiness getBusinessList:myDB];
+    */
+    
     
     NSString * type;
 }

@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0695D6591AE2CDF600F1C704 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6581AE2CDF600F1C704 /* Business.m */; };
+		0695D6591AE2CDF600F1C704 /* BusinessDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6581AE2CDF600F1C704 /* BusinessDb.m */; };
+		0695D65C1AE30DC700F1C704 /* MachinesDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D65B1AE30DC700F1C704 /* MachinesDb.m */; };
+		0695D65F1AE3129E00F1C704 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D65E1AE3129E00F1C704 /* Product.m */; };
+		0695D6621AE312B100F1C704 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6611AE312B100F1C704 /* Business.m */; };
+		0695D6651AE312D000F1C704 /* Machines.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6641AE312D000F1C704 /* Machines.m */; };
 		06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */; };
-		06EFF8D81AE1C03F006C3EF3 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D71AE1C03F006C3EF3 /* Product.m */; };
+		06EFF8D81AE1C03F006C3EF3 /* ProductDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D71AE1C03F006C3EF3 /* ProductDb.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
 		1AB231FA1ADDC06C0045D319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */; };
 		1AB231FC1ADDC06C0045D319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231FB1ADDC06C0045D319 /* UIKit.framework */; };
@@ -38,12 +42,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0695D6571AE2CDF600F1C704 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
-		0695D6581AE2CDF600F1C704 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
+		0695D6571AE2CDF600F1C704 /* BusinessDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessDb.h; sourceTree = "<group>"; };
+		0695D6581AE2CDF600F1C704 /* BusinessDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessDb.m; sourceTree = "<group>"; };
+		0695D65A1AE30DC700F1C704 /* MachinesDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachinesDb.h; sourceTree = "<group>"; };
+		0695D65B1AE30DC700F1C704 /* MachinesDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MachinesDb.m; sourceTree = "<group>"; };
+		0695D65D1AE3129E00F1C704 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		0695D65E1AE3129E00F1C704 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		0695D6601AE312B100F1C704 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
+		0695D6611AE312B100F1C704 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
+		0695D6631AE312D000F1C704 /* Machines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Machines.h; sourceTree = "<group>"; };
+		0695D6641AE312D000F1C704 /* Machines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Machines.m; sourceTree = "<group>"; };
 		06EFF8D31AE1BC80006C3EF3 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = SOURCE_ROOT; };
 		06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = SOURCE_ROOT; };
-		06EFF8D61AE1C03F006C3EF3 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = iVending/Classes/Product.h; sourceTree = SOURCE_ROOT; };
-		06EFF8D71AE1C03F006C3EF3 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = iVending/Classes/Product.m; sourceTree = SOURCE_ROOT; };
+		06EFF8D61AE1C03F006C3EF3 /* ProductDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDb.h; path = iVending/Classes/ProductDb.h; sourceTree = SOURCE_ROOT; };
+		06EFF8D71AE1C03F006C3EF3 /* ProductDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDb.m; path = iVending/Classes/ProductDb.m; sourceTree = SOURCE_ROOT; };
 		1AB231F41ADDC06C0045D319 /* iVending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB231F71ADDC06C0045D319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -168,12 +180,20 @@
 		1AB232351ADDC2100045D319 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				06EFF8D61AE1C03F006C3EF3 /* Product.h */,
-				06EFF8D71AE1C03F006C3EF3 /* Product.m */,
 				1AB232361ADDC22F0045D319 /* sqlDB.h */,
 				1AB232371ADDC22F0045D319 /* sqlDB.m */,
-				0695D6571AE2CDF600F1C704 /* Business.h */,
-				0695D6581AE2CDF600F1C704 /* Business.m */,
+				06EFF8D61AE1C03F006C3EF3 /* ProductDb.h */,
+				06EFF8D71AE1C03F006C3EF3 /* ProductDb.m */,
+				0695D65D1AE3129E00F1C704 /* Product.h */,
+				0695D65E1AE3129E00F1C704 /* Product.m */,
+				0695D6571AE2CDF600F1C704 /* BusinessDb.h */,
+				0695D6581AE2CDF600F1C704 /* BusinessDb.m */,
+				0695D6601AE312B100F1C704 /* Business.h */,
+				0695D6611AE312B100F1C704 /* Business.m */,
+				0695D65A1AE30DC700F1C704 /* MachinesDb.h */,
+				0695D65B1AE30DC700F1C704 /* MachinesDb.m */,
+				0695D6631AE312D000F1C704 /* Machines.h */,
+				0695D6641AE312D000F1C704 /* Machines.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -284,10 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0695D6621AE312B100F1C704 /* Business.m in Sources */,
 				1AB232381ADDC22F0045D319 /* sqlDB.m in Sources */,
+				0695D65C1AE30DC700F1C704 /* MachinesDb.m in Sources */,
 				06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */,
-				06EFF8D81AE1C03F006C3EF3 /* Product.m in Sources */,
-				0695D6591AE2CDF600F1C704 /* Business.m in Sources */,
+				06EFF8D81AE1C03F006C3EF3 /* ProductDb.m in Sources */,
+				0695D6651AE312D000F1C704 /* Machines.m in Sources */,
+				0695D6591AE2CDF600F1C704 /* BusinessDb.m in Sources */,
+				0695D65F1AE3129E00F1C704 /* Product.m in Sources */,
 				1AB232081ADDC06C0045D319 /* AppDelegate.m in Sources */,
 				1AB232041ADDC06C0045D319 /* main.m in Sources */,
 			);

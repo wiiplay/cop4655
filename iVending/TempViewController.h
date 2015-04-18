@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Product.h"
-#import "Business.h"
+#import "ProductDb.h"
+#import "BusinessDb.h"
 
 @interface TempViewController : UIViewController
 
 @property (nonatomic) sqlDB *myDB;
-@property (strong, nonatomic) Product *theProduct;
+@property (strong, nonatomic) ProductDb *theProduct;
 @property (strong, nonatomic) NSDictionary *myProducts;
 
-@property (strong, nonatomic) Business *theBusiness;
+@property (strong, nonatomic) BusinessDb *theBusiness;
 @property (strong, nonatomic) NSDictionary *businessList;
 
 @end

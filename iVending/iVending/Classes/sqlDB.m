@@ -76,7 +76,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        const char *sql_stmt = "PRAGMA foreign_keys = off; CREATE TABLE IF NOT EXISTS machines (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, business_ID NOT NULL REFERENCES businesses (ID), description TEXT NOT NULL, numOfRows INTEGER NOT NULL, numOfColumns INTEGER NOT NULL); PRAGMA foreign_keys = on;";
+        const char *sql_stmt = "PRAGMA foreign_keys = off; CREATE TABLE IF NOT EXISTS machines (machineID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, business_ID NOT NULL REFERENCES businesses (ID), description TEXT NOT NULL, numOfRows INTEGER NOT NULL, numOfColumns INTEGER NOT NULL); PRAGMA foreign_keys = on;";
         
         if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             [self showUIAlertWithMessage:@"Failed to create machines table" andTitle:@"Error"] ;
