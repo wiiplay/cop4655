@@ -14,7 +14,7 @@
 
 @implementation TempViewController
 
-@synthesize myDB, myProducts, theProduct;
+@synthesize myDB, myProducts, theProduct, theBusiness, businessList;
 
 - (void)viewDidLoad
 {
@@ -22,13 +22,35 @@
     // Do any additional setup after loading the view.
     
     myDB = [sqlDB getSqlDB];
-    theProduct = [[Product alloc] initWithName: @"Tacos"];
-    theProduct = nil;
-    [theProduct insertProduct: myDB andProd: theProduct];
-    theProduct = [[Product alloc] initWithName: @"Cheetos"];
-    [theProduct deleteProduct:myDB andProd: theProduct];
+    //theProduct = [[Product alloc] initWithName: @"Tacos"];
+    //theProduct = nil;
+    //[theProduct insertProduct: myDB andProd: theProduct];
+    //theProduct = [[Product alloc] initWithName: @"Cheetos"];
+    //[theProduct deleteProduct:myDB andProd: theProduct];
     [theProduct getProductList: myDB];
-
+    
+    theBusiness = [[Business alloc] initWithName: @"MDC North" andAddress: @"112 w 44 PL" andAddress2:@"" andCity: @"Miami" andStat:@"FL" andZip:@"33325"];
+    
+    [theBusiness deleteBusiness:theBusiness andProd:myDB];
+    
+    businessList = [theBusiness getBusinessList:myDB];
+    theBusiness = nil;
+    theBusiness = [[Business alloc] initWithName: @"MDC North" andAddress: @"112 w 44 PL" andAddress2:@"" andCity: @"Miami" andStat:@"FL" andZip:@"33325"];
+    
+    [theBusiness insertBusiness:theBusiness andProd:myDB];
+    
+    theBusiness = [[Business alloc] initWithName: @"MDC North 2" andAddress: @"112 w 44 PL" andAddress2:@"" andCity: @"Miami" andStat:@"FL" andZip:@"33325"];
+    [theBusiness insertBusiness:theBusiness andProd:myDB];
+    
+    businessList = [theBusiness getBusinessList:myDB];
+    
+    Business *byID = [[Business alloc] init];
+    byID = [byID getBusinessByID:2 andProd:myDB];
+    Business *byName = [[Business alloc] init];
+    byName = [byName getBusinessByName:@"MDC North 2" andDb:myDB];
+    
+    businessList = [theBusiness getBusinessList:myDB];
+    
     NSString * type;
 }
 

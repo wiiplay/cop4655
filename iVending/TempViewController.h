@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Product.h"
+#import "Business.h"
 
 @interface TempViewController : UIViewController
 
@@ -15,5 +16,7 @@
 @property (strong, nonatomic) Product *theProduct;
 @property (strong, nonatomic) NSDictionary *myProducts;
 
+@property (strong, nonatomic) Business *theBusiness;
+@property (strong, nonatomic) NSDictionary *businessList;
 
 @end
