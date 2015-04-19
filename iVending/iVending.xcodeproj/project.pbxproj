@@ -12,6 +12,8 @@
 		0695D65F1AE3129E00F1C704 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D65E1AE3129E00F1C704 /* Product.m */; };
 		0695D6621AE312B100F1C704 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6611AE312B100F1C704 /* Business.m */; };
 		0695D6651AE312D000F1C704 /* Machines.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6641AE312D000F1C704 /* Machines.m */; };
+		0695D6681AE324B600F1C704 /* VendingContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D6671AE324B600F1C704 /* VendingContent.m */; };
+		0695D66B1AE324C800F1C704 /* VendingContentDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 0695D66A1AE324C800F1C704 /* VendingContentDb.m */; };
 		06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */; };
 		06EFF8D81AE1C03F006C3EF3 /* ProductDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EFF8D71AE1C03F006C3EF3 /* ProductDb.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
@@ -52,6 +54,10 @@
 		0695D6611AE312B100F1C704 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		0695D6631AE312D000F1C704 /* Machines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Machines.h; sourceTree = "<group>"; };
 		0695D6641AE312D000F1C704 /* Machines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Machines.m; sourceTree = "<group>"; };
+		0695D6661AE324B600F1C704 /* VendingContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendingContent.h; sourceTree = "<group>"; };
+		0695D6671AE324B600F1C704 /* VendingContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContent.m; sourceTree = "<group>"; };
+		0695D6691AE324C800F1C704 /* VendingContentDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendingContentDb.h; sourceTree = "<group>"; };
+		0695D66A1AE324C800F1C704 /* VendingContentDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentDb.m; sourceTree = "<group>"; };
 		06EFF8D31AE1BC80006C3EF3 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = SOURCE_ROOT; };
 		06EFF8D41AE1BC80006C3EF3 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = SOURCE_ROOT; };
 		06EFF8D61AE1C03F006C3EF3 /* ProductDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDb.h; path = iVending/Classes/ProductDb.h; sourceTree = SOURCE_ROOT; };
@@ -194,6 +200,10 @@
 				0695D65B1AE30DC700F1C704 /* MachinesDb.m */,
 				0695D6631AE312D000F1C704 /* Machines.h */,
 				0695D6641AE312D000F1C704 /* Machines.m */,
+				0695D6691AE324C800F1C704 /* VendingContentDb.h */,
+				0695D66A1AE324C800F1C704 /* VendingContentDb.m */,
+				0695D6661AE324B600F1C704 /* VendingContent.h */,
+				0695D6671AE324B600F1C704 /* VendingContent.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -309,8 +319,10 @@
 				0695D65C1AE30DC700F1C704 /* MachinesDb.m in Sources */,
 				06EFF8D51AE1BC80006C3EF3 /* TempViewController.m in Sources */,
 				06EFF8D81AE1C03F006C3EF3 /* ProductDb.m in Sources */,
+				0695D66B1AE324C800F1C704 /* VendingContentDb.m in Sources */,
 				0695D6651AE312D000F1C704 /* Machines.m in Sources */,
 				0695D6591AE2CDF600F1C704 /* BusinessDb.m in Sources */,
+				0695D6681AE324B600F1C704 /* VendingContent.m in Sources */,
 				0695D65F1AE3129E00F1C704 /* Product.m in Sources */,
 				1AB232081ADDC06C0045D319 /* AppDelegate.m in Sources */,
 				1AB232041ADDC06C0045D319 /* main.m in Sources */,
