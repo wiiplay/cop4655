@@ -95,6 +95,18 @@
         }
         sqlite3_close(vendingDB);
     }
+    
+    if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
+        char *errMsg;
+        
+        const char *sql_stmt = "PRAGMA foreign_keys = off; CREATE TABLE users (userID INTEGER PRIMARY KEY NOT NULL, username TEXT UNIQUE ON CONFLICT ROLLBACKROLLBACK, password TEXT NOT NULL); PRAGMA foreign_keys = on;";
+        
+        if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
+            passed = NO;
+        }
+        sqlite3_close(vendingDB);
+    }
+
     return passed;
 }
 

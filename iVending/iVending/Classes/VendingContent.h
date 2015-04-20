@@ -16,8 +16,8 @@
 @property (strong, nonatomic) Machines *machine;
 @property (strong, nonatomic) Product *product;
 @property (strong, nonatomic) NSNumber *contentID;
-@property (strong, nonatomic) NSNumber *machineID;
-@property (strong, nonatomic) NSNumber *productID;
+@property (strong, nonatomic) NSNumber *fk_MachineID;
+@property (strong, nonatomic) NSNumber *fk_ProductID;
 @property (strong, nonatomic) NSNumber *itemRow;
 @property (strong, nonatomic) NSNumber *itemColumn;
 @property (strong, nonatomic) NSNumber *quanity;

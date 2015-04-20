@@ -12,7 +12,7 @@
 
 @synthesize myDb, business, machineDb, machine, content;
 
-- (VendingContent *) getContentByID: (VendingContent *) passed andConnection: (sqlDB *) connection
+- (VendingContent *) getContentByMachineID: (Machines *) passed andConnection: (sqlDB *) connection
 {
     sqlite3_stmt * statement;
     const char *dbpath = [connection.databasePath UTF8String];
@@ -20,7 +20,7 @@
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM vendingContent WHERE contentID = %d", (int)passed.contentID];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM vendingContent WHERE contentID = %d", (int)passed.machineID];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
@@ -55,42 +55,17 @@
     NSMutableDictionary *machineList = [[NSMutableDictionary alloc] init];
     machineList = [machineDb getMachineList: passed andConnection: myDb];
     
-    sqlite3 *vendingDB;
-    sqlite3_stmt * statement;
-    const char *dbpath = [connection.databasePath UTF8String];
-    
-    if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
-        
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE businessID = %d", (int) business.businessID];
-        const char *query_statement = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, NULL) == SQLITE_OK) {
-            
-            while (sqlite3_step(statement) == SQLITE_ROW) {
-                
-                NSNumber *machineId = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 0)];
-                NSNumber *businessId = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 1)];
-                NSString *description= [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 2)] ];
-                
-                NSNumber *rows = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 3)];
-                NSNumber *columns = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 4)];
-                
-                vendingMachine = [[Machines alloc] initWithDescription:description andFKBusinessID:businessId andRows:rows andColumns:columns];
-                vendingMachine.machineID = machineId;
-                
-                [machineDictionary setObject: vendingMachine forKey: description];
-                vendingMachine = nil;
-            }
-            //release statement
-            sqlite3_finalize(statement);
-        }
-        //close DB connection
-        sqlite3_close(vendingDB);
+    NSMutableDictionary *vendingContentList = [[NSMutableDictionary alloc] init];
+    for (Machines *mech in machineList){
+        VendingContent *output = [self getContentByMachineID: mech andConnection: myDb];
+        NSString *key = mech.description;
+        [vendingContentList setObject: output forKey: key];
     }
-    return machineDictionary;
+    
+    return vendingContentList;
 }
 
-- (BOOL) insertMachine: (Machines *) machine andConnection: (sqlDB *) connection
+- (BOOL) insertContent: (VendingContent *) passed andConnection: (sqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -98,7 +73,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO machines VALUES (null, %d,'%@',%d,%d)", (int)machine.fk_BusinessID , machine.description, (int)machine.numOfRows, (int)machine.numOfColumns];
+        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO vendingContent VALUES (null, %d,%d,%d,%d,%d,%f)", (int)passed.fk_MachineID , (int)passed.fk_ProductID, (int)passed.itemRow, (int)passed.itemColumn, (int)passed.quanity, passed.cost];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
@@ -110,10 +85,11 @@
     }
     else
         return NO;
+    
     return YES;
 }
 
-- (BOOL) deleteMachine: (Machines *) machine andConnection: (sqlDB *) connection
+- (BOOL) deleteContent: (VendingContent *) passed andConnection: (sqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -121,7 +97,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"DELETE FROM machines WHERE machineID = %d", (int)machine.machineID ];
+        NSString * querySQL = [NSString stringWithFormat: @"DELETE FROM vendingContent WHERE contentID = %d", (int)passed.contentID];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {

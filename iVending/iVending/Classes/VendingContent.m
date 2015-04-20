@@ -10,14 +10,14 @@
 
 @implementation VendingContent
 
-@synthesize machine, product, contentID, machineID, productID, itemRow, itemColumn, quanity, cost;
+@synthesize machine, product, contentID, fk_MachineID, fk_ProductID, itemRow, itemColumn, quanity, cost;
 
 - (instancetype) initWithMachineFk: (NSNumber *) machineId andProductFk: (NSNumber *) productId andItemRow: (NSNumber *) row andItemColumn: (NSNumber *) column andItemQuantity: (NSNumber *) itemQuantity andCost: (float) itemCost
 {
     self = [super init];
     if (self) {
-        machineID = machineId;
-        productID = productId;
+        fk_MachineID = machineId;
+        fk_ProductID = productId;
         itemRow = row;
         itemColumn = column;
         quanity = itemQuantity;
