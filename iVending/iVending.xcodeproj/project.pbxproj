@@ -17,17 +17,17 @@
 		06CAEA0D1AE677B50096EB61 /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA001AE677B50096EB61 /* TestData.m */; };
 		06CAEA0E1AE677B50096EB61 /* VendingContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA021AE677B50096EB61 /* VendingContent.m */; };
 		06CAEA0F1AE677B50096EB61 /* VendingContentDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA041AE677B50096EB61 /* VendingContentDb.m */; };
-		06CAEA281AE677BF0096EB61 /* AddBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA121AE677BF0096EB61 /* AddBusinessViewController.m */; };
-		06CAEA291AE677BF0096EB61 /* AddMachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA141AE677BF0096EB61 /* AddMachinesViewController.m */; };
-		06CAEA2A1AE677BF0096EB61 /* BusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA161AE677BF0096EB61 /* BusinessesTableViewController.m */; };
-		06CAEA2B1AE677BF0096EB61 /* EditBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA181AE677BF0096EB61 /* EditBusinessViewController.m */; };
-		06CAEA2C1AE677BF0096EB61 /* EditContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA1A1AE677BF0096EB61 /* EditContentViewController.m */; };
-		06CAEA2D1AE677BF0096EB61 /* EditMachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA1C1AE677BF0096EB61 /* EditMachinesViewController.m */; };
-		06CAEA2F1AE677BF0096EB61 /* MachinesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA1F1AE677BF0096EB61 /* MachinesTableViewController.m */; };
-		06CAEA301AE677BF0096EB61 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA211AE677BF0096EB61 /* MainMenuViewController.m */; };
-		06CAEA311AE677BF0096EB61 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA231AE677BF0096EB61 /* MainNavigationViewController.m */; };
-		06CAEA321AE677BF0096EB61 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA251AE677BF0096EB61 /* ScanViewController.m */; };
-		06CAEA331AE677BF0096EB61 /* VendingContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA271AE677BF0096EB61 /* VendingContentTableViewController.m */; };
+		06CAEA4A1AE679DD0096EB61 /* AddBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA3F1AE679DD0096EB61 /* AddBusinessViewController.m */; };
+		06CAEA4B1AE679DD0096EB61 /* AddMachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA401AE679DD0096EB61 /* AddMachinesViewController.m */; };
+		06CAEA4C1AE679DD0096EB61 /* BusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA411AE679DD0096EB61 /* BusinessesTableViewController.m */; };
+		06CAEA4D1AE679DD0096EB61 /* EditBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA421AE679DD0096EB61 /* EditBusinessViewController.m */; };
+		06CAEA4E1AE679DD0096EB61 /* EditContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA431AE679DD0096EB61 /* EditContentViewController.m */; };
+		06CAEA4F1AE679DD0096EB61 /* EditMachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA441AE679DD0096EB61 /* EditMachinesViewController.m */; };
+		06CAEA501AE679DD0096EB61 /* MachinesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA451AE679DD0096EB61 /* MachinesTableViewController.m */; };
+		06CAEA511AE679DD0096EB61 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA461AE679DD0096EB61 /* MainMenuViewController.m */; };
+		06CAEA521AE679DD0096EB61 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA471AE679DD0096EB61 /* MainNavigationViewController.m */; };
+		06CAEA531AE679DD0096EB61 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA481AE679DD0096EB61 /* ScanViewController.m */; };
+		06CAEA541AE679DD0096EB61 /* VendingContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CAEA491AE679DD0096EB61 /* VendingContentTableViewController.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
 		1AB231FA1ADDC06C0045D319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */; };
 		1AB231FC1ADDC06C0045D319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231FB1ADDC06C0045D319 /* UIKit.framework */; };
@@ -75,28 +75,28 @@
 		06CAEA021AE677B50096EB61 /* VendingContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContent.m; sourceTree = "<group>"; };
 		06CAEA031AE677B50096EB61 /* VendingContentDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendingContentDb.h; sourceTree = "<group>"; };
 		06CAEA041AE677B50096EB61 /* VendingContentDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentDb.m; sourceTree = "<group>"; };
-		06CAEA111AE677BF0096EB61 /* AddBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBusinessViewController.h; sourceTree = "<group>"; };
-		06CAEA121AE677BF0096EB61 /* AddBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBusinessViewController.m; sourceTree = "<group>"; };
-		06CAEA131AE677BF0096EB61 /* AddMachinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMachinesViewController.h; sourceTree = "<group>"; };
-		06CAEA141AE677BF0096EB61 /* AddMachinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMachinesViewController.m; sourceTree = "<group>"; };
-		06CAEA151AE677BF0096EB61 /* BusinessesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesTableViewController.h; sourceTree = "<group>"; };
-		06CAEA161AE677BF0096EB61 /* BusinessesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesTableViewController.m; sourceTree = "<group>"; };
-		06CAEA171AE677BF0096EB61 /* EditBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBusinessViewController.h; sourceTree = "<group>"; };
-		06CAEA181AE677BF0096EB61 /* EditBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBusinessViewController.m; sourceTree = "<group>"; };
-		06CAEA191AE677BF0096EB61 /* EditContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditContentViewController.h; sourceTree = "<group>"; };
-		06CAEA1A1AE677BF0096EB61 /* EditContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditContentViewController.m; sourceTree = "<group>"; };
-		06CAEA1B1AE677BF0096EB61 /* EditMachinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMachinesViewController.h; sourceTree = "<group>"; };
-		06CAEA1C1AE677BF0096EB61 /* EditMachinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMachinesViewController.m; sourceTree = "<group>"; };
-		06CAEA1E1AE677BF0096EB61 /* MachinesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachinesTableViewController.h; sourceTree = "<group>"; };
-		06CAEA1F1AE677BF0096EB61 /* MachinesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MachinesTableViewController.m; sourceTree = "<group>"; };
-		06CAEA201AE677BF0096EB61 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
-		06CAEA211AE677BF0096EB61 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
-		06CAEA221AE677BF0096EB61 /* MainNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationViewController.h; sourceTree = "<group>"; };
-		06CAEA231AE677BF0096EB61 /* MainNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationViewController.m; sourceTree = "<group>"; };
-		06CAEA241AE677BF0096EB61 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
-		06CAEA251AE677BF0096EB61 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
-		06CAEA261AE677BF0096EB61 /* VendingContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendingContentTableViewController.h; sourceTree = "<group>"; };
-		06CAEA271AE677BF0096EB61 /* VendingContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentTableViewController.m; sourceTree = "<group>"; };
+		06CAEA341AE679DD0096EB61 /* AddBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBusinessViewController.h; sourceTree = "<group>"; };
+		06CAEA351AE679DD0096EB61 /* AddMachinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMachinesViewController.h; sourceTree = "<group>"; };
+		06CAEA361AE679DD0096EB61 /* BusinessesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesTableViewController.h; sourceTree = "<group>"; };
+		06CAEA371AE679DD0096EB61 /* EditBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBusinessViewController.h; sourceTree = "<group>"; };
+		06CAEA381AE679DD0096EB61 /* EditContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditContentViewController.h; sourceTree = "<group>"; };
+		06CAEA391AE679DD0096EB61 /* EditMachinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMachinesViewController.h; sourceTree = "<group>"; };
+		06CAEA3A1AE679DD0096EB61 /* MachinesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachinesTableViewController.h; sourceTree = "<group>"; };
+		06CAEA3B1AE679DD0096EB61 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		06CAEA3C1AE679DD0096EB61 /* MainNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationViewController.h; sourceTree = "<group>"; };
+		06CAEA3D1AE679DD0096EB61 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		06CAEA3E1AE679DD0096EB61 /* VendingContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendingContentTableViewController.h; sourceTree = "<group>"; };
+		06CAEA3F1AE679DD0096EB61 /* AddBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBusinessViewController.m; sourceTree = "<group>"; };
+		06CAEA401AE679DD0096EB61 /* AddMachinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMachinesViewController.m; sourceTree = "<group>"; };
+		06CAEA411AE679DD0096EB61 /* BusinessesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesTableViewController.m; sourceTree = "<group>"; };
+		06CAEA421AE679DD0096EB61 /* EditBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBusinessViewController.m; sourceTree = "<group>"; };
+		06CAEA431AE679DD0096EB61 /* EditContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditContentViewController.m; sourceTree = "<group>"; };
+		06CAEA441AE679DD0096EB61 /* EditMachinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMachinesViewController.m; sourceTree = "<group>"; };
+		06CAEA451AE679DD0096EB61 /* MachinesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MachinesTableViewController.m; sourceTree = "<group>"; };
+		06CAEA461AE679DD0096EB61 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		06CAEA471AE679DD0096EB61 /* MainNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationViewController.m; sourceTree = "<group>"; };
+		06CAEA481AE679DD0096EB61 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		06CAEA491AE679DD0096EB61 /* VendingContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentTableViewController.m; sourceTree = "<group>"; };
 		1AB231F41ADDC06C0045D319 /* iVending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB231F71ADDC06C0045D319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -172,28 +172,28 @@
 		06CAEA101AE677BF0096EB61 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				06CAEA111AE677BF0096EB61 /* AddBusinessViewController.h */,
-				06CAEA121AE677BF0096EB61 /* AddBusinessViewController.m */,
-				06CAEA131AE677BF0096EB61 /* AddMachinesViewController.h */,
-				06CAEA141AE677BF0096EB61 /* AddMachinesViewController.m */,
-				06CAEA151AE677BF0096EB61 /* BusinessesTableViewController.h */,
-				06CAEA161AE677BF0096EB61 /* BusinessesTableViewController.m */,
-				06CAEA171AE677BF0096EB61 /* EditBusinessViewController.h */,
-				06CAEA181AE677BF0096EB61 /* EditBusinessViewController.m */,
-				06CAEA191AE677BF0096EB61 /* EditContentViewController.h */,
-				06CAEA1A1AE677BF0096EB61 /* EditContentViewController.m */,
-				06CAEA1B1AE677BF0096EB61 /* EditMachinesViewController.h */,
-				06CAEA1C1AE677BF0096EB61 /* EditMachinesViewController.m */,
-				06CAEA1E1AE677BF0096EB61 /* MachinesTableViewController.h */,
-				06CAEA1F1AE677BF0096EB61 /* MachinesTableViewController.m */,
-				06CAEA201AE677BF0096EB61 /* MainMenuViewController.h */,
-				06CAEA211AE677BF0096EB61 /* MainMenuViewController.m */,
-				06CAEA221AE677BF0096EB61 /* MainNavigationViewController.h */,
-				06CAEA231AE677BF0096EB61 /* MainNavigationViewController.m */,
-				06CAEA241AE677BF0096EB61 /* ScanViewController.h */,
-				06CAEA251AE677BF0096EB61 /* ScanViewController.m */,
-				06CAEA261AE677BF0096EB61 /* VendingContentTableViewController.h */,
-				06CAEA271AE677BF0096EB61 /* VendingContentTableViewController.m */,
+				06CAEA361AE679DD0096EB61 /* BusinessesTableViewController.h */,
+				06CAEA341AE679DD0096EB61 /* AddBusinessViewController.h */,
+				06CAEA351AE679DD0096EB61 /* AddMachinesViewController.h */,
+				06CAEA371AE679DD0096EB61 /* EditBusinessViewController.h */,
+				06CAEA381AE679DD0096EB61 /* EditContentViewController.h */,
+				06CAEA391AE679DD0096EB61 /* EditMachinesViewController.h */,
+				06CAEA3A1AE679DD0096EB61 /* MachinesTableViewController.h */,
+				06CAEA3B1AE679DD0096EB61 /* MainMenuViewController.h */,
+				06CAEA3C1AE679DD0096EB61 /* MainNavigationViewController.h */,
+				06CAEA3D1AE679DD0096EB61 /* ScanViewController.h */,
+				06CAEA3E1AE679DD0096EB61 /* VendingContentTableViewController.h */,
+				06CAEA3F1AE679DD0096EB61 /* AddBusinessViewController.m */,
+				06CAEA401AE679DD0096EB61 /* AddMachinesViewController.m */,
+				06CAEA411AE679DD0096EB61 /* BusinessesTableViewController.m */,
+				06CAEA421AE679DD0096EB61 /* EditBusinessViewController.m */,
+				06CAEA431AE679DD0096EB61 /* EditContentViewController.m */,
+				06CAEA441AE679DD0096EB61 /* EditMachinesViewController.m */,
+				06CAEA451AE679DD0096EB61 /* MachinesTableViewController.m */,
+				06CAEA461AE679DD0096EB61 /* MainMenuViewController.m */,
+				06CAEA471AE679DD0096EB61 /* MainNavigationViewController.m */,
+				06CAEA481AE679DD0096EB61 /* ScanViewController.m */,
+				06CAEA491AE679DD0096EB61 /* VendingContentTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -369,24 +369,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06CAEA331AE677BF0096EB61 /* VendingContentTableViewController.m in Sources */,
+				06CAEA541AE679DD0096EB61 /* VendingContentTableViewController.m in Sources */,
 				06CAEA0C1AE677B50096EB61 /* sqlDB.m in Sources */,
-				06CAEA281AE677BF0096EB61 /* AddBusinessViewController.m in Sources */,
-				06CAEA2D1AE677BF0096EB61 /* EditMachinesViewController.m in Sources */,
+				06CAEA4A1AE679DD0096EB61 /* AddBusinessViewController.m in Sources */,
+				06CAEA4F1AE679DD0096EB61 /* EditMachinesViewController.m in Sources */,
 				06CAEA0A1AE677B50096EB61 /* Product.m in Sources */,
-				06CAEA301AE677BF0096EB61 /* MainMenuViewController.m in Sources */,
-				06CAEA321AE677BF0096EB61 /* ScanViewController.m in Sources */,
-				06CAEA311AE677BF0096EB61 /* MainNavigationViewController.m in Sources */,
+				06CAEA511AE679DD0096EB61 /* MainMenuViewController.m in Sources */,
+				06CAEA531AE679DD0096EB61 /* ScanViewController.m in Sources */,
+				06CAEA521AE679DD0096EB61 /* MainNavigationViewController.m in Sources */,
 				06CAEA081AE677B50096EB61 /* Machines.m in Sources */,
-				06CAEA291AE677BF0096EB61 /* AddMachinesViewController.m in Sources */,
-				06CAEA2F1AE677BF0096EB61 /* MachinesTableViewController.m in Sources */,
+				06CAEA4B1AE679DD0096EB61 /* AddMachinesViewController.m in Sources */,
+				06CAEA501AE679DD0096EB61 /* MachinesTableViewController.m in Sources */,
 				06CAEA051AE677B50096EB61 /* Business.m in Sources */,
 				06CAEA061AE677B50096EB61 /* BusinessDb.m in Sources */,
 				06CAEA0F1AE677B50096EB61 /* VendingContentDb.m in Sources */,
-				06CAEA2B1AE677BF0096EB61 /* EditBusinessViewController.m in Sources */,
+				06CAEA4D1AE679DD0096EB61 /* EditBusinessViewController.m in Sources */,
 				06CAEA091AE677B50096EB61 /* MachinesDb.m in Sources */,
-				06CAEA2C1AE677BF0096EB61 /* EditContentViewController.m in Sources */,
-				06CAEA2A1AE677BF0096EB61 /* BusinessesTableViewController.m in Sources */,
+				06CAEA4E1AE679DD0096EB61 /* EditContentViewController.m in Sources */,
+				06CAEA4C1AE679DD0096EB61 /* BusinessesTableViewController.m in Sources */,
 				06CAEA0B1AE677B50096EB61 /* ProductDb.m in Sources */,
 				06CAEA0E1AE677B50096EB61 /* VendingContent.m in Sources */,
 				06CAEA0D1AE677B50096EB61 /* TestData.m in Sources */,
