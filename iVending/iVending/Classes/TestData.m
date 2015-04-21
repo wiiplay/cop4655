@@ -35,7 +35,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO businesses VALUES (null, 'BizName', '123 W', 'Place', 'Hialeah', 'fl', 33012); "];
+        NSString * querySQL = [NSString stringWithFormat: @"INSERT into businesses Values (null, 'BizName', '123 W', 'Place', 'Hialeah', 'fl', 33012); "];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
