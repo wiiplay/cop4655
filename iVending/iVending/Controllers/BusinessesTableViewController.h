@@ -24,8 +24,10 @@
     Machines *machine;
     Product *product;
     ProductDb *productDb;
+    NSMutableDictionary *productList;
     VendingContent *content;
     VendingContentDb *contentDb;
+    NSMutableDictionary *contentList;
 }
 
 @end

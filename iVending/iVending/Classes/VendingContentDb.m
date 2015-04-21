@@ -12,20 +12,21 @@
 
 @synthesize myDb, business, machineDb, machine, content;
 
-- (VendingContent *) getContentByMachineID: (Machines *) passed andConnection: (sqlDB *) connection
+- (NSMutableDictionary *) getContentByMachine: (Machines *) passed andConnection: (sqlDB *) connection
 {
+    NSMutableDictionary *contentList = [[NSMutableDictionary alloc] init];
     sqlite3_stmt * statement;
     const char *dbpath = [connection.databasePath UTF8String];
     
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM vendingContent WHERE contentID = %d", (int)passed.machineID];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM vendingContent WHERE machine_ID = %d", [passed.machineID intValue]];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
             
-            if (sqlite3_step(statement) == SQLITE_ROW){
+            while (sqlite3_step(statement) == SQLITE_ROW) {
                 
                 NSNumber *contentId = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 0)];
                 NSNumber *machineId = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 1)];
@@ -37,16 +38,18 @@
                 
                 content = [[VendingContent alloc] initWithMachineFk:machineId andProductFk:productId andItemRow:rows andItemColumn:columns andItemQuantity:itemQuanity andCost:itemCost];
                 content.contentID = contentId;
+                [contentList setObject: content forKey: [NSString stringWithFormat:@"row%d col%d", [rows intValue], [columns intValue] ]];
+                content = nil;
             }
-        }
+
         //release statement
         sqlite3_finalize(statement);
         
         //close DB connection
         sqlite3_close(vendingDb);
+        }
     }
-    
-    return content;
+    return contentList;
 }
 
 - (NSMutableDictionary *) getContentListForLocation: (Business *) passed andConnection: (sqlDB *) connection
@@ -57,7 +60,7 @@
     
     NSMutableDictionary *vendingContentList = [[NSMutableDictionary alloc] init];
     for (Machines *mech in machineList){
-        VendingContent *output = [self getContentByMachineID: mech andConnection: myDb];
+        NSMutableDictionary *output = [self getContentByMachine: mech andConnection: myDb];
         NSString *key = mech.description;
         [vendingContentList setObject: output forKey: key];
     }

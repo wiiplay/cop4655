@@ -48,10 +48,16 @@
     
     NSMutableDictionary *machineList = [[NSMutableDictionary alloc] init];
     machineList = [machineDb getMachineList:temp andConnection: myDB];
+    NSArray *machineKeys = [machineList allKeys];
+    machine = [machineList objectForKey:machineKeys[0]];
     
-    product = [[]];
+    product = [[Product alloc] init];
+    productDb = [[ProductDb alloc] init];
+    productList = [productDb getProductList: myDB];
     
-    
+    content = [[VendingContent alloc] init];
+    contentDb = [[VendingContentDb alloc] init];
+    contentList = [contentDb getContentByMachine: machine andConnection:myDB];
 }
 
 - (void)didReceiveMemoryWarning

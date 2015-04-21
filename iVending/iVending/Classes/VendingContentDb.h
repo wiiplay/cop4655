@@ -20,4 +20,9 @@
 @property (strong, nonatomic) Machines *machine;
 @property (strong, nonatomic) VendingContent *content;
 
+- (NSMutableDictionary *) getContentByMachine: (Machines *) passed andConnection: (sqlDB *) connection;
+- (NSMutableDictionary *) getContentListForLocation: (Business *) passed andConnection: (sqlDB *) connection;
+- (BOOL) insertContent: (VendingContent *) passed andConnection: (sqlDB *) connection;
+- (BOOL) deleteContent: (VendingContent *) passed andConnection: (sqlDB *) connection;
+
 @end
