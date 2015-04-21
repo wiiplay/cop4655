@@ -51,7 +51,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"INSERT into machines values (null, 1, 'second floor', 6, 5)"];
+        NSString * querySQL = [NSString stringWithFormat: @"INSERT into machines (business_ID, description, numOfRows, numOfColumns) values (1, 'second floor', 6, 5)"];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {

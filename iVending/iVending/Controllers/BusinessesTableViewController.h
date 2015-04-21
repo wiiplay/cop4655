@@ -10,6 +10,8 @@
 #import "TestData.h"
 #import "BusinessDb.h"
 #import "MachinesDb.h"
+#import "ProductDb.h"
+#import "VendingContentDb.h"
 
 @interface BusinessesTableViewController : UITableViewController
 {
@@ -18,8 +20,12 @@
     BusinessDb *businessDb;
     NSMutableDictionary *businessList;
     NSArray *namesList;
-    MachinesDb *myMachine;
-    Machines *tempMachine;
+    MachinesDb *machineDb;
+    Machines *machine;
+    Product *product;
+    ProductDb *productDb;
+    VendingContent *content;
+    VendingContentDb *contentDb;
 }
 
 @end

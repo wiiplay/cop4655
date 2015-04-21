@@ -36,11 +36,22 @@
     myDB = [sqlDB getSqlDB];
     getTestData = [[TestData alloc] init];
     [getTestData insertTestData: myDB];
+    
     businessDb = [[BusinessDb alloc] init];
     businessList = [businessDb getBusinessList: myDB];
     namesList = [businessList allKeys];
+    
     Business *temp= [businessList objectForKey:namesList[0]];
-    tempMachine = [myMachine getMachineByID: temp.businessID andConnection:myDB];
+    
+    machine = [[Machines alloc] init];
+    machineDb = [[MachinesDb alloc] init];
+    
+    NSMutableDictionary *machineList = [[NSMutableDictionary alloc] init];
+    machineList = [machineDb getMachineList:temp andConnection: myDB];
+    
+    product = [[]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

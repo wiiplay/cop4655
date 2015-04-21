@@ -12,7 +12,7 @@
 
 @synthesize vendingMachine;
 
-- (Machines *) getMachineByID: (NSNumber *) machineId andConnection: (sqlDB *) connection
+- (Machines *) getMachineByID: (Machines *) passed andConnection: (sqlDB *) connection
 {
     sqlite3_stmt * statement;
     const char *dbpath = [connection.databasePath UTF8String];
@@ -20,7 +20,7 @@
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE ID = %d", (int)machineId];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE ID = %d", [passed.machineID intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
@@ -58,7 +58,7 @@
     
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE businessID = %d", [business.businessID integerValue]];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE business_ID = %d", [business.businessID integerValue]];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, NULL) == SQLITE_OK) {
