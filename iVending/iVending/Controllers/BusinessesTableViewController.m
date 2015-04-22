@@ -8,20 +8,9 @@
 
 #import "BusinessesTableViewController.h"
 
-@interface BusinessesTableViewController ()
-
-@end
-
 @implementation BusinessesTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize lpgr;
 
 - (void)viewDidLoad
 {
@@ -44,6 +33,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    
+    lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
+    
+    [self.tableView addGestureRecognizer:self.lpgr];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -91,6 +84,16 @@
     return cell;
 }
 
+- (void)handleLongPressGestures:(UILongPressGestureRecognizer *)sender
+{
+    UITableView* tableView = (UITableView*)self.view;
+    CGPoint touchPoint = [sender locationInView:self.view];
+    NSIndexPath* index = [tableView indexPathForRowAtPoint: touchPoint];
+    if (index != nil) {
+        business = [ businessList objectForKey: [keys objectAtIndex: index.row] ];
+    }
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,7 +132,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -138,6 +141,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

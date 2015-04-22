@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BusinessDb.h"
 
 @interface EditBusinessViewController : UIViewController
+
+@property (strong, nonatomic) Business *business;
+@property (strong, nonatomic) IBOutlet UITextField *businessName;
+@property (strong, nonatomic) IBOutlet UITextField *address;
+@property (strong, nonatomic) IBOutlet UITextField *address2;
+@property (strong, nonatomic) IBOutlet UITextField *city;
+@property (strong, nonatomic) IBOutlet UITextField *state;
+@property (strong, nonatomic) IBOutlet UITextField *zip;
 
 @end

@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TestData.h"
+#import "EditBusinessViewController.h"
 
-
-@interface BusinessesTableViewController : UITableViewController
-{
+@interface BusinessesTableViewController : UITableViewController{
     sqlDB *myDB;
     TestData *getTestData;
     NSMutableDictionary *businessList;
@@ -19,5 +18,7 @@
     Business *business;
     NSArray *keys;
 }
+
+@property (nonatomic,strong) UILongPressGestureRecognizer *lpgr;
 
 @end
