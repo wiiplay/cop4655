@@ -29,6 +29,8 @@
 		062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9731AE6F3D70003CED9 /* VendingContent.m */; };
 		062DA9801AE6F3D70003CED9 /* VendingContentDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9751AE6F3D70003CED9 /* VendingContentDb.m */; };
 		062DA9831AE74DD90003CED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9821AE74DD90003CED9 /* LoginViewController.m */; };
+		1A0007791AE84B6600936386 /* Folder_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0007771AE84B6600936386 /* Folder_3.png */; };
+		1A00077A1AE84B6600936386 /* View_QR_code.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0007781AE84B6600936386 /* View_QR_code.png */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
 		1AB231FA1ADDC06C0045D319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */; };
 		1AB231FC1ADDC06C0045D319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231FB1ADDC06C0045D319 /* UIKit.framework */; };
@@ -100,6 +102,8 @@
 		062DA9751AE6F3D70003CED9 /* VendingContentDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentDb.m; sourceTree = "<group>"; };
 		062DA9811AE74DD90003CED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		062DA9821AE74DD90003CED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1A0007771AE84B6600936386 /* Folder_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder_3.png; sourceTree = "<group>"; };
+		1A0007781AE84B6600936386 /* View_QR_code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = View_QR_code.png; sourceTree = "<group>"; };
 		1AB231F41ADDC06C0045D319 /* iVending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB231F71ADDC06C0045D319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -203,6 +207,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		1A0007761AE84B4F00936386 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1A0007771AE84B6600936386 /* Folder_3.png */,
+				1A0007781AE84B6600936386 /* View_QR_code.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		1AB231EB1ADDC06B0045D319 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +250,7 @@
 		1AB231FD1ADDC06C0045D319 /* iVending */ = {
 			isa = PBXGroup;
 			children = (
+				1A0007761AE84B4F00936386 /* Images */,
 				062DA9601AE6F3D70003CED9 /* Classes */,
 				062DA93C1AE6F3830003CED9 /* Controllers */,
 				1AB232061ADDC06C0045D319 /* AppDelegate.h */,
@@ -353,7 +367,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A00077A1AE84B6600936386 /* View_QR_code.png in Resources */,
 				1AB232101ADDC06C0045D319 /* Images.xcassets in Resources */,
+				1A0007791AE84B6600936386 /* Folder_3.png in Resources */,
 				1AB232021ADDC06C0045D319 /* InfoPlist.strings in Resources */,
 				1AB2320B1ADDC06C0045D319 /* Main.storyboard in Resources */,
 			);
