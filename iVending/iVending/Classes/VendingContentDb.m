@@ -76,7 +76,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO vendingContent VALUES (null, %d,%d,%d,%d,%d,%f)", (int)passed.fk_MachineID , (int)passed.fk_ProductID, (int)passed.itemRow, (int)passed.itemColumn, (int)passed.quanity, passed.cost];
+        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO vendingContent VALUES (null, %d,%d,%d,%d,%d,%f)", [passed.fk_MachineID intValue] , [passed.fk_ProductID intValue], [passed.itemRow intValue], [passed.itemColumn intValue], [passed.quanity intValue], passed.cost];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
@@ -100,7 +100,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"DELETE FROM vendingContent WHERE contentID = %d", (int)passed.contentID];
+        NSString * querySQL = [NSString stringWithFormat: @"DELETE FROM vendingContent WHERE contentID = %d", [passed.contentID intValue]];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {

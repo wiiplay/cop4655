@@ -16,8 +16,8 @@
 @property (strong, nonatomic) NSString  *address2;
 @property (strong, nonatomic) NSString  *city;
 @property (strong, nonatomic) NSString  *state;
-@property (strong, nonatomic) NSString  *zip;
+@property (strong, nonatomic) NSNumber  *zip;
 
-- (instancetype) initWithName: (NSString *) nameBusiness andAddress: (NSString *) addressBusiness andAddress2: (NSString *) address2Business andCity: (NSString *) cityBusiness andStat: (NSString *) stateBusines andZip: (NSString *) zipBusiness;
+- (instancetype) initWithName: (NSString *) nameBusiness andAddress: (NSString *) addressBusiness andAddress2: (NSString *) address2Business andCity: (NSString *) cityBusiness andStat: (NSString *) stateBusines andZip: (NSNumber *) zipBusiness;
 
 @end

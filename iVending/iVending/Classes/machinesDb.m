@@ -95,7 +95,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO machines VALUES (null, %d,'%@',%d,%d)", (int)machine.fk_BusinessID , machine.description, (int)machine.numOfRows, (int)machine.numOfColumns];
+        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO machines VALUES (null, %d,'%@',%d,%d)", [machine.fk_BusinessID intValue], machine.description, [machine.numOfRows intValue], [machine.numOfColumns intValue]];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
@@ -118,7 +118,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"DELETE FROM machines WHERE machineID = %d", (int)machine.machineID ];
+        NSString * querySQL = [NSString stringWithFormat: @"DELETE FROM machines WHERE machineID = %d", [machine.machineID intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {

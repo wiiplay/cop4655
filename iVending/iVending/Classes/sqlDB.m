@@ -55,7 +55,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        const char *sql_stmt = "CREATE TABLE businesses (businessID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL UNIQUE ON CONFLICT ROLLBACK, address TEXT NOT NULL, address2 TEXT NOT NULL, city TEXT NOT NULL, state TEXT NOT NULL, zip TEXT NOT NULL )";
+        const char *sql_stmt = "CREATE TABLE businesses (businessID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL UNIQUE ON CONFLICT ROLLBACK, address TEXT NOT NULL, address2 TEXT NOT NULL, city TEXT NOT NULL, state TEXT NOT NULL, zip INTEGER NOT NULL )";
         
         if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             passed = NO;
@@ -99,7 +99,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        const char *sql_stmt = "CREATE TABLE users (userID INTEGER PRIMARY KEY NOT NULL, username TEXT UNIQUE ON CONFLICT ROLLBACKROLLBACK, password TEXT NOT NULL)";
+        const char *sql_stmt = "CREATE TABLE users (userID INTEGER PRIMARY KEY NOT NULL, username TEXT UNIQUE ON CONFLICT ROLLBACK, password TEXT NOT NULL)";
         
         if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             passed = NO;

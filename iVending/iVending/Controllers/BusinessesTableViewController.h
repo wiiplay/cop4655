@@ -8,26 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TestData.h"
-#import "BusinessDb.h"
-#import "MachinesDb.h"
-#import "ProductDb.h"
-#import "VendingContentDb.h"
+
 
 @interface BusinessesTableViewController : UITableViewController
 {
     sqlDB *myDB;
     TestData *getTestData;
-    BusinessDb *businessDb;
-    NSMutableDictionary *businessList;
-    NSArray *namesList;
-    MachinesDb *machineDb;
-    Machines *machine;
-    Product *product;
-    ProductDb *productDb;
-    NSMutableDictionary *productList;
-    VendingContent *content;
-    VendingContentDb *contentDb;
-    NSMutableDictionary *contentList;
 }
 
 @end

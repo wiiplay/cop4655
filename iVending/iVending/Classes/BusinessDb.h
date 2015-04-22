@@ -17,7 +17,7 @@
 - (BusinessDb *) getBusinessByName: (NSString *) name andDb: (sqlDB *) connection;
 - (BusinessDb *) getBusinessByID: (int) businessId andProd: (sqlDB *) connection;
 - (NSMutableDictionary *) getBusinessList: (sqlDB *) connection;
-- (BOOL) insertBusiness: (BusinessDb *) business andProd: (sqlDB *) connection;
-- (BOOL) deleteBusiness: (BusinessDb *) business andProd: (sqlDB *) connection;
+- (BOOL) insertBusiness: (Business *) business andProd: (sqlDB *) connection;
+- (BOOL) deleteBusiness: (Business *) business andProd: (sqlDB *) connection;
 
 @end

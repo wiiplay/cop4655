@@ -35,29 +35,7 @@
     
     myDB = [sqlDB getSqlDB];
     getTestData = [[TestData alloc] init];
-    [getTestData insertTestData: myDB];
-    
-    businessDb = [[BusinessDb alloc] init];
-    businessList = [businessDb getBusinessList: myDB];
-    namesList = [businessList allKeys];
-    
-    Business *temp= [businessList objectForKey:namesList[0]];
-    
-    machine = [[Machines alloc] init];
-    machineDb = [[MachinesDb alloc] init];
-    
-    NSMutableDictionary *machineList = [[NSMutableDictionary alloc] init];
-    machineList = [machineDb getMachineList:temp andConnection: myDB];
-    NSArray *machineKeys = [machineList allKeys];
-    machine = [machineList objectForKey:machineKeys[0]];
-    
-    product = [[Product alloc] init];
-    productDb = [[ProductDb alloc] init];
-    productList = [productDb getProductList: myDB];
-    
-    content = [[VendingContent alloc] init];
-    contentDb = [[VendingContentDb alloc] init];
-    contentList = [contentDb getContentByMachine: machine andConnection:myDB];
+    [getTestData populateData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,10 +57,10 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return namesList.count;
+    return 1;
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"businessCell";
@@ -99,7 +77,7 @@
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.

@@ -31,8 +31,8 @@
                 NSString *address2 = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 3)] ];
                 NSString *city = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 4)] ];
                 NSString *state = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 5)] ];
-                NSString *zip = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 6)] ];
-                business =[[Business alloc] initWithName:businessName andAddress:address andAddress2:address2 andCity:city andStat:state andZip:zip];
+                NSNumber *zip = [NSNumber numberWithInt: (sqlite3_column_int(statement, 6))];
+                business =[[Business alloc] initWithName:businessName andAddress:address andAddress2:address2 andCity:city andStat:state andZip: zip];
                 business.businessID = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 0)];
             }
         }
@@ -67,7 +67,7 @@
                 NSString *address2 = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 3)] ];
                 NSString *city = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 4)] ];
                 NSString *state = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 5)] ];
-                NSString *zip = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 6)] ];
+                NSNumber *zip = [NSNumber numberWithInt: (sqlite3_column_int(statement, 6))];
                 business =[[Business alloc] initWithName:businessName andAddress:address andAddress2:address2 andCity:city andStat:state andZip:zip];
                 business.businessID = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 0)];
             }
@@ -104,7 +104,7 @@
                 NSString *address2 = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 3)] ];
                 NSString *city = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 4)] ];
                 NSString *state = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 5)] ];
-                NSString *zip = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 6)] ];
+                NSNumber *zip = [NSNumber numberWithInt: (sqlite3_column_int(statement, 6))];
                 business =[[Business alloc] initWithName:businessName andAddress:address andAddress2:address2 andCity:city andStat:state andZip:zip];
                 business.businessID = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 0)];
                 
@@ -127,7 +127,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO businesses VALUES (null,'%@','%@','%@','%@','%@','%@')", passed.businessName, passed.address, passed.address2, passed.city, passed.state, passed.zip];
+        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO businesses VALUES (null,'%@','%@','%@','%@','%@','%d')", passed.businessName, passed.address, passed.address2, passed.city, passed.state, [passed.zip intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
