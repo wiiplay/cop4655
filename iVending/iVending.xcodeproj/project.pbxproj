@@ -28,6 +28,7 @@
 		062DA97E1AE6F3D70003CED9 /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9711AE6F3D70003CED9 /* TestData.m */; };
 		062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9731AE6F3D70003CED9 /* VendingContent.m */; };
 		062DA9801AE6F3D70003CED9 /* VendingContentDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9751AE6F3D70003CED9 /* VendingContentDb.m */; };
+		062DA9831AE74DD90003CED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9821AE74DD90003CED9 /* LoginViewController.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
 		1AB231FA1ADDC06C0045D319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */; };
 		1AB231FC1ADDC06C0045D319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231FB1ADDC06C0045D319 /* UIKit.framework */; };
@@ -97,6 +98,8 @@
 		062DA9731AE6F3D70003CED9 /* VendingContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContent.m; sourceTree = "<group>"; };
 		062DA9741AE6F3D70003CED9 /* VendingContentDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendingContentDb.h; sourceTree = "<group>"; };
 		062DA9751AE6F3D70003CED9 /* VendingContentDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentDb.m; sourceTree = "<group>"; };
+		062DA9811AE74DD90003CED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		062DA9821AE74DD90003CED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1AB231F41ADDC06C0045D319 /* iVending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB231F71ADDC06C0045D319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,24 +152,26 @@
 				062DA9421AE6F3830003CED9 /* BusinessesTableViewController.m */,
 				062DA93D1AE6F3830003CED9 /* AddBusinessViewController.h */,
 				062DA93E1AE6F3830003CED9 /* AddBusinessViewController.m */,
-				062DA93F1AE6F3830003CED9 /* AddMachinesViewController.h */,
-				062DA9401AE6F3830003CED9 /* AddMachinesViewController.m */,
 				062DA9431AE6F3830003CED9 /* EditBusinessViewController.h */,
 				062DA9441AE6F3830003CED9 /* EditBusinessViewController.m */,
-				062DA9451AE6F3830003CED9 /* EditContentViewController.h */,
-				062DA9461AE6F3830003CED9 /* EditContentViewController.m */,
-				062DA9471AE6F3830003CED9 /* EditMachinesViewController.h */,
-				062DA9481AE6F3830003CED9 /* EditMachinesViewController.m */,
 				062DA94A1AE6F3830003CED9 /* MachinesTableViewController.h */,
 				062DA94B1AE6F3830003CED9 /* MachinesTableViewController.m */,
+				062DA93F1AE6F3830003CED9 /* AddMachinesViewController.h */,
+				062DA9401AE6F3830003CED9 /* AddMachinesViewController.m */,
+				062DA9471AE6F3830003CED9 /* EditMachinesViewController.h */,
+				062DA9481AE6F3830003CED9 /* EditMachinesViewController.m */,
+				062DA9521AE6F3830003CED9 /* VendingContentTableViewController.h */,
+				062DA9531AE6F3830003CED9 /* VendingContentTableViewController.m */,
+				062DA9451AE6F3830003CED9 /* EditContentViewController.h */,
+				062DA9461AE6F3830003CED9 /* EditContentViewController.m */,
 				062DA94C1AE6F3830003CED9 /* MainMenuViewController.h */,
 				062DA94D1AE6F3830003CED9 /* MainMenuViewController.m */,
 				062DA94E1AE6F3830003CED9 /* MainNavigationViewController.h */,
 				062DA94F1AE6F3830003CED9 /* MainNavigationViewController.m */,
 				062DA9501AE6F3830003CED9 /* ScanViewController.h */,
 				062DA9511AE6F3830003CED9 /* ScanViewController.m */,
-				062DA9521AE6F3830003CED9 /* VendingContentTableViewController.h */,
-				062DA9531AE6F3830003CED9 /* VendingContentTableViewController.m */,
+				062DA9811AE74DD90003CED9 /* LoginViewController.h */,
+				062DA9821AE74DD90003CED9 /* LoginViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				1AB232041ADDC06C0045D319 /* main.m in Sources */,
 				062DA9801AE6F3D70003CED9 /* VendingContentDb.m in Sources */,
 				062DA9551AE6F3830003CED9 /* AddMachinesViewController.m in Sources */,
+				062DA9831AE74DD90003CED9 /* LoginViewController.m in Sources */,
 				062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */,
 				062DA95C1AE6F3830003CED9 /* MainMenuViewController.m in Sources */,
 				062DA9591AE6F3830003CED9 /* EditMachinesViewController.m in Sources */,
