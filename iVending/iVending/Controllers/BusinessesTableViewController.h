@@ -14,6 +14,10 @@
 {
     sqlDB *myDB;
     TestData *getTestData;
+    NSMutableDictionary *businessList;
+    BusinessDb * businessDb;
+    Business *business;
+    NSArray *keys;
 }
 
 @end

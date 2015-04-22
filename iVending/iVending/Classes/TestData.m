@@ -29,7 +29,7 @@
     
         //generate a list of products
         listOfProducts = [[NSMutableArray alloc] init];
-        productList = @[@"Cheetos", @"Doritos", @"Hot Fries", @"Stacy's Chips", @"Snickers", @"Pepsi", @"Coke", @"Mountain Dew", @"Sierra Mist", @"Sprite"];
+        productList = @[@"Cheetos", @"Doritos", @"Hot Fries", @"Stacys Chips", @"Snickers", @"Pepsi", @"Coke", @"Mountain Dew", @"Sierra Mist", @"Sprite"];
         
         //generate a list of businesses
         businessList = [[NSMutableArray alloc] init];
@@ -97,112 +97,90 @@
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:1] andProductFk:[NSNumber numberWithInt:2] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:2] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList1 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:1] andProductFk:[NSNumber numberWithInt:3] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList1 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:2] andProductFk:[NSNumber numberWithInt:4] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:1] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList2 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:2] andProductFk:[NSNumber numberWithInt:5] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList2 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:2] andProductFk:[NSNumber numberWithInt:1] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList2 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:3] andProductFk:[NSNumber numberWithInt:6] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:1] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList3 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:3] andProductFk:[NSNumber numberWithInt:7] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:2] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList3 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:3] andProductFk:[NSNumber numberWithInt:8] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList3 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:4] andProductFk:[NSNumber numberWithInt:9] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:1] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList4 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:4] andProductFk:[NSNumber numberWithInt:10] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:2] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList4 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:4] andProductFk:[NSNumber numberWithInt:2] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList4 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:5] andProductFk:[NSNumber numberWithInt:3] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:1] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList5 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:5] andProductFk:[NSNumber numberWithInt:4] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:2] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList5 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:5] andProductFk:[NSNumber numberWithInt:5] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList5 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:6] andProductFk:[NSNumber numberWithInt:6] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:1] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList6 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:6] andProductFk:[NSNumber numberWithInt:7] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:2] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList6 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:6] andProductFk:[NSNumber numberWithInt:8] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList6 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:7] andProductFk:[NSNumber numberWithInt:8] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:1] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList7 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:7] andProductFk:[NSNumber numberWithInt:9] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:2] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList7 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:7] andProductFk:[NSNumber numberWithInt:10] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList7 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:8] andProductFk:[NSNumber numberWithInt:1] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:1] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList8 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc] initWithMachineFk:[NSNumber numberWithInt:8] andProductFk:[NSNumber numberWithInt:1] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:2] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
         [contentList8 addObject:content];
-        //content = Nil;
         
         content = [[VendingContent alloc]initWithMachineFk:[NSNumber numberWithInt:8] andProductFk:[NSNumber numberWithInt:1] andItemRow:[NSNumber numberWithInt:1] andItemColumn:[NSNumber numberWithInt:3] andItemQuantity:[NSNumber numberWithInt:10] andCost:1.00];
         
@@ -261,15 +239,21 @@
             [contentDb insertContent:contentList8[i] andConnection:myDB];
         }
         
-        NSMutableDictionary *listofbusinesses = [businessDb getBusinessList:myDB];
-        NSMutableDictionary *listofproducts = [productDb getProductList:myDB];
-        NSMutableDictionary *listofMachines1 = [machineDb getMachineList: businessList[0] andConnection:myDB];
-        NSMutableDictionary *listofMachines2 = [machineDb getMachineList: businessList[1] andConnection:myDB];
-        NSMutableDictionary *listOfVendingItems1 = [contentDb getContentListForLocation:businessList[0] andConnection:myDB];
-        NSMutableDictionary *listOfVendingItems2 = [contentDb getContentListForLocation:businessList[1] andConnection:myDB];
-        
     }
-    
+    /*
+    NSMutableDictionary *listofbusinesses = [businessDb getBusinessList:myDB];
+    NSArray *businessKeys = [listofbusinesses allKeys];
+    NSMutableDictionary *listofproducts = [productDb getProductList:myDB];
+    business = nil;
+    business = [[Business alloc] init];
+    business = [listofbusinesses objectForKey: businessKeys[0]];
+    Business * temp = [[Business alloc] init];
+    temp = [listofbusinesses objectForKey: businessKeys[1]];
+    NSMutableDictionary *listofMachines1 = [machineDb getMachineList: business andConnection:myDB];
+    NSMutableDictionary *listofMachines2 = [machineDb getMachineList: temp  andConnection:myDB];
+    NSMutableDictionary *listOfVendingItems1 = [contentDb getContentListForLocation:business andConnection:myDB];
+    NSMutableDictionary *listOfVendingItems2 = [contentDb getContentListForLocation:temp andConnection:myDB];
+    */
 }
 
 @end

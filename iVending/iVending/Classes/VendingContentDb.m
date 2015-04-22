@@ -20,11 +20,12 @@
     
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
+        const char *errMsg;
         
         NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM vendingContent WHERE machine_ID = %d", [passed.machineID intValue]];
         const char *query_statement = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
             
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 
@@ -56,12 +57,13 @@
 {
     machineDb = [[MachinesDb alloc] init];
     NSMutableDictionary *machineList = [[NSMutableDictionary alloc] init];
-    machineList = [machineDb getMachineList: passed andConnection: myDb];
+    machineList = [machineDb getMachineList: passed andConnection: connection];
+    NSArray *keys = [machineList allKeys];
     
     NSMutableDictionary *vendingContentList = [[NSMutableDictionary alloc] init];
-    for (Machines *mech in machineList){
-        NSMutableDictionary *output = [self getContentByMachine: mech andConnection: myDb];
-        NSString *key = mech.description;
+    for (NSString *mech in keys){
+        NSMutableDictionary *output = [self getContentByMachine: [machineList objectForKey: mech] andConnection: connection];
+        NSString *key = [NSString stringWithFormat:@"%@ located: %@", passed.businessName, mech.description];
         [vendingContentList setObject: output forKey: key];
     }
     

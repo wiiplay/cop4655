@@ -19,11 +19,12 @@
     
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
+        const char *errMsg;
         
         NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE ID = %d", [passed.machineID intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
             
             if (sqlite3_step(statement) == SQLITE_ROW){
                 
@@ -48,7 +49,7 @@
     return vendingMachine;
 }
 
-- (NSMutableDictionary *) getMachineList: (Business *) business andConnection: (sqlDB *) connection
+- (NSMutableDictionary *) getMachineList: (Business *) passed andConnection: (sqlDB *) connection
 {
     NSMutableDictionary * machineDictionary = [[NSMutableDictionary alloc] init];
     
@@ -57,11 +58,12 @@
     const char *dbpath = [connection.databasePath UTF8String];
     
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
+        const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE business_ID = %d", [business.businessID integerValue]];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE business_ID = %d", [passed.businessID intValue]];
         const char *query_statement = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
             
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 

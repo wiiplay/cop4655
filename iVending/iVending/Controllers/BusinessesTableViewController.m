@@ -36,6 +36,9 @@
     myDB = [sqlDB getSqlDB];
     getTestData = [[TestData alloc] init];
     [getTestData populateData];
+    businessDb = [[BusinessDb alloc] init];
+    businessList = [businessDb getBusinessList: myDB];
+    keys = [businessList allKeys];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,19 +51,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return businessList.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"businessCell";
@@ -73,11 +75,11 @@
         
     }
     
-    cell.textLabel.text = [namesList objectAtIndex:indexPath.row ];
+    business = [ businessList objectForKey: [keys objectAtIndex:indexPath.row] ];
+    cell.textLabel.text = business.businessName;
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

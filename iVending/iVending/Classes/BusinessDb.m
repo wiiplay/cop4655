@@ -19,11 +19,12 @@
     
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
+        const char *errMsg;
         
         NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM businesses WHERE name = '%@'", name];
         const char *query_statement = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
             
             if (sqlite3_step(statement) == SQLITE_ROW){
                 NSString *businessName = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 1)] ];
@@ -54,11 +55,12 @@
     
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
+        const char *errMsg;
         
         NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM businesses WHERE ID = %d", businessId];
         const char *query_statement = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
             
             if (sqlite3_step(statement) == SQLITE_ROW){
                 
@@ -91,11 +93,12 @@
     const char *dbpath = [connection.databasePath UTF8String];
     
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
+        const char *errMsg;
         
         NSString * querySQL = @"SELECT * FROM businesses ORDER BY name";
         const char *query_statement = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
             
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 
