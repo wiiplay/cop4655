@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2yh-nA-31Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A389" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="9q3-U8-nra">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -30,6 +30,7 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="2yh-nA-31Q" eventType="touchUpInside" id="y01-No-57q"/>
+                                    <segue destination="JwT-Vs-qDR" kind="push" identifier="loginSegue" id="WNJ-wJ-Te9"/>
                                 </connections>
                             </button>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoe-Kf-x0s">
@@ -60,10 +61,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gYm-9t-CSU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peq-8t-cra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-374" y="-261"/>
+            <point key="canvasLocation" x="574" y="-572"/>
         </scene>
         <!--Businesses Table View Controller-->
         <scene sceneID="1bU-Vv-f67">
@@ -73,9 +75,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" appearanceType="aqua" contentMode="scaleToFill" id="Oer-1L-8vU">
+                            <rect key="frame" x="0.0" y="64" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <toolbar appearanceType="aqua" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DT-LL-B5e">
+                                    <rect key="frame" x="0.0" y="0.0" width="773" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <items>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="kba-bY-0fM"/>
+                                        <barButtonItem title="Item" systemItem="add" id="pcQ-Jk-6Uu"/>
+                                    </items>
+                                </toolbar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="businessCell" id="OD1-S0-FBG">
-                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="130" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OD1-S0-FBG" id="6L1-zj-Dgp">
                                     <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
@@ -94,8 +111,9 @@
                     <navigationItem key="navigationItem" id="7Gt-h2-vlU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mI8-wX-EVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="WfM-wi-R1Y"/>
             </objects>
-            <point key="canvasLocation" x="1725" y="-264"/>
+            <point key="canvasLocation" x="1449" y="-564"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="EDv-Ad-Kkp">
@@ -138,12 +156,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JwT-Vs-qDR" kind="relationship" relationship="rootViewController" id="vY0-Dy-vRy"/>
+                        <segue destination="2yh-nA-31Q" kind="relationship" relationship="rootViewController" id="4b2-a0-NYt"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bad-fN-NYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="-264"/>
+            <point key="canvasLocation" x="-356" y="-572"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

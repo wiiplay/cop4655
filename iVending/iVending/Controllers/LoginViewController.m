@@ -27,6 +27,16 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -45,13 +55,15 @@
 */
 
 - (IBAction)login:(id)sender {
-    navController = [self.storyboard instantiateViewControllerWithIdentifier:@"navController"];
+    /*navController = [[MainNavigationViewController alloc] init];
+    
+    navController = [self.storyboard instantiateViewControllerWithIdentifier:@"navController"];*/
     // OR myViewController *vc = [[myViewController alloc] init];
     
     // any setup code for *vc
     
     //[self.navigationController popToViewController:self animated:YES];
-    [self.navigationController pushViewController:navController animated:YES];
+    //[self.navigationController pushViewController:navController animated:YES];
 }
 
 
