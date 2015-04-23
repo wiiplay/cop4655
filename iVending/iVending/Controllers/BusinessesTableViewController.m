@@ -86,11 +86,19 @@
 
 - (void)handleLongPressGestures:(UILongPressGestureRecognizer *)sender
 {
-    UITableView* tableView = (UITableView*)self.view;
-    CGPoint touchPoint = [sender locationInView:self.view];
-    NSIndexPath* index = [tableView indexPathForRowAtPoint: touchPoint];
-    if (index != nil) {
-        business = [ businessList objectForKey: [keys objectAtIndex: index.row] ];
+    if ( sender.state == UIGestureRecognizerStateBegan) {
+        UITableView* tableView = (UITableView*)self.view;
+        CGPoint touchPoint = [sender locationInView:self.view];
+        NSIndexPath* index = [tableView indexPathForRowAtPoint: touchPoint];
+        if (index != nil) {            
+            business = [ businessList objectForKey: [keys objectAtIndex: index.row] ];
+        }
+    }
+    
+    if ( sender.state == UIGestureRecognizerStateEnded) {
+        EditBusinessViewController *controller = [[EditBusinessViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+
     }
 }
 
@@ -138,9 +146,25 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"toEdit"]){
+        EditBusinessViewController *vc = [[EditBusinessViewController alloc] init];
+        vc.business = business;
+        
+        [self.navigationController pushViewController: vc animated:YES];
+    }
 }
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
