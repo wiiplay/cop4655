@@ -143,6 +143,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="oYv-zG-LGs"/>
+                    <connections>
+                        <segue destination="1ed-oG-kxB" kind="push" identifier="editBusiness" id="1eD-Gl-sPS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5l-Bx-g9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="eg7-2r-mBY"/>
@@ -161,8 +164,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-Zp-AEl">
-                                <rect key="frame" x="348" y="501" width="42" height="21"/>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-Zp-AEl">
+                                <rect key="frame" x="20" y="501" width="748" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -172,6 +175,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="SZe-5X-Mwk"/>
+                    <connections>
+                        <outlet property="foo" destination="U2e-Zp-AEl" id="YOh-fj-Uh2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4s-Bs-eFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -336,7 +342,6 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="2yh-nA-31Q" kind="relationship" relationship="rootViewController" id="TQq-Vg-uFc"/>
-                        <segue destination="1ed-oG-kxB" kind="push" id="Vbd-CP-Sey"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYD-vd-o42" userLabel="First Responder" sceneMemberID="firstResponder"/>

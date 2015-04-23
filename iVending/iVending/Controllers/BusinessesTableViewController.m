@@ -96,9 +96,10 @@
     }
     
     if ( sender.state == UIGestureRecognizerStateEnded) {
-        EditBusinessViewController *controller = [[EditBusinessViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
-
+        //EditBusinessViewController *controller = [[EditBusinessViewController alloc] init];
+        //controller.business = business;
+        //[self.navigationController pushViewController:controller animated:YES];
+        [self performSegueWithIdentifier:@"editBusiness" sender:self];
     }
 }
 
@@ -146,11 +147,11 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"toEdit"]){
-        EditBusinessViewController *vc = [[EditBusinessViewController alloc] init];
+    if([segue.identifier isEqualToString:@"editBusiness"]){
+        EditBusinessViewController *vc = (EditBusinessViewController*)segue.destinationViewController; //[[EditBusinessViewController alloc] init];
         vc.business = business;
         
-        [self.navigationController pushViewController: vc animated:YES];
+        //[self.navigationController pushViewController: vc animated:YES];
     }
 }
 

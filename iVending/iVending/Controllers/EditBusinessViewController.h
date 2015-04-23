@@ -11,6 +11,8 @@
 
 @interface EditBusinessViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *foo;
+
 @property (strong, nonatomic) Business *business;
 @property (strong, nonatomic) IBOutlet UITextField *businessName;
 @property (strong, nonatomic) IBOutlet UITextField *address;
