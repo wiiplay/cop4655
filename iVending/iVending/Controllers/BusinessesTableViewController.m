@@ -22,16 +22,19 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
     myDB = [sqlDB getSqlDB];
     getTestData = [[TestData alloc] init];
     [getTestData populateData];
     businessDb = [[BusinessDb alloc] init];
     businessList = [businessDb getBusinessList: myDB];
     keys = [businessList allKeys];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear:animated];
     
     lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
@@ -86,19 +89,14 @@
 
 - (void)handleLongPressGestures:(UILongPressGestureRecognizer *)sender
 {
-    if ( sender.state == UIGestureRecognizerStateBegan) {
+    if ( sender.state == UIGestureRecognizerStateEnded) {
         UITableView* tableView = (UITableView*)self.view;
         CGPoint touchPoint = [sender locationInView:self.view];
         NSIndexPath* index = [tableView indexPathForRowAtPoint: touchPoint];
-        if (index != nil) {            
+        if (index != nil) {
             business = [ businessList objectForKey: [keys objectAtIndex: index.row] ];
         }
-    }
-    
-    if ( sender.state == UIGestureRecognizerStateEnded) {
-        //EditBusinessViewController *controller = [[EditBusinessViewController alloc] init];
-        //controller.business = business;
-        //[self.navigationController pushViewController:controller animated:YES];
+
         [self performSegueWithIdentifier:@"editBusiness" sender:self];
     }
 }
@@ -148,10 +146,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"editBusiness"]){
-        EditBusinessViewController *vc = (EditBusinessViewController*)segue.destinationViewController; //[[EditBusinessViewController alloc] init];
+        EditBusinessViewController *vc = (EditBusinessViewController*)segue.destinationViewController;
         vc.business = business;
-        
-        //[self.navigationController pushViewController: vc animated:YES];
     }
 }
 

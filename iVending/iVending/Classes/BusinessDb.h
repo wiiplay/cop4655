@@ -19,5 +19,6 @@
 - (NSMutableDictionary *) getBusinessList: (sqlDB *) connection;
 - (BOOL) insertBusiness: (Business *) business andProd: (sqlDB *) connection;
 - (BOOL) deleteBusiness: (Business *) business andProd: (sqlDB *) connection;
+- (BOOL) updateBusiness: (Business *) passed andProd: (sqlDB *) connection;
 
 @end
