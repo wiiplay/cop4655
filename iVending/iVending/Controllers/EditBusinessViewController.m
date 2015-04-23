@@ -25,8 +25,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-<<<<<<< HEAD
-=======
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -37,7 +35,6 @@
 
 - (void) viewDidDisappear:(BOOL)animated
 {
->>>>>>> origin/master
 
 }
 
