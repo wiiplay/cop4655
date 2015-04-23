@@ -145,6 +145,29 @@
     return YES;
 }
 
+- (BOOL) updateBusiness: (Business *) passed andProd: (sqlDB *) connection
+{
+    const char *dbpath = [connection.databasePath UTF8String];
+    
+    sqlite3 *vendingDB;
+    if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
+        char *errMsg;
+        
+        NSString * querySQL = [NSString stringWithFormat: @"UPDATE businesses SET  businessName = '%@', address = '%@', address2 = '%@', city = = '%@', state = = '%@', zip = %d", passed.businessName, passed.address, passed.address2, passed.city, passed.state, [passed.zip intValue] ];
+        const char *query_statement = [querySQL UTF8String];
+        
+        if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
+            return NO;
+        }
+        
+        //close DB connection
+        sqlite3_close(vendingDB);
+    }
+    else
+        return NO;
+    return YES;
+}
+
 - (BOOL) deleteBusiness: (Business *) passed andProd: (sqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
