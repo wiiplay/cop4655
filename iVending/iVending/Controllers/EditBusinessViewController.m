@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.foo.text = self.business.businessName;
+
 }
 
 - (void)didReceiveMemoryWarning
