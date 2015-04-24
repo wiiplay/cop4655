@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VendingContentDb.h"
+#import "ProductDb.h"
 
 @interface VendingContentTableViewController : UITableViewController
+
+@property (strong, nonatomic) sqlDB *myDb;
+@property (strong, nonatomic) Business *business;
+@property (strong, nonatomic) Product *product;
+@property (strong, nonatomic) ProductDb *productDb;
+@property (strong, nonatomic) Machines *machine;
+@property (strong, nonatomic) MachinesDb *machineDb;
+@property (strong, nonatomic) VendingContent *content;
+@property (strong, nonatomic) VendingContentDb *contentDb;
+@property (strong, nonatomic) NSMutableDictionary *contentList;
+@property (strong, nonatomic) NSArray *keys;
+
+- (IBAction)backButton:(id)sender;
+- (IBAction)addContent:(id)sender;
 
 @end

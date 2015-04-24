@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MachinesDb.h"
 #import "EditMachinesViewController.h"
+#import "AddMachinesViewController.h"
 #import "VendingContentTableViewController.h"
 
 
@@ -23,5 +24,6 @@
 
 @property (strong, nonatomic) UILongPressGestureRecognizer *lpgr;
 - (IBAction)backButton:(id)sender;
+- (IBAction)addMachine:(id)sender;
 
 @end

@@ -8,11 +8,9 @@
 
 #import "VendingContentTableViewController.h"
 
-@interface VendingContentTableViewController ()
-
-@end
-
 @implementation VendingContentTableViewController
+
+@synthesize myDb, business, product, productDb, machine, machineDb, content, contentDb, contentList, keys;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,7 +30,36 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    myDb = [sqlDB getSqlDB];
+    product = [[Product alloc]init];
+    productDb = [[ProductDb alloc]init];
+    contentDb = [[VendingContentDb alloc] init];
+    contentList = [[NSMutableDictionary alloc] init];
+    contentList = [contentDb getContentByMachine: machine andConnection: myDb];
+    keys = [contentList allKeys];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    myDb = [sqlDB getSqlDB];
+    product = [[Product alloc]init];
+    productDb = [[ProductDb alloc]init];
+    contentDb = [[VendingContentDb alloc] init];
+    contentList = [[NSMutableDictionary alloc] init];
+    contentList = [contentDb getContentByMachine: machine andConnection: myDb];
+    keys = [contentList allKeys];
+    
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear: animated];
+    
+    [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -44,28 +71,46 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return contentList.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    static NSString *simpleTableIdentifier = @"contentCell";
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
+    if (cell == nil) {
+
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+
+    }
+
+    content = [ contentList objectForKey: [keys objectAtIndex:indexPath.row] ];
+    product.productID = [content.fk_ProductID intValue];
+    product = [ productDb getProductByID:product andConnection:myDb];
+    cell.textLabel.text = [NSString stringWithFormat:@"Row: %@ - Column: %@ - %@", content.itemRow , content.itemColumn, product.productName ];
+
     return cell;
 }
-*/
+
+
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
+}
+
+- (IBAction)addContent:(id)sender {
+    [self performSegueWithIdentifier:@"addContent" sender:self];
+}
 
 /*
 // Override to support conditional editing of the table view.

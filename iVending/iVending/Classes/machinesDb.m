@@ -112,6 +112,29 @@
     return YES;
 }
 
+- (BOOL) updateMachine: (Machines *) machine andConnection: (sqlDB *) connection
+{
+    const char *dbpath = [connection.databasePath UTF8String];
+    
+    sqlite3 *vendingDB;
+    if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
+        char *errMsg;
+        
+        NSString * querySQL = [NSString stringWithFormat: @"UPDATE machines SET description = '%@', numOfRows = %d, numOfColumns = %d WHERE machineID = %d",  machine.description, [machine.numOfRows intValue], [machine.numOfColumns intValue], [machine.machineID intValue] ];
+        const char *query_statement = [querySQL UTF8String];
+        
+        if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
+            return NO;
+        }
+        
+        //close DB connection
+        sqlite3_close(vendingDB);
+    }
+    else
+        return NO;
+    return YES;
+}
+
 - (BOOL) deleteMachine: (Machines *) machine andConnection: (sqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];

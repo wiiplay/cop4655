@@ -44,6 +44,7 @@
 		1AB232211ADDC06C0045D319 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AB2321F1ADDC06C0045D319 /* InfoPlist.strings */; };
 		1AB232231ADDC06C0045D319 /* iVendingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB232221ADDC06C0045D319 /* iVendingTests.m */; };
 		1AB2322D1ADDC0860045D319 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB2322C1ADDC0860045D319 /* libsqlite3.dylib */; };
+		1AD5981C1AEAB32C0092BE88 /* AddContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5981B1AEAB32C0092BE88 /* AddContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		1AB232201ADDC06C0045D319 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1AB232221ADDC06C0045D319 /* iVendingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iVendingTests.m; sourceTree = "<group>"; };
 		1AB2322C1ADDC0860045D319 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		1AD5981A1AEAB32C0092BE88 /* AddContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContentViewController.h; sourceTree = "<group>"; };
+		1AD5981B1AEAB32C0092BE88 /* AddContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				062DA9481AE6F3830003CED9 /* EditMachinesViewController.m */,
 				062DA9521AE6F3830003CED9 /* VendingContentTableViewController.h */,
 				062DA9531AE6F3830003CED9 /* VendingContentTableViewController.m */,
+				1AD5981A1AEAB32C0092BE88 /* AddContentViewController.h */,
+				1AD5981B1AEAB32C0092BE88 /* AddContentViewController.m */,
 				062DA9451AE6F3830003CED9 /* EditContentViewController.h */,
 				062DA9461AE6F3830003CED9 /* EditContentViewController.m */,
 				062DA94E1AE6F3830003CED9 /* MainNavigationViewController.h */,
@@ -398,6 +403,7 @@
 				062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */,
 				062DA95C1AE6F3830003CED9 /* MainMenuViewController.m in Sources */,
 				062DA9591AE6F3830003CED9 /* EditMachinesViewController.m in Sources */,
+				1AD5981C1AEAB32C0092BE88 /* AddContentViewController.m in Sources */,
 				062DA97C1AE6F3D70003CED9 /* ProductDb.m in Sources */,
 				062DA95E1AE6F3830003CED9 /* ScanViewController.m in Sources */,
 				062DA9541AE6F3830003CED9 /* AddBusinessViewController.m in Sources */,

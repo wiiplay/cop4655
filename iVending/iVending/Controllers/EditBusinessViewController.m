@@ -71,7 +71,7 @@
     NSString *text = [edit title];
     if ( [text isEqualToString: @"Edit"]) {
         [edit setTitle:@"Save"];
-        businessName.userInteractionEnabled = YES;
+        businessName.enabled = YES;
         address.enabled = YES;
         address2.enabled = YES;
         city.enabled = YES;
@@ -89,7 +89,7 @@
         NSNumber *businessId = business.businessID;
         business = nil;
         business = [[Business alloc] initWithName:businessName.text andAddress:address.text andAddress2:address2.text andCity:city.text andStat:state.text andZip: [NSNumber numberWithInteger:[zip.text integerValue]] ];
-        business.businessID = businessId;;
+        business.businessID = businessId;
         [businessDb updateBusiness: business andProd: myDb ];
         [self loadEditBusiness];
     }

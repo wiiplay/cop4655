@@ -21,11 +21,12 @@
     
     sqlite3 *vendingDb;
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
+        const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT name FROM products WHERE ID = %d", passed.productID];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM products WHERE productID = %d", passed.productID];
         const char *query_statement = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
             
             if (sqlite3_step(statement) == SQLITE_ROW){
                 NSString *name = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 1)] ];

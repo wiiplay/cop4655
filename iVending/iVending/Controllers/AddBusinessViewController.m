@@ -31,7 +31,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+    myDb = [sqlDB getSqlDB];
+    business = [[Business alloc] init];
+    businessDb = [[BusinessDb alloc] init];
     [self resetAddView];
     [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear:animated];

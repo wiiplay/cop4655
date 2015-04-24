@@ -30,7 +30,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    myDb = [sqlDB getSqlDB];
+    machineDb = [[MachinesDb alloc] init];
+    machineList = [[NSMutableDictionary alloc] init];
+    machineList = [machineDb getMachineList: business andConnection:myDb];
+    keys = [machineList allKeys];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -115,6 +119,10 @@
     [self.navigationController popViewControllerAnimated: YES];
 }
 
+- (IBAction)addMachine:(id)sender {
+    [self performSegueWithIdentifier:@"addMachine" sender:self];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,12 +165,28 @@
 {
     if([segue.identifier isEqualToString:@"editMachine"]){
         EditMachinesViewController *vc = (EditMachinesViewController*)segue.destinationViewController;
+        vc.business = business;
         vc.machine = machine;
     }
     
+    if([segue.identifier isEqualToString:@"addMachine"]){
+        AddMachinesViewController *vc = (AddMachinesViewController*)segue.destinationViewController;
+        vc.business = business;
+    }
+    
     if([segue.identifier isEqualToString:@"content"]){
-        //MachinesTableViewController *vc = (MachinesTableViewController*)segue.destinationViewController;
-        //vc.business = business;
+        VendingContentTableViewController *vc = (VendingContentTableViewController*)segue.destinationViewController;
+        vc.business = business;
+        
+        UITableViewCell *senderButton = (UITableViewCell *)sender;
+        //UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];
+        UITableView * table = self.tableView;
+        NSIndexPath* index = [table indexPathForCell:senderButton];
+        if (index != nil) {
+            machine = [ machineList objectForKey: [keys objectAtIndex: index.row] ];
+        }
+        
+        vc.machine = machine;
     }
 }
 

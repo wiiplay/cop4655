@@ -8,11 +8,9 @@
 
 #import "AddMachinesViewController.h"
 
-@interface AddMachinesViewController ()
-
-@end
-
 @implementation AddMachinesViewController
+
+@synthesize myDb, business, machine, machineDb, assignedBusiness, description, rows, columns;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +25,47 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    myDb = [sqlDB getSqlDB];
+    machine = [[Machines alloc] init];
+    machineDb = [[MachinesDb alloc] init];
+    [self resetAddView];
+    assignedBusiness.text = business.businessName;
+    assignedBusiness.enabled = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    myDb = [sqlDB getSqlDB];
+    machine = [[Machines alloc] init];
+    machineDb = [[MachinesDb alloc] init];
+    [self resetAddView];
+    assignedBusiness.text = business.businessName;
+    assignedBusiness.enabled = NO;
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
+- (void) resetAddView{
+    assignedBusiness.text = @"";
+    description.text = @"";
+    rows.text = @"";
+    columns.text = @"";
+}
+
+- (IBAction)saveBusiness:(id)sender {
+    
+    machine = [[Machines alloc] initWithDescription: description.text andFKBusinessID:business.businessID andRows: [NSNumber numberWithInteger:[rows.text integerValue] ] andColumns: [NSNumber numberWithInteger:[columns.text integerValue] ] ];
+    [machineDb insertMachine: machine andConnection: myDb];
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +84,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

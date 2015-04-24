@@ -11,7 +11,16 @@
 
 @interface EditMachinesViewController : UIViewController
 
+@property (strong, nonatomic) sqlDB *myDb;
+@property (strong, nonatomic) Business *business;
 @property (strong, nonatomic) Machines *machine;
 @property (strong, nonatomic) MachinesDb *machineDb;
+
+@property (strong, nonatomic) IBOutlet UITextField *assignedBusiness;
+@property (strong, nonatomic) IBOutlet UITextField *description;
+@property (strong, nonatomic) IBOutlet UITextField *rows;
+@property (strong, nonatomic) IBOutlet UITextField *columns;
+
+- (IBAction)editButton:(id)sender;
 
 @end
