@@ -40,6 +40,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear: animated];
     
     myDb = [sqlDB getSqlDB];
     product = [[Product alloc]init];
@@ -48,9 +50,6 @@
     contentList = [[NSMutableDictionary alloc] init];
     contentList = [contentDb getContentByMachine: machine andConnection: myDb];
     keys = [contentList allKeys];
-    
-    [self.navigationController setNavigationBarHidden:YES animated: animated];
-    [super viewWillAppear: animated];
     
     [self.tableView reloadData];
 }
@@ -150,15 +149,36 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"editContent"]){
+        EditContentViewController *vc = (EditContentViewController*)segue.destinationViewController;
+        //vc.machine = machine;
+        //vc.content = content;
+    }
+    
+    if([segue.identifier isEqualToString:@"addContent"]){
+        AddContentViewController *vc = (AddContentViewController*)segue.destinationViewController;
+        vc.machine = machine;
+        vc.content = content;
+    }
 }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

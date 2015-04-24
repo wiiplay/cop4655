@@ -31,12 +31,13 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear:animated];
+    
     myDb = [sqlDB getSqlDB];
     business = [[Business alloc] init];
     businessDb = [[BusinessDb alloc] init];
-    [self resetAddView];
-    [self.navigationController setNavigationBarHidden:YES animated: animated];
-    [super viewWillAppear:animated];
+    [self resetAddView];    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -69,7 +70,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 - (IBAction)saveBusiness:(id)sender {
     
     if ( [businessDb getBusinessByName:businessName.text andDb:myDb]) {
@@ -82,6 +82,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
 
 
 

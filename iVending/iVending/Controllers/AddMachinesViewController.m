@@ -34,14 +34,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear:animated];
+    
     myDb = [sqlDB getSqlDB];
     machine = [[Machines alloc] init];
     machineDb = [[MachinesDb alloc] init];
     [self resetAddView];
     assignedBusiness.text = business.businessName;
-    assignedBusiness.enabled = NO;
-    [self.navigationController setNavigationBarHidden:YES animated: animated];
-    [super viewWillAppear:animated];
+    assignedBusiness.enabled = NO;    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

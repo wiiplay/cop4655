@@ -26,15 +26,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear:animated];
+        
     myDB = [sqlDB getSqlDB];
     getTestData = [[TestData alloc] init];
     [getTestData populateData];
     businessDb = [[BusinessDb alloc] init];
     businessList = [businessDb getBusinessList: myDB];
     keys = [businessList allKeys];
-    
-    [self.navigationController setNavigationBarHidden:YES animated: animated];
-    [super viewWillAppear:animated];
     
     lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
     

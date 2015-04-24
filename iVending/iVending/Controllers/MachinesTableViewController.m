@@ -38,15 +38,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear:animated];
     
     myDb = [sqlDB getSqlDB];
     machineDb = [[MachinesDb alloc] init];
     machineList = [[NSMutableDictionary alloc] init];
     machineList = [machineDb getMachineList: business andConnection:myDb];
-    keys = [machineList allKeys];
-    
-    [self.navigationController setNavigationBarHidden:YES animated: animated];
-    [super viewWillAppear:animated];
+    keys = [machineList allKeys];    
     
     lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
     

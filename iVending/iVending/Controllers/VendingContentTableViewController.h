@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "VendingContentDb.h"
 #import "ProductDb.h"
+#import "AddContentViewController.h"
+#import "EditContentViewController.h"
 
 @interface VendingContentTableViewController : UITableViewController
 

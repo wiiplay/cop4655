@@ -649,7 +649,7 @@
                                 <barButtonItem systemItem="add" id="dSz-Zj-mPi">
                                     <connections>
                                         <action selector="addContent:" destination="q0A-AE-bt1" id="57R-dG-p9e"/>
-                                        <segue destination="tLN-gv-9Pi" kind="push" identifier="addContentItem" id="O2H-fM-how"/>
+                                        <segue destination="tLN-gv-9Pi" kind="push" identifier="addContent" id="jj9-Vb-iXY"/>
                                     </connections>
                                 </barButtonItem>
                             </items>
@@ -678,10 +678,10 @@
             </objects>
             <point key="canvasLocation" x="7659" y="1036"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Content View Controller-->
         <scene sceneID="gIY-w0-fgG">
             <objects>
-                <viewController id="K9b-pc-Xiy" sceneMemberID="viewController">
+                <viewController id="K9b-pc-Xiy" customClass="EditContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jQq-zR-4Ut"/>
                         <viewControllerLayoutGuide type="bottom" id="sfL-T0-gkr"/>
@@ -697,10 +697,10 @@
             </objects>
             <point key="canvasLocation" x="8655" y="1627"/>
         </scene>
-        <!--View Controller - Add Content-->
+        <!--Add Content View Controller - Add Content-->
         <scene sceneID="Tmg-Fz-NoH">
             <objects>
-                <viewController id="tLN-gv-9Pi" sceneMemberID="viewController">
+                <viewController id="tLN-gv-9Pi" customClass="AddContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CPY-RL-wUR"/>
                         <viewControllerLayoutGuide type="bottom" id="hQv-ve-sPh"/>
@@ -708,11 +708,77 @@
                     <view key="view" contentMode="scaleToFill" id="9pR-43-CWQ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar appearanceType="aqua" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2t-Uq-Ogs">
+                                <rect key="frame" x="0.0" y="66" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Back" id="MdS-Zo-U0J">
+                                        <connections>
+                                            <action selector="backButton:" destination="tLN-gv-9Pi" id="eKD-br-IoX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pg6-4M-z1f"/>
+                                    <barButtonItem title="Save" id="fdh-1d-N6K">
+                                        <connections>
+                                            <action selector="saveContent:" destination="tLN-gv-9Pi" id="SQV-8z-ye0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Porduct:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XV-PT-X9U">
+                                <rect key="frame" x="44" y="207" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95a-tC-3AH">
+                                <rect key="frame" x="44" y="568" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnP-NA-USm">
+                                <rect key="frame" x="379" y="568" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Row:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5D-rG-jZD">
+                                <rect key="frame" x="81" y="384" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Column:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEr-s8-DRE">
+                                <rect key="frame" x="385" y="384" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Te-VP-RZF">
+                                <rect key="frame" x="477" y="564" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <pickerView appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeX-lg-igH">
+                                <rect key="frame" x="140" y="110" width="508" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Content" id="AmD-mS-tD7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dO2-U3-eBe"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Content" id="AmD-mS-tD7"/>
+                    <connections>
+                        <outlet property="contentPicker" destination="zeX-lg-igH" id="4p8-SD-DIM"/>
+                        <outlet property="price" destination="9Te-VP-RZF" id="9XL-Lc-2S3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCj-Ew-nIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
