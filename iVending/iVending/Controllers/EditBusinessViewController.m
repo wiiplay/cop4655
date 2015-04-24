@@ -31,6 +31,7 @@
 {
     myDb = [sqlDB getSqlDB];
     businessDb = [[BusinessDb alloc]init];
+    [self loadEditBusiness];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -66,37 +67,34 @@
 */
 
 - (IBAction)editButton:(id)sender {
-    
-    UIButton *edit = (UIButton *) sender;
-    NSString *text = [edit currentTitle];
+    UIBarButtonItem *edit = (UIBarButtonItem *) sender;
+    NSString *text = [edit title];
     if ( [text isEqualToString: @"Edit"]) {
-        [edit setTitle:@"Save" forState:UIControlStateNormal];
+        [edit setTitle:@"Save"];
         businessName.userInteractionEnabled = YES;
-        address.userInteractionEnabled = YES;
-        address2.userInteractionEnabled = YES;
-        city.userInteractionEnabled = YES;
-        state.userInteractionEnabled = YES;
-        zip.userInteractionEnabled = YES;
+        address.enabled = YES;
+        address2.enabled = YES;
+        city.enabled = YES;
+        state.enabled = YES;
+        zip.enabled = YES;
     }
     else if ( [text isEqualToString: @"Save"]){
-        [edit setTitle:@"Edit" forState:UIControlStateNormal];
-        businessName.userInteractionEnabled = NO;
-        address.userInteractionEnabled = NO;
-        address2.userInteractionEnabled = NO;
-        city.userInteractionEnabled = NO;
-        state.userInteractionEnabled = NO;
-        zip.userInteractionEnabled = NO;
-        [self updateBusinessObject];
+        [edit setTitle:@"Edit"];
+        businessName.enabled = NO;
+        address.enabled = NO;
+        address2.enabled = NO;
+        city.enabled = NO;
+        state.enabled = NO;
+        zip.enabled = NO;
+        NSNumber *businessId = business.businessID;
+        business = nil;
+        business = [[Business alloc] initWithName:businessName.text andAddress:address.text andAddress2:address2.text andCity:city.text andStat:state.text andZip: [NSNumber numberWithInteger:[zip.text integerValue]] ];
+        business.businessID = businessId;;
         [businessDb updateBusiness: business andProd: myDb ];
         [self loadEditBusiness];
     }
 }
 
-- (void) updateBusinessObject
-{
-    business = nil;
-    business = [[Business alloc] initWithName:businessName.text andAddress:address.text andAddress2:address2.text andCity:city.text andStat:state.text andZip: [NSNumber numberWithInteger:[zip.text integerValue]] ];
-}
 
 
 

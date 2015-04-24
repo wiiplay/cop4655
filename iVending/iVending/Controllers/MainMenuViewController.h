@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MainMenuViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIToolbar *mainToolBar;
 
 @end

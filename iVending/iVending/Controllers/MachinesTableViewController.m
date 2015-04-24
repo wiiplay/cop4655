@@ -8,11 +8,9 @@
 
 #import "MachinesTableViewController.h"
 
-@interface MachinesTableViewController ()
-
-@end
-
 @implementation MachinesTableViewController
+
+@synthesize myDb, business, machine, machineDb, machineList, keys, lpgr;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,14 +30,45 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    mydb = [[sqlDB alloc]init];
-    machineDb = [[MachinesDb alloc] init];
-    business = [[Business alloc]init];
-    business.businessID = [NSNumber numberWithInt:0];
-    machineList = [[NSMutableDictionary alloc] init];
-    [machineList setObject:[machineDb getMachineByID: [NSNumber numberWithInt:1] andConnection:mydb] forKey: @"one"];
-    listofMachines = [machineList allKeys];
+    
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    myDb = [sqlDB getSqlDB];
+    machineDb = [[MachinesDb alloc] init];
+    machineList = [[NSMutableDictionary alloc] init];
+    machineList = [machineDb getMachineList: business andConnection:myDb];
+    keys = [machineList allKeys];
+    
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear:animated];
+    
+    lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
+    
+    [self.tableView addGestureRecognizer: self.lpgr];
+    [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
+- (void)handleLongPressGestures:(UILongPressGestureRecognizer *)sender
+{
+    if ( sender.state == UIGestureRecognizerStateEnded) {
+        UITableView* tableView = (UITableView*)self.view;
+        CGPoint touchPoint = [sender locationInView:self.view];
+        NSIndexPath* index = [tableView indexPathForRowAtPoint: touchPoint];
+        if (index != nil) {
+            machine = [ machineList objectForKey: [keys objectAtIndex: index.row] ];
+        }
+        
+        [self performSegueWithIdentifier:@"editMachine" sender:self];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -51,22 +80,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return listofMachines.count;
+    return keys.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"machinesCell";
+    static NSString *simpleTableIdentifier = @"machineCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -75,12 +104,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         
     }
-    Machines * temp = [machineList objectForKey: [listofMachines objectAtIndex:indexPath.row] ];
-    cell.textLabel.text = temp.description;
+    
+    machine = [ machineList objectForKey: [keys objectAtIndex:indexPath.row] ];
+    cell.textLabel.text = [NSString stringWithFormat:@"Located at: %@", machine.description];
     
     return cell;
 }
 
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -120,15 +153,17 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"editMachine"]){
+        EditMachinesViewController *vc = (EditMachinesViewController*)segue.destinationViewController;
+        vc.machine = machine;
+    }
+    
+    if([segue.identifier isEqualToString:@"content"]){
+        //MachinesTableViewController *vc = (MachinesTableViewController*)segue.destinationViewController;
+        //vc.business = business;
+    }
 }
-*/
 
 @end

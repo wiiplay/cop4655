@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TestData.h"
 #import "EditBusinessViewController.h"
+#import "MachinesTableViewController.h"
 
 @interface BusinessesTableViewController : UITableViewController{
     sqlDB *myDB;
@@ -20,5 +21,6 @@
 }
 
 @property (nonatomic,strong) UILongPressGestureRecognizer *lpgr;
+- (IBAction)backButton:(id)sender;
 
 @end

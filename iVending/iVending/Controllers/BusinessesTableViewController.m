@@ -22,7 +22,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,6 +39,7 @@
     lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
     
     [self.tableView addGestureRecognizer:self.lpgr];
+    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -149,7 +149,25 @@
         EditBusinessViewController *vc = (EditBusinessViewController*)segue.destinationViewController;
         vc.business = business;
     }
+    if([segue.identifier isEqualToString:@"machines"]){
+        MachinesTableViewController *vc = (MachinesTableViewController*)segue.destinationViewController;
+        vc.business = business;
+    }
 }
+
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
+}
+
+
+
+
+
+
+
+
+
+
 
 
 @end

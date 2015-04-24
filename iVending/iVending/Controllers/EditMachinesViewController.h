@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "machinesDb.h"
 
 @interface EditMachinesViewController : UIViewController
+
+@property (strong, nonatomic) Machines *machine;
+@property (strong, nonatomic) MachinesDb *machineDb;
 
 @end

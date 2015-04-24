@@ -8,11 +8,9 @@
 
 #import "MainMenuViewController.h"
 
-@interface MainMenuViewController ()
-
-@end
-
 @implementation MainMenuViewController
+
+@synthesize mainToolBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +25,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated: animated];
+    [super viewWillAppear:animated];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    [mainToolBar setFrame: CGRectMake(0, 0, screenRect.size.width, (screenRect.size.height * .30) )];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning

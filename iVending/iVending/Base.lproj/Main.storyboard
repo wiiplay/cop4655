@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1732" y="-604"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="2Qk-H9-3BT">
             <objects>
-                <viewController id="dOL-2B-uL4" sceneMemberID="viewController">
+                <viewController id="dOL-2B-uL4" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3qf-Cy-jje"/>
                         <viewControllerLayoutGuide type="bottom" id="QHw-LJ-bu7"/>
@@ -80,13 +80,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar appearanceType="aqua" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="91c-0K-faw">
-                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="923" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c5z-oP-x6E"/>
-                                    <barButtonItem image="View_QR_code.png" id="jyV-ef-xHf"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Itq-jJ-wuV"/>
-                                    <barButtonItem image="folder-search.png" id="uF1-KV-Xfl">
+                                    <barButtonItem image="qr-simple-scnner.png" id="jyV-ef-xHf"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="F5M-Qh-u4K"/>
+                                    <barButtonItem image="Folder_3.png" id="uF1-KV-Xfl">
                                         <connections>
                                             <segue destination="IVn-2i-sLg" kind="push" id="Lb5-uF-A0N"/>
                                         </connections>
@@ -98,6 +98,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZPB-Gv-wnC"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="mainToolBar" destination="91c-0K-faw" id="OjL-w5-bEq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKb-QE-2QX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,6 +119,11 @@
                             <rect key="frame" x="0.0" y="64" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
+                                <barButtonItem title="Back" id="BVU-tX-hNd">
+                                    <connections>
+                                        <action selector="backButton:" destination="IVn-2i-sLg" id="adT-DZ-8j4"/>
+                                    </connections>
+                                </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="sQT-V0-nU0"/>
                                 <barButtonItem systemItem="add" id="o9K-Qw-XKF">
                                     <connections>
@@ -124,7 +133,7 @@
                             </items>
                         </toolbar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="axk-Ht-YCI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="businessCell" id="axk-Ht-YCI">
                                 <rect key="frame" x="0.0" y="130" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axk-Ht-YCI" id="eJt-kc-7YV">
@@ -132,7 +141,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gTH-rC-IYf" kind="push" id="1SG-it-j2U"/>
+                                    <segue destination="gTH-rC-IYf" kind="push" identifier="machines" id="1SG-it-j2U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -163,13 +172,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-Zp-AEl">
-                                <rect key="frame" x="20" y="501" width="748" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cki-Gz-cPt">
                                 <rect key="frame" x="209" y="203" width="275" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -252,15 +254,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Business" id="SZe-5X-Mwk">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="FhT-7b-nYz">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g0i-R1-On7">
-                                <rect key="frame" x="699" y="5" width="53" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Edit"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zDm-9y-fcd">
                             <connections>
-                                <action selector="editButton:" destination="1ed-oG-kxB" id="8pu-bX-Mq5"/>
+                                <action selector="editButton:" destination="1ed-oG-kxB" id="dB6-EX-riH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -269,7 +265,6 @@
                         <outlet property="address2" destination="O1u-L9-T5S" id="Tb1-QY-qZA"/>
                         <outlet property="businessName" destination="Cki-Gz-cPt" id="7bu-XN-Spe"/>
                         <outlet property="city" destination="pu4-LD-8UZ" id="DH2-rh-C9w"/>
-                        <outlet property="foo" destination="U2e-Zp-AEl" id="YOh-fj-Uh2"/>
                         <outlet property="state" destination="69F-OP-dfa" id="L6E-Vb-sgV"/>
                         <outlet property="zip" destination="uAR-Ht-qdU" id="ZjK-R3-kJf"/>
                     </connections>
@@ -291,12 +286,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar appearanceType="aqua" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0z-Od-s7t">
-                                <rect key="frame" x="0.0" y="66" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="67" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Back" id="laH-er-b0g"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="DkI-AV-sli"/>
-                                    <barButtonItem systemItem="save" id="kzf-7E-33p"/>
+                                    <barButtonItem systemItem="save" id="kzf-7E-33p">
+                                        <connections>
+                                            <action selector="saveBusiness:" destination="XXF-yz-zEj" id="jCH-i2-UEk"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hzM-6W-aBT">
@@ -381,12 +380,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Business" id="yLq-wM-jyl"/>
+                    <connections>
+                        <outlet property="address" destination="EMy-BT-WcZ" id="QMe-3d-qcc"/>
+                        <outlet property="address2" destination="Jjh-z8-tGl" id="Qnd-0U-FEV"/>
+                        <outlet property="businessName" destination="hzM-6W-aBT" id="L1w-f9-gKD"/>
+                        <outlet property="city" destination="J8K-A6-uNz" id="c8w-Pt-5dA"/>
+                        <outlet property="state" destination="MqK-VB-5TK" id="iG6-gc-hSr"/>
+                        <outlet property="zip" destination="8S1-IP-0f5" id="oAy-01-14S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7p-nH-od1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4711" y="307"/>
         </scene>
-        <!--Machines Table View Controller-->
+        <!--Machines Table View Controller - Machines-->
         <scene sceneID="EDv-Ad-Kkp">
             <objects>
                 <tableViewController id="gTH-rC-IYf" customClass="MachinesTableViewController" sceneMemberID="viewController">
@@ -398,9 +405,17 @@
                             <rect key="frame" x="0.0" y="64" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="Back" id="OSW-Fk-5nY"/>
+                                <barButtonItem title="Back" id="OSW-Fk-5nY">
+                                    <connections>
+                                        <action selector="backButton:" destination="gTH-rC-IYf" id="Vpr-wQ-QM3"/>
+                                    </connections>
+                                </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="V3D-8s-vNK"/>
-                                <barButtonItem systemItem="add" id="MZc-QK-hAr"/>
+                                <barButtonItem systemItem="add" id="MZc-QK-hAr">
+                                    <connections>
+                                        <segue destination="TWn-94-WLI" kind="push" identifier="addMachine" id="4fZ-eN-hsP"/>
+                                    </connections>
+                                </barButtonItem>
                             </items>
                         </toolbar>
                         <prototypes>
@@ -418,12 +433,53 @@
                             <outlet property="delegate" destination="gTH-rC-IYf" id="KBO-6T-Dth"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="48P-YK-FB6"/>
+                    <navigationItem key="navigationItem" title="Machines" id="48P-YK-FB6"/>
+                    <connections>
+                        <segue destination="srE-Mp-4jg" kind="push" identifier="editMachine" id="jRX-L7-ncL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8x-D0-eBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lCK-Kh-Euw"/>
             </objects>
-            <point key="canvasLocation" x="6908" y="1036"/>
+            <point key="canvasLocation" x="5724" y="1036"/>
+        </scene>
+        <!--Edit Machines View Controller-->
+        <scene sceneID="dbC-46-ATp">
+            <objects>
+                <viewController id="srE-Mp-4jg" customClass="EditMachinesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Rp-38-7rf"/>
+                        <viewControllerLayoutGuide type="bottom" id="uuQ-aN-acW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SJ3-m1-obU">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Yq-hO-hYD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0h-GU-U3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6711" y="1621"/>
+        </scene>
+        <!--Add Machines View Controller-->
+        <scene sceneID="Mfe-WU-K93">
+            <objects>
+                <viewController id="TWn-94-WLI" customClass="AddMachinesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xre-lG-0by"/>
+                        <viewControllerLayoutGuide type="bottom" id="FmU-eG-KEj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5JZ-Lb-rMH">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EZj-ga-Jfe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48g-4G-hvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6711" y="301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iRJ-qW-UkR">
@@ -445,8 +501,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="View_QR_code.png" width="30" height="30"/>
-        <image name="folder-search.png" width="30" height="30"/>
+        <image name="Folder_3.png" width="42" height="42"/>
+        <image name="qr-simple-scnner.png" width="133" height="133"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

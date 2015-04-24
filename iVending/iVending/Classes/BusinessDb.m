@@ -57,7 +57,7 @@
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM businesses WHERE ID = %d", businessId];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM businesses WHERE businessID = %d", businessId];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
@@ -153,7 +153,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"UPDATE businesses SET  businessName = '%@', address = '%@', address2 = '%@', city = = '%@', state = = '%@', zip = %d", passed.businessName, passed.address, passed.address2, passed.city, passed.state, [passed.zip intValue] ];
+        NSString * querySQL = [NSString stringWithFormat: @"UPDATE businesses SET  name = '%@', address = '%@', address2 = '%@', city = '%@', state ='%@', zip = %d WHERE businessID = %d" , passed.businessName, passed.address, passed.address2, passed.city, passed.state, [passed.zip intValue], [passed.businessID intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {

@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "MachinesDb.h"
-#import "BusinessDb.h"
+#import "EditMachinesViewController.h"
+#import "VendingContentTableViewController.h"
+
 
 @interface MachinesTableViewController : UITableViewController
-{
-    Business *business;
-    MachinesDb *machineDb;
-    sqlDB *mydb;
-    NSMutableDictionary *machineList;
-    NSArray *listofMachines;
-}
+
+@property (strong, nonatomic)sqlDB *myDb;
+@property (strong, nonatomic)Business *business;
+@property (strong, nonatomic)Machines *machine;
+@property (strong, nonatomic)MachinesDb *machineDb;
+@property (strong, nonatomic)NSMutableDictionary *machineList;
+@property (strong, nonatomic)NSArray *keys;
+
+@property (strong, nonatomic) UILongPressGestureRecognizer *lpgr;
+- (IBAction)backButton:(id)sender;
 
 @end
