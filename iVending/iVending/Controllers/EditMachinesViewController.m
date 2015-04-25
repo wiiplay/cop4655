@@ -25,14 +25,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     machineDb = [[MachinesDb alloc] init];
     [self loadEditBusiness];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     machineDb = [[MachinesDb alloc] init];
     [self loadEditBusiness];
 }

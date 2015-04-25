@@ -12,7 +12,7 @@
 #import "MachinesTableViewController.h"
 
 @interface BusinessesTableViewController : UITableViewController{
-    sqlDB *myDB;
+    SqlDB *myDB;
     TestData *getTestData;
     NSMutableDictionary *businessList;
     BusinessDb * businessDb;

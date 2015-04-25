@@ -30,7 +30,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     machineDb = [[MachinesDb alloc] init];
     machineList = [[NSMutableDictionary alloc] init];
     machineList = [machineDb getMachineList: business andConnection:myDb];
@@ -41,7 +41,7 @@
     [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear:animated];
     
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     machineDb = [[MachinesDb alloc] init];
     machineList = [[NSMutableDictionary alloc] init];
     machineList = [machineDb getMachineList: business andConnection:myDb];
@@ -178,7 +178,6 @@
         vc.business = business;
         
         UITableViewCell *senderButton = (UITableViewCell *)sender;
-        //UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];
         UITableView * table = self.tableView;
         NSIndexPath* index = [table indexPathForCell:senderButton];
         if (index != nil) {

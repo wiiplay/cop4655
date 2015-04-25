@@ -29,7 +29,7 @@
     [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear:animated];
         
-    myDB = [sqlDB getSqlDB];
+    myDB = [SqlDB getSqlDB];
     getTestData = [[TestData alloc] init];
     [getTestData populateData];
     businessDb = [[BusinessDb alloc] init];
@@ -151,6 +151,14 @@
     }
     if([segue.identifier isEqualToString:@"machines"]){
         MachinesTableViewController *vc = (MachinesTableViewController*)segue.destinationViewController;
+        
+        UITableViewCell *senderButton = (UITableViewCell *)sender;
+        UITableView * table = self.tableView;
+        NSIndexPath* index = [table indexPathForCell:senderButton];
+        if (index != nil) {
+            business = [ businessList objectForKey: [keys objectAtIndex: index.row] ];
+        }
+        
         vc.business = business;
     }
 }

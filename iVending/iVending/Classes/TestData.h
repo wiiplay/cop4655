@@ -14,7 +14,7 @@
 
 @interface TestData : NSObject
 {
-    sqlDB *myDB;
+    SqlDB *myDB;
     Business *business;
     BusinessDb *businessDb;
     MachinesDb *machineDb;

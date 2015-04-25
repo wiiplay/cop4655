@@ -30,7 +30,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     product = [[Product alloc]init];
     productDb = [[ProductDb alloc]init];
     contentDb = [[VendingContentDb alloc] init];
@@ -43,7 +43,7 @@
     [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear: animated];
     
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     product = [[Product alloc]init];
     productDb = [[ProductDb alloc]init];
     contentDb = [[VendingContentDb alloc] init];
@@ -95,7 +95,7 @@
     }
 
     content = [ contentList objectForKey: [keys objectAtIndex:indexPath.row] ];
-    product.productID = [content.fk_ProductID intValue];
+    product.productID = content.fk_ProductID;
     product = [ productDb getProductByID:product andConnection:myDb];
     cell.textLabel.text = [NSString stringWithFormat:@"Row: %@ - Column: %@ - %@", content.itemRow , content.itemColumn, product.productName ];
 
@@ -153,8 +153,15 @@
 {
     if([segue.identifier isEqualToString:@"editContent"]){
         EditContentViewController *vc = (EditContentViewController*)segue.destinationViewController;
-        //vc.machine = machine;
-        //vc.content = content;
+        
+        UITableViewCell *senderButton = (UITableViewCell *)sender;
+        UITableView * table = self.tableView;
+        NSIndexPath* index = [table indexPathForCell:senderButton];
+        if (index != nil) {
+            content = [ contentList objectForKey: [keys objectAtIndex: index.row] ];
+        }
+        vc.machine = machine;
+        vc.content = content;
     }
     
     if([segue.identifier isEqualToString:@"addContent"]){

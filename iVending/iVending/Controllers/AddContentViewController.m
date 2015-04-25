@@ -10,7 +10,7 @@
 
 @implementation AddContentViewController
 
-@synthesize myDb, content, contentDb, machine, product, productDb, productList, productArray, contentPicker, price, rowsArray, columnsArray, quantityArray, keys;
+@synthesize myDb, content, contentDb, machine, product, productDb, productList, contentPicker, price, rowsArray, columnsArray, quantityArray, keys;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,30 +25,36 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
+    content = [[VendingContent alloc]init];
     contentDb = [[VendingContentDb alloc] init];
+    //product = [[Product alloc]init];
     productDb = [[ProductDb alloc]init];
+    productList = [[NSMutableDictionary alloc]init];
     productList = [productDb getProductList: myDb];
     keys = [productList allKeys];
-    productArray = [productList allValues];
     rowsArray = [self getIntArray: machine.numOfRows];
     columnsArray = [self getIntArray: machine.numOfColumns];
     quantityArray = [self getIntArray: [NSNumber numberWithInt:20]];
+    contentPicker = [[UIPickerView alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear:animated];
     
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
+    content = [[VendingContent alloc]init];
     contentDb = [[VendingContentDb alloc] init];
+    //product = [[Product alloc]init];
     productDb = [[ProductDb alloc]init];
+    productList = [[NSMutableDictionary alloc]init];
     productList = [productDb getProductList: myDb];
     keys = [productList allKeys];
-    productArray = [productList allValues];
     rowsArray = [self getIntArray: machine.numOfRows];
     columnsArray = [self getIntArray: machine.numOfColumns];
     quantityArray = [self getIntArray: [NSNumber numberWithInt:20]];
+    contentPicker = [[UIPickerView alloc] init];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -65,19 +71,19 @@
 //number of rows the picker will contain
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
 
-    if (component == 1 )
+    if (component == 0 )
     {
-        return [productArray count];
+        return [keys count];
     }
-    if (component == 2 )
+    if (component == 1 )
     {
         return [rowsArray count];
     }
-    if (component == 3 )
+    if (component == 2 )
     {
         return [columnsArray count];
     }
-    if (component == 4 )
+    if (component == 3 )
     {
         return [quantityArray count];
     }
@@ -86,31 +92,52 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
 
-    if (component == 1 )
+    if (component == 0 )
     {
-        if (productArray != nil) {
-            return [productArray objectAtIndex:row];
+        if (keys != nil) {
+            return [keys objectAtIndex:row];
         }
     }
-    if (component == 2 )
+    if (component == 1 )
     {
         if (rowsArray != nil) {
             return [rowsArray objectAtIndex:row];
         }
     }
-    if (component == 3 )
+    if (component == 2 )
     {
         if (columnsArray != nil) {
             return [columnsArray objectAtIndex:row];
         }
     }
-    if (component == 4 )
+    if (component == 3 )
     {
         if (quantityArray != nil) {
             return [quantityArray objectAtIndex:row];
         }
     }
     return @"";
+}
+
+- (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if (component == 0 )
+    {
+        product = [productList objectForKey: [keys objectAtIndex:row] ];
+        content.fk_ProductID = product.productID;
+    }
+    if (component == 1 )
+    {
+        content.itemRow = [NSNumber numberWithInt: (row + 1)];
+    }
+    if (component == 2 )
+    {
+        content.itemColumn = [NSNumber numberWithInt: (row + 1)];
+    }
+    if (component == 3 )
+    {
+        content.quanity = [NSNumber numberWithInt: (row + 1)];
+    }
 }
 
 - (NSArray *) getIntArray: (NSNumber *) max
@@ -142,8 +169,18 @@
 */
 
 - (IBAction)saveContent:(id)sender {
+    content.fk_MachineID = machine.machineID;
+    content.cost = [price.text doubleValue];
+    [contentDb insertContent:content andConnection:myDb];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+
+
+
 @end

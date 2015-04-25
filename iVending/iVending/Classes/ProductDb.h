@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "sqlDB.h"
+#import "SqlDB.h"
 #import "Product.h"
 
 @interface ProductDb : NSObject
 
 @property (strong, nonatomic) Product *product;
 
-- (NSMutableDictionary *) getProductList: (sqlDB *) connection;
-- (Product *) getProductByID: (Product *) passed andConnection: (sqlDB *) connection;
-- (Product *) getProductByName: (Product *) passed andConnection: (sqlDB *) connection;
-- (BOOL) insertProduct: (Product *) passed andConnection: (sqlDB *) connection;
-- (BOOL) deleteProduct: (Product *) passed andConnection: (sqlDB *) connection;
+- (NSMutableDictionary *) getProductList: (SqlDB *) connection;
+- (Product *) getProductByID: (Product *) passed andConnection: (SqlDB *) connection;
+- (Product *) getProductByName: (Product *) passed andConnection: (SqlDB *) connection;
+- (BOOL) insertProduct: (Product *) passed andConnection: (SqlDB *) connection;
+- (BOOL) deleteProduct: (Product *) passed andConnection: (SqlDB *) connection;
 
 @end

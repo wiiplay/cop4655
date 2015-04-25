@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 student. All rights reserved.
 //
 
-#import "sqlDB.h"
+#import "SqlDB.h"
 
-@implementation sqlDB
+@implementation SqlDB
 
 @synthesize databasePath, vendingDB, documentsDirectory;
 
-+ (sqlDB *) getSqlDB
++ (SqlDB *) getSqlDB
 {
-    static sqlDB *mySqlDB;
+    static SqlDB *mySqlDB;
     
     if ([mySqlDB vendingDB] == nil) {
-        mySqlDB = [[sqlDB alloc] initDB];
+        mySqlDB = [[SqlDB alloc] initDB];
     }
     
     return mySqlDB;

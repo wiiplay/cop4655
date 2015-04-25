@@ -13,7 +13,7 @@
 - (void) populateData
 {
     
-    myDB = [sqlDB getSqlDB] ;
+    myDB = [SqlDB getSqlDB] ;
     business = [[Business alloc] init];
     businessDb = [[BusinessDb alloc] init];
     machineDb = [[MachinesDb alloc] init];
@@ -62,19 +62,19 @@
         //Generate machines for second businesses
         machineList2 = [[NSMutableArray alloc] init];
         
-        machine = [[Machines alloc]  initWithDescription:@"North" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
+        machine = [[Machines alloc]  initWithDescription:@"NNorth" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
         
         [machineList2 addObject: machine];
         
-        machine = [[Machines alloc]  initWithDescription:@"East" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
+        machine = [[Machines alloc]  initWithDescription:@"EEast" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
         
         [machineList2 addObject: machine];
         
-        machine = [[Machines alloc]  initWithDescription:@"West" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
+        machine = [[Machines alloc]  initWithDescription:@"WWest" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
         
         [machineList2 addObject: machine];
         
-        machine = [[Machines alloc]  initWithDescription:@"South" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
+        machine = [[Machines alloc]  initWithDescription:@"SSouth" andFKBusinessID: [NSNumber numberWithInt:2] andRows:[NSNumber numberWithInt:3] andColumns:[NSNumber numberWithInt:3]];
         
         [machineList2 addObject: machine];
     

@@ -29,7 +29,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     businessDb = [[BusinessDb alloc]init];
     [self loadEditBusiness];
 }

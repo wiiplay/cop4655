@@ -14,7 +14,7 @@
 
 @interface VendingContentTableViewController : UITableViewController
 
-@property (strong, nonatomic) sqlDB *myDb;
+@property (strong, nonatomic) SqlDB *myDb;
 @property (strong, nonatomic) Business *business;
 @property (strong, nonatomic) Product *product;
 @property (strong, nonatomic) ProductDb *productDb;

@@ -12,7 +12,7 @@
 
 @synthesize product;
 
-- (Product *) getProductByID: (Product *) passed andConnection: (sqlDB *) connection
+- (Product *) getProductByID: (Product *) passed andConnection: (SqlDB *) connection
 {
     product =[[Product alloc] init];
     
@@ -23,7 +23,7 @@
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM products WHERE productID = %d", passed.productID];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM products WHERE productID = %d", [passed.productID intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
@@ -45,7 +45,7 @@
     return product;
 }
 
-- (Product *) getProductByName: (Product *) passed andConnection: (sqlDB *) connection
+- (Product *) getProductByName: (Product *) passed andConnection: (SqlDB *) connection
 {
     
     sqlite3_stmt * statement;
@@ -61,7 +61,7 @@
             
             int prodId =  sqlite3_column_int(statement, 0) ;
             product = [[Product alloc] initWithName: passed.productName];
-            product.productID = prodId;
+            product.productID = [NSNumber numberWithInt: prodId];
         }
         
         //release statement
@@ -74,7 +74,7 @@
     return product;
 }
 
-- (NSMutableDictionary *) getProductList: (sqlDB *) connection
+- (NSMutableDictionary *) getProductList: (SqlDB *) connection
 {
     NSMutableDictionary * products = [[NSMutableDictionary alloc] init];
     
@@ -84,7 +84,7 @@
     
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         
-        NSString * querySQL = @"SELECT * FROM products ORDER BY name";
+        NSString * querySQL = @"SELECT * FROM products ORDER BY name DESC";
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, NULL) == SQLITE_OK) {
@@ -94,8 +94,11 @@
                 NSString *value = [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 1)] ];
                 //get the id from the row and convert it to nsstring
                 NSNumber *key = [NSNumber numberWithInt: sqlite3_column_int(statement, 0)];
+                product = [[Product alloc] initWithName:value];
+                product.productID = key;
+                
                 //add the product to the products dictionary;
-                [products setObject:value forKey: key];
+                [products setObject:product forKey: value];
             }
             //release statement
             sqlite3_finalize(statement);
@@ -106,7 +109,7 @@
     return products;
 }
 
-- (BOOL) insertProduct: (Product *) passed andConnection: (sqlDB *) connection
+- (BOOL) insertProduct: (Product *) passed andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -129,7 +132,7 @@
     return YES;
 }
 
-- (BOOL) deleteProduct: (Product *) passed andConnection: (sqlDB *) connection
+- (BOOL) deleteProduct: (Product *) passed andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     

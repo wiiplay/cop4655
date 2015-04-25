@@ -7,22 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "sqlDB.h"
+#import "SqlDB.h"
 #import "MachinesDb.h"
 #import "BusinessDb.h"
 #import "VendingContent.h"
 
 @interface VendingContentDb : NSObject
 
-@property (strong, nonatomic) sqlDB *myDb;
+@property (strong, nonatomic) SqlDB *myDb;
 @property (strong, nonatomic) Business *business;
 @property (strong, nonatomic) MachinesDb *machineDb;
 @property (strong, nonatomic) Machines *machine;
 @property (strong, nonatomic) VendingContent *content;
 
-- (NSMutableDictionary *) getContentByMachine: (Machines *) passed andConnection: (sqlDB *) connection;
-- (NSMutableDictionary *) getContentListForLocation: (Business *) passed andConnection: (sqlDB *) connection;
-- (BOOL) insertContent: (VendingContent *) passed andConnection: (sqlDB *) connection;
-- (BOOL) deleteContent: (VendingContent *) passed andConnection: (sqlDB *) connection;
+- (NSMutableDictionary *) getContentByMachine: (Machines *) passed andConnection: (SqlDB *) connection;
+- (NSMutableDictionary *) getContentListForLocation: (Business *) passed andConnection: (SqlDB *) connection;
+- (BOOL) insertContent: (VendingContent *) passed andConnection: (SqlDB *) connection;
+- (BOOL) deleteContent: (VendingContent *) passed andConnection: (SqlDB *) connection;
 
 @end

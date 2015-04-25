@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) Business *business;
 @property (strong, nonatomic) BusinessDb *businessDb;
-@property (strong, nonatomic) sqlDB *myDb;
+@property (strong, nonatomic) SqlDB *myDb;
 
 @property (strong, nonatomic) IBOutlet UITextField *businessName;
 @property (strong, nonatomic) IBOutlet UITextField *address;

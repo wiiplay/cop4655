@@ -12,7 +12,7 @@
 
 @synthesize business;
 
-- (Business *) getBusinessByName: (NSString *) name andDb: (sqlDB *) connection
+- (Business *) getBusinessByName: (NSString *) name andDb: (SqlDB *) connection
 {
     sqlite3_stmt * statement;
     const char *dbpath = [connection.databasePath UTF8String];
@@ -48,7 +48,7 @@
     return business;
 }
 
-- (Business *) getBusinessByID: (int) businessId andProd: (sqlDB *) connection
+- (Business *) getBusinessByID: (int) businessId andProd: (SqlDB *) connection
 {
     sqlite3_stmt * statement;
     const char *dbpath = [connection.databasePath UTF8String];
@@ -84,7 +84,7 @@
     return business;
 }
 
-- (NSMutableDictionary *) getBusinessList: (sqlDB *) connection
+- (NSMutableDictionary *) getBusinessList: (SqlDB *) connection
 {
     NSMutableDictionary * businessDictionary = [[NSMutableDictionary alloc] init];
     
@@ -95,7 +95,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = @"SELECT * FROM businesses ORDER BY name";
+        NSString * querySQL = @"SELECT * FROM businesses ORDER BY name DESC";
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
@@ -122,7 +122,7 @@
     return businessDictionary;
 }
 
-- (BOOL) insertBusiness: (Business *) passed andProd: (sqlDB *) connection
+- (BOOL) insertBusiness: (Business *) passed andProd: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -145,7 +145,7 @@
     return YES;
 }
 
-- (BOOL) updateBusiness: (Business *) passed andProd: (sqlDB *) connection
+- (BOOL) updateBusiness: (Business *) passed andProd: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -168,7 +168,7 @@
     return YES;
 }
 
-- (BOOL) deleteBusiness: (Business *) passed andProd: (sqlDB *) connection
+- (BOOL) deleteBusiness: (Business *) passed andProd: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     

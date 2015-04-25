@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
 
-@interface sqlDB : NSObject
+@interface SqlDB : NSObject
 
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *vendingDB;
 
 @property (nonatomic, strong) NSString *documentsDirectory;
 
-+ (sqlDB *) getSqlDB;
++ (SqlDB *) getSqlDB;
 
 @end

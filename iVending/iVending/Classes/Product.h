@@ -12,7 +12,7 @@
 @interface Product : NSObject
 
 @property (strong, nonatomic) ProductDb *productDb;
-@property (nonatomic) int productID;
+@property (nonatomic) NSNumber *productID;
 @property (strong, nonatomic) NSString *productName;
 
 - (instancetype) initWithName: (NSString *) name;

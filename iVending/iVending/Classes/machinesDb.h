@@ -15,10 +15,10 @@
 
 @property (strong, nonatomic) Machines *vendingMachine;
 
-- (Machines *) getMachineByID: (NSNumber *) machineId andConnection: (sqlDB *) connection;
-- (NSMutableDictionary *) getMachineList: (Business *) business andConnection: (sqlDB *) connection;
-- (BOOL) insertMachine: (Machines *) machine andConnection: (sqlDB *) connection;
-- (BOOL) deleteMachine: (Machines *) machine andConnection: (sqlDB *) connection;
-- (BOOL) updateMachine: (Machines *) machine andConnection: (sqlDB *) connection;
+- (Machines *) getMachineByID: (NSNumber *) machineId andConnection: (SqlDB *) connection;
+- (NSMutableDictionary *) getMachineList: (Business *) business andConnection: (SqlDB *) connection;
+- (BOOL) insertMachine: (Machines *) machine andConnection: (SqlDB *) connection;
+- (BOOL) deleteMachine: (Machines *) machine andConnection: (SqlDB *) connection;
+- (BOOL) updateMachine: (Machines *) machine andConnection: (SqlDB *) connection;
 
 @end

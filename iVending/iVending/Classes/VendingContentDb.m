@@ -12,7 +12,7 @@
 
 @synthesize myDb, business, machineDb, machine, content;
 
-- (NSMutableDictionary *) getContentByMachine: (Machines *) passed andConnection: (sqlDB *) connection
+- (NSMutableDictionary *) getContentByMachine: (Machines *) passed andConnection: (SqlDB *) connection
 {
     NSMutableDictionary *contentList = [[NSMutableDictionary alloc] init];
     sqlite3_stmt * statement;
@@ -22,7 +22,7 @@
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM vendingContent WHERE machine_ID = %d", [passed.machineID intValue]];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM vendingContent WHERE machine_ID = %d ORDER BY itemColumn, itemRow DESC", [passed.machineID intValue]];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
@@ -53,7 +53,7 @@
     return contentList;
 }
 
-- (NSMutableDictionary *) getContentListForLocation: (Business *) passed andConnection: (sqlDB *) connection
+- (NSMutableDictionary *) getContentListForLocation: (Business *) passed andConnection: (SqlDB *) connection
 {
     machineDb = [[MachinesDb alloc] init];
     NSMutableDictionary *machineList = [[NSMutableDictionary alloc] init];
@@ -70,7 +70,7 @@
     return vendingContentList;
 }
 
-- (BOOL) insertContent: (VendingContent *) passed andConnection: (sqlDB *) connection
+- (BOOL) insertContent: (VendingContent *) passed andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -94,7 +94,7 @@
     return YES;
 }
 
-- (BOOL) deleteContent: (VendingContent *) passed andConnection: (sqlDB *) connection
+- (BOOL) deleteContent: (VendingContent *) passed andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     

@@ -12,7 +12,7 @@
 
 @synthesize vendingMachine;
 
-- (Machines *) getMachineByID: (Machines *) passed andConnection: (sqlDB *) connection
+- (Machines *) getMachineByID: (Machines *) passed andConnection: (SqlDB *) connection
 {
     sqlite3_stmt * statement;
     const char *dbpath = [connection.databasePath UTF8String];
@@ -49,7 +49,7 @@
     return vendingMachine;
 }
 
-- (NSMutableDictionary *) getMachineList: (Business *) passed andConnection: (sqlDB *) connection
+- (NSMutableDictionary *) getMachineList: (Business *) passed andConnection: (SqlDB *) connection
 {
     NSMutableDictionary * machineDictionary = [[NSMutableDictionary alloc] init];
     
@@ -60,7 +60,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE business_ID = %d", [passed.businessID intValue]];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE business_ID = %d ORDER BY description DESC", [passed.businessID intValue]];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDB, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
@@ -89,7 +89,7 @@
     return machineDictionary;
 }
 
-- (BOOL) insertMachine: (Machines *) machine andConnection: (sqlDB *) connection
+- (BOOL) insertMachine: (Machines *) machine andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -112,7 +112,7 @@
     return YES;
 }
 
-- (BOOL) updateMachine: (Machines *) machine andConnection: (sqlDB *) connection
+- (BOOL) updateMachine: (Machines *) machine andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     
@@ -135,7 +135,7 @@
     return YES;
 }
 
-- (BOOL) deleteMachine: (Machines *) machine andConnection: (sqlDB *) connection
+- (BOOL) deleteMachine: (Machines *) machine andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
     

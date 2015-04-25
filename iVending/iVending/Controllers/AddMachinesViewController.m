@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     machine = [[Machines alloc] init];
     machineDb = [[MachinesDb alloc] init];
     [self resetAddView];
@@ -37,7 +37,7 @@
     [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear:animated];
     
-    myDb = [sqlDB getSqlDB];
+    myDb = [SqlDB getSqlDB];
     machine = [[Machines alloc] init];
     machineDb = [[MachinesDb alloc] init];
     [self resetAddView];
