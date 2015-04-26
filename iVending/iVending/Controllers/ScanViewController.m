@@ -27,6 +27,7 @@
     // Do any additional setup after loading the view.
     myDb = [SqlDB getSqlDB];
     machine = [[Machines alloc] init];
+    business = [[Business alloc] init];
     businessDb = [[BusinessDb alloc]init];
     machineDb = [[MachinesDb alloc]init];
     
@@ -92,6 +93,10 @@
     
     [self processSymbolData: symbol];
     
+    if ( [self processSymbolData: symbol] ) {
+        [self performSegueWithIdentifier:@"inventory" sender:self];
+    }
+    
     // dismiss the controller
     [reader dismissViewControllerAnimated:YES completion:nil];
 }
@@ -99,14 +104,41 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
--(void) processSymbolData: (ZBarSymbol *) result
+-(BOOL) processSymbolData: (ZBarSymbol *) result
 {
+    BOOL exists = NO;
     NSString *content = result.data;
     NSArray *splitContent = [content componentsSeparatedByString:@";"];
-    business = (Business *)[businessDb getBusinessByID: [splitContent[1] integerValue] andProd: myDb];
+    business.businessID = [NSNumber numberWithInt: [splitContent[1] intValue]];
+    business = [businessDb getBusinessByID: business andProd: myDb];
     
     machine.machineID = [NSNumber numberWithInteger:[splitContent[3] integerValue]];
     machine = [machineDb getMachineByID:machine andConnection:myDb];
+    
+    if (business != nil && machine != nil) {
+        exists = YES;
+    }
+    return exists;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"inventory"]){
+        TakeInventoryTableViewController *vc = (TakeInventoryTableViewController *)segue.destinationViewController;
+        vc.machine = machine;
+        vc.business = business;
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+
+
+
+
+
+
+
+
 
 @end

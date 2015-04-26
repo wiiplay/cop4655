@@ -15,7 +15,7 @@
 @property (strong, nonatomic) Business *business;
 
 - (BusinessDb *) getBusinessByName: (NSString *) name andDb: (SqlDB *) connection;
-- (BusinessDb *) getBusinessByID: (int) businessId andProd: (SqlDB *) connection;
+- (Business *) getBusinessByID: (Business *) passed andProd: (SqlDB *) connection;
 - (NSMutableDictionary *) getBusinessList: (SqlDB *) connection;
 - (BOOL) insertBusiness: (Business *) business andProd: (SqlDB *) connection;
 - (BOOL) deleteBusiness: (Business *) business andProd: (SqlDB *) connection;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VendingContentDb.h"
+#import "InventoryDb.h"
 #import "ProductDb.h"
 
 @interface TakeInventoryTableViewController : UITableViewController
@@ -18,6 +19,8 @@
 @property (strong, nonatomic) ProductDb *productDb;
 @property (strong, nonatomic) Machines *machine;
 @property (strong, nonatomic) MachinesDb *machineDb;
+@property (strong, nonatomic) Inventory *inventory;
+@property (strong, nonatomic) InventoryDb *inventoryDb;
 @property (strong, nonatomic) VendingContent *content;
 @property (strong, nonatomic) VendingContentDb *contentDb;
 @property (strong, nonatomic) NSMutableDictionary *contentList;

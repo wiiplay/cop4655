@@ -10,6 +10,7 @@
 #import "ZBarSDK.h"
 #import "BusinessDb.h"
 #import "MachinesDb.h"
+#import "TakeInventoryTableViewController.h"
 
 @interface ScanViewController : UIViewController <UIImagePickerControllerDelegate,ZBarReaderDelegate>
 

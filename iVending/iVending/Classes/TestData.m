@@ -22,10 +22,10 @@
     productDb = [[ProductDb alloc] init];
     content = [[VendingContent alloc] init];
     contentDb = [[VendingContentDb alloc]init];
+    userDb = [[UserDb alloc] init];
     
     NSMutableDictionary *list = [productDb getProductList: myDB];
     if ( list.count == 0) {
-     
     
         //generate a list of products
         listOfProducts = [[NSMutableArray alloc] init];
@@ -239,6 +239,10 @@
             [contentDb insertContent:contentList8[i] andConnection:myDB];
         }
         
+        //import a user
+        user = [[User alloc] initWithUser:@"admin" andPassword:@"Password"];
+        [userDb insertUser:user andConnection:myDB];
+        
     }
     /*
     NSMutableDictionary *listofbusinesses = [businessDb getBusinessList:myDB];
@@ -253,7 +257,10 @@
     NSMutableDictionary *listofMachines2 = [machineDb getMachineList: temp  andConnection:myDB];
     NSMutableDictionary *listOfVendingItems1 = [contentDb getContentListForLocation:business andConnection:myDB];
     NSMutableDictionary *listOfVendingItems2 = [contentDb getContentListForLocation:temp andConnection:myDB];
-   */ 
+   */
+    user = [[User alloc] init];
+    user.userName = @"admin";
+    user = [userDb getUser: user andConnection:myDB];
 }
 
 @end

@@ -30,7 +30,6 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="2yh-nA-31Q" eventType="touchUpInside" id="y01-No-57q"/>
-                                    <segue destination="dOL-2B-uL4" kind="push" id="NV2-34-r8u"/>
                                 </connections>
                             </button>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoe-Kf-x0s">
@@ -56,12 +55,17 @@
                                 <rect key="frame" x="381" y="413" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="gYm-9t-CSU"/>
+                    <connections>
+                        <outlet property="passwordText" destination="QxW-r5-a0F" id="3Ca-7h-zhO"/>
+                        <outlet property="userNameText" destination="dwf-fs-lod" id="eU9-9E-gYI"/>
+                        <segue destination="dOL-2B-uL4" kind="push" identifier="toMenu" id="lSQ-qu-uI7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peq-8t-cra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,7 +88,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c5z-oP-x6E"/>
-                                    <barButtonItem image="qr-simple-scnner.png" id="jyV-ef-xHf"/>
+                                    <barButtonItem image="qr-simple-scnner.png" id="jyV-ef-xHf">
+                                        <connections>
+                                            <segue destination="ia2-hj-5yx" kind="push" identifier="scanQr" id="kC8-KQ-Ozr"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="F5M-Qh-u4K"/>
                                     <barButtonItem image="Folder_3.png" id="uF1-KV-Xfl">
                                         <connections>
@@ -101,7 +109,6 @@
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
                         <outlet property="mainToolBar" destination="91c-0K-faw" id="OjL-w5-bEq"/>
-                        <segue destination="ia2-hj-5yx" kind="push" identifier="scanBarcode" id="eMr-M7-LML"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKb-QE-2QX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -983,6 +990,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8sS-oh-XB6"/>
+        <segue reference="Hoh-MV-Dbd"/>
     </inferredMetricsTieBreakers>
 </document>

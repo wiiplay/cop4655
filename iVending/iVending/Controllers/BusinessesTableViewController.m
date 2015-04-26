@@ -30,8 +30,6 @@
     [super viewWillAppear:animated];
         
     myDB = [SqlDB getSqlDB];
-    getTestData = [[TestData alloc] init];
-    [getTestData populateData];
     businessDb = [[BusinessDb alloc] init];
     businessList = [businessDb getBusinessList: myDB];
     keys = [businessList allKeys];

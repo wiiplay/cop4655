@@ -48,7 +48,7 @@
     return business;
 }
 
-- (Business *) getBusinessByID: (int) businessId andProd: (SqlDB *) connection
+- (Business *) getBusinessByID: (Business *) passed andProd: (SqlDB *) connection
 {
     sqlite3_stmt * statement;
     const char *dbpath = [connection.databasePath UTF8String];
@@ -57,7 +57,7 @@
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM businesses WHERE businessID = %d", businessId];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM businesses WHERE businessID = %d", [passed.businessID intValue]];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {

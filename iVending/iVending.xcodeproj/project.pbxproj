@@ -42,6 +42,10 @@
 		068DF2B11AEC322300A6926E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068DF2B01AEC322300A6926E /* QuartzCore.framework */; };
 		068DF2B31AEC322F00A6926E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 068DF2B21AEC322F00A6926E /* libiconv.dylib */; };
 		068DF2B51AEC3B2A00A6926E /* Folder_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 068DF2B41AEC3B2A00A6926E /* Folder_3.png */; };
+		06BCCDBA1AED26720031676C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDB91AED26720031676C /* User.m */; };
+		06BCCDBD1AED26830031676C /* UserDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDBC1AED26830031676C /* UserDb.m */; };
+		06BCCDC11AED26A00031676C /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDC01AED26A00031676C /* Inventory.m */; };
+		06BCCDC41AED26B20031676C /* InventoryDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDC31AED26B20031676C /* InventoryDb.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
 		1AB231FA1ADDC06C0045D319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */; };
 		1AB231FC1ADDC06C0045D319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231FB1ADDC06C0045D319 /* UIKit.framework */; };
@@ -148,6 +152,14 @@
 		068DF2B01AEC322300A6926E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		068DF2B21AEC322F00A6926E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		068DF2B41AEC3B2A00A6926E /* Folder_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Folder_3.png; path = ../../../Folder_3.png; sourceTree = "<group>"; };
+		06BCCDB81AED26720031676C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		06BCCDB91AED26720031676C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		06BCCDBB1AED26830031676C /* UserDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDb.h; sourceTree = "<group>"; };
+		06BCCDBC1AED26830031676C /* UserDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDb.m; sourceTree = "<group>"; };
+		06BCCDBF1AED26A00031676C /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
+		06BCCDC01AED26A00031676C /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
+		06BCCDC21AED26B20031676C /* InventoryDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryDb.h; sourceTree = "<group>"; };
+		06BCCDC31AED26B20031676C /* InventoryDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryDb.m; sourceTree = "<group>"; };
 		1AB231F41ADDC06C0045D319 /* iVending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB231F71ADDC06C0045D319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -257,6 +269,14 @@
 				062DA9731AE6F3D70003CED9 /* VendingContent.m */,
 				062DA9741AE6F3D70003CED9 /* VendingContentDb.h */,
 				062DA9751AE6F3D70003CED9 /* VendingContentDb.m */,
+				06BCCDB81AED26720031676C /* User.h */,
+				06BCCDB91AED26720031676C /* User.m */,
+				06BCCDBB1AED26830031676C /* UserDb.h */,
+				06BCCDBC1AED26830031676C /* UserDb.m */,
+				06BCCDBF1AED26A00031676C /* Inventory.h */,
+				06BCCDC01AED26A00031676C /* Inventory.m */,
+				06BCCDC21AED26B20031676C /* InventoryDb.h */,
+				06BCCDC31AED26B20031676C /* InventoryDb.m */,
 				062DA9701AE6F3D70003CED9 /* TestData.h */,
 				062DA9711AE6F3D70003CED9 /* TestData.m */,
 			);
@@ -522,15 +542,19 @@
 			files = (
 				062DA95D1AE6F3830003CED9 /* MainNavigationViewController.m in Sources */,
 				062DA9581AE6F3830003CED9 /* EditContentViewController.m in Sources */,
+				06BCCDBA1AED26720031676C /* User.m in Sources */,
 				1AB232081ADDC06C0045D319 /* AppDelegate.m in Sources */,
+				06BCCDC41AED26B20031676C /* InventoryDb.m in Sources */,
 				062DA97B1AE6F3D70003CED9 /* Product.m in Sources */,
 				062DA9761AE6F3D70003CED9 /* Business.m in Sources */,
 				1AB232041ADDC06C0045D319 /* main.m in Sources */,
 				062DA9801AE6F3D70003CED9 /* VendingContentDb.m in Sources */,
+				06BCCDBD1AED26830031676C /* UserDb.m in Sources */,
 				062DA9551AE6F3830003CED9 /* AddMachinesViewController.m in Sources */,
 				062DA9831AE74DD90003CED9 /* LoginViewController.m in Sources */,
 				062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */,
 				062DA95C1AE6F3830003CED9 /* MainMenuViewController.m in Sources */,
+				06BCCDC11AED26A00031676C /* Inventory.m in Sources */,
 				062DA9591AE6F3830003CED9 /* EditMachinesViewController.m in Sources */,
 				1AD5981C1AEAB32C0092BE88 /* AddContentViewController.m in Sources */,
 				062DA97C1AE6F3D70003CED9 /* ProductDb.m in Sources */,

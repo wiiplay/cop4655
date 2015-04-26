@@ -99,7 +99,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        const char *sql_stmt = "CREATE TABLE users (userID INTEGER PRIMARY KEY NOT NULL, username TEXT UNIQUE ON CONFLICT ROLLBACK, password TEXT NOT NULL)";
+        const char *sql_stmt = "CREATE TABLE users (userID INTEGER PRIMARY KEY NOT NULL, userName TEXT UNIQUE ON CONFLICT ROLLBACK, password TEXT NOT NULL)";
         
         if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             passed = NO;
@@ -110,15 +110,13 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        const char *sql_stmt = "CREATE TABLE inventory ( inventoryID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, business_ID INTEGER REFERENCES businesses (ID) NOT NULL, machine_ID INTEGER REFERENCES machines (machineID) NOT NULL, inventoryDate DATE NOT NULL, product_ID INTEGER REFERENCES products (ID) NOT NULL, itemRow INTEGER NOT NULL, itemColumn INTEGER NOT NULL, quantity INTEGER NOT NULL)";
+        const char *sql_stmt = "CREATE TABLE inventory ( inventoryID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, userID INTEGER REFERENCES users (ID) NOT NULL, business_ID INTEGER REFERENCES businesses (ID) NOT NULL, machine_ID INTEGER REFERENCES machines (machineID) NOT NULL, inventoryDate DATE NOT NULL, product_ID INTEGER REFERENCES products (ID) NOT NULL, itemRow INTEGER NOT NULL, itemColumn INTEGER NOT NULL, quantity INTEGER NOT NULL)";
         
         if (sqlite3_exec(vendingDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             passed = NO;
         }
         sqlite3_close(vendingDB);
     }
-    
-    //CREATE TABLE inventory ( inventoryID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, business_ID INTEGER REFERENCES businesses (ID) NOT NULL, machine_ID INTEGER REFERENCES machines (machineID) NOT NULL, inventoryDate DATE NOT NULL, product_ID INTEGER REFERENCES products (ID) NOT NULL, itemRow INTEGER NOT NULL, itemColumn INTEGER NOT NULL, quantity INTEGER NOT NULL)
 
     return passed;
 }
