@@ -21,7 +21,7 @@
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE ID = %d", [passed.machineID intValue] ];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM machines WHERE machineID = %d", [passed.machineID intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {

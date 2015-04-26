@@ -25,8 +25,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    myDb = [SqlDB getSqlDB];
+    machine = [[Machines alloc] init];
     businessDb = [[BusinessDb alloc]init];
     machineDb = [[MachinesDb alloc]init];
+    
+    ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
+    codeReader.readerDelegate=self;
+    codeReader.supportedOrientationsMask = ZBarOrientationMaskAll;
+    
+    ZBarImageScanner *scanner = codeReader.scanner;
+    [scanner setSymbology: ZBAR_I25 config: ZBAR_CFG_ENABLE to: 0];
+    
+    [self presentViewController:codeReader animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,9 +56,6 @@
 
 
 - (IBAction)scanBarcode:(id)sender {
-    
-    NSLog(@"Scanning..");
-    resultTextView.text = @"Scanning..";
     
     ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
     codeReader.readerDelegate=self;
@@ -82,6 +90,8 @@
     
     resultImageView.image = [info objectForKey: UIImagePickerControllerOriginalImage];
     
+    [self processSymbolData: symbol];
+    
     // dismiss the controller
     [reader dismissViewControllerAnimated:YES completion:nil];
 }
@@ -93,8 +103,10 @@
 {
     NSString *content = result.data;
     NSArray *splitContent = [content componentsSeparatedByString:@";"];
-    int businessId = splitContent[1];
-    business = [businessDb getBusinessByID:  andProd: myDb];
+    business = (Business *)[businessDb getBusinessByID: [splitContent[1] integerValue] andProd: myDb];
+    
+    machine.machineID = [NSNumber numberWithInteger:[splitContent[3] integerValue]];
+    machine = [machineDb getMachineByID:machine andConnection:myDb];
 }
 
 @end

@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) Machines *vendingMachine;
 
-- (Machines *) getMachineByID: (NSNumber *) machineId andConnection: (SqlDB *) connection;
+- (Machines *) getMachineByID: (Machines *) machine andConnection: (SqlDB *) connection;
 - (NSMutableDictionary *) getMachineList: (Business *) business andConnection: (SqlDB *) connection;
 - (BOOL) insertMachine: (Machines *) machine andConnection: (SqlDB *) connection;
 - (BOOL) deleteMachine: (Machines *) machine andConnection: (SqlDB *) connection;

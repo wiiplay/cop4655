@@ -84,11 +84,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c5z-oP-x6E"/>
-                                    <barButtonItem image="qr-simple-scnner.png" id="jyV-ef-xHf">
-                                        <connections>
-                                            <segue destination="ia2-hj-5yx" kind="push" id="MTZ-Ta-e4T"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem image="qr-simple-scnner.png" id="jyV-ef-xHf"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="F5M-Qh-u4K"/>
                                     <barButtonItem image="Folder_3.png" id="uF1-KV-Xfl">
                                         <connections>
@@ -105,6 +101,7 @@
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
                         <outlet property="mainToolBar" destination="91c-0K-faw" id="OjL-w5-bEq"/>
+                        <segue destination="ia2-hj-5yx" kind="push" id="eMr-M7-LML"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKb-QE-2QX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,11 +149,12 @@
                     <connections>
                         <outlet property="resultImageView" destination="ozc-Sn-ilw" id="lRE-Z0-lnv"/>
                         <outlet property="resultTextView" destination="Fu0-Zd-mvp" id="0lc-d6-YgT"/>
+                        <segue destination="r6M-i7-pQj" kind="push" identifier="inventory" id="Hoh-MV-Dbd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEz-am-x43" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6711" y="-1037"/>
+            <point key="canvasLocation" x="3703" y="-1233"/>
         </scene>
         <!--Businesses Table View Controller - Businesses-->
         <scene sceneID="6DB-OY-8MS">
@@ -301,6 +299,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDv-ju-US9">
+                                <rect key="frame" x="600" y="503" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -461,6 +467,8 @@
                                         <action selector="backButton:" destination="gTH-rC-IYf" id="Vpr-wQ-QM3"/>
                                     </connections>
                                 </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="sRc-Au-Dv9"/>
+                                <barButtonItem title="Take Inventory" id="soW-q6-krA"/>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="V3D-8s-vNK"/>
                                 <barButtonItem systemItem="add" id="MZc-QK-hAr">
                                     <connections>
@@ -491,6 +499,7 @@
                     <navigationItem key="navigationItem" title="Machines" id="48P-YK-FB6"/>
                     <connections>
                         <segue destination="srE-Mp-4jg" kind="push" identifier="editMachine" id="jRX-L7-ncL"/>
+                        <segue destination="r6M-i7-pQj" kind="push" identifier="inventory" id="E47-Pj-hys"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8x-D0-eBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -562,6 +571,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-xd-G1z">
+                                <rect key="frame" x="615" y="412" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -582,6 +599,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0h-GU-U3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6711" y="1621"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="nlI-rr-KTt">
+            <objects>
+                <tableViewController id="r6M-i7-pQj" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r2r-7e-IVk">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="inventoryCell" id="7Xj-48-PaH">
+                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Xj-48-PaH" id="7Zl-UP-0Xd">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="r6M-i7-pQj" id="Rrd-An-8tN"/>
+                            <outlet property="delegate" destination="r6M-i7-pQj" id="sGO-7T-DGx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="6a9-Rz-3Oe"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYQ-9I-3F1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6711" y="-1233"/>
         </scene>
         <!--Add Machines View Controller - Add Machine-->
         <scene sceneID="Mfe-WU-K93">
@@ -790,6 +836,14 @@
                                     <outlet property="delegate" destination="K9b-pc-Xiy" id="I1V-Mc-Aii"/>
                                 </connections>
                             </pickerView>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovs-ow-NgH">
+                                <rect key="frame" x="658" y="571" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -928,4 +982,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="E47-Pj-hys"/>
+    </inferredMetricsTieBreakers>
 </document>

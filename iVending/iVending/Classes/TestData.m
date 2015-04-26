@@ -253,7 +253,7 @@
     NSMutableDictionary *listofMachines2 = [machineDb getMachineList: temp  andConnection:myDB];
     NSMutableDictionary *listOfVendingItems1 = [contentDb getContentListForLocation:business andConnection:myDB];
     NSMutableDictionary *listOfVendingItems2 = [contentDb getContentListForLocation:temp andConnection:myDB];
-    */
+   */ 
 }
 
 @end
