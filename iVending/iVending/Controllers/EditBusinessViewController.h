@@ -20,8 +20,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *address2;
 @property (strong, nonatomic) IBOutlet UITextField *city;
 @property (strong, nonatomic) IBOutlet UITextField *state;
+@property (strong, nonatomic) IBOutlet UITextField *businessId;
 @property (strong, nonatomic) IBOutlet UITextField *zip;
 - (IBAction)editButton:(id)sender;
+- (IBAction)deleteBusiness:(id)sender;
 
 
 @end

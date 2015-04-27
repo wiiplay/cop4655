@@ -12,6 +12,16 @@
 
 @synthesize businessName, businessID, address, address2, city, state, zip;
 
++(Business *) getBusiness{
+    static Business *myBusiness;
+    
+    if (myBusiness == nil) {
+        myBusiness = [[Business alloc] init];
+    }
+    
+    return myBusiness;
+}
+
 - (instancetype) initWithName: (NSString *) nameBusiness andAddress: (NSString *) addressBusiness andAddress2: (NSString *) address2Business andCity: (NSString *) cityBusiness andStat: (NSString *) stateBusines andZip: (NSNumber *) zipBusiness
 {
     self = [super init];

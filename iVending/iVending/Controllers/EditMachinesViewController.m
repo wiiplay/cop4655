@@ -10,16 +10,7 @@
 
 @implementation EditMachinesViewController
 
-@synthesize myDb, business, machine, machineDb, assignedBusiness, description, rows, columns;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize myDb, business, machine, machineDb, assignedBusiness, description, rows, columns, machineId, performInventory;
 
 - (void)viewDidLoad
 {
@@ -28,6 +19,9 @@
     myDb = [SqlDB getSqlDB];
     machineDb = [[MachinesDb alloc] init];
     [self loadEditBusiness];
+    performInventory.layer.borderWidth = 1;
+    performInventory.layer.cornerRadius = 8;
+    performInventory.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -48,6 +42,7 @@
     description.text = machine.description;
     rows.text = [NSString stringWithFormat: @"%@", machine.numOfRows ];
     columns.text = [NSString stringWithFormat: @"%@", machine.numOfColumns ];
+    machineId.text = [NSString stringWithFormat: @"%@", machine.machineID ];
 }
 
 - (IBAction)editButton:(id)sender {
@@ -64,13 +59,17 @@
         description.enabled = NO;
         rows.enabled = NO;
         columns.enabled = NO;
-        NSNumber *machineId = machine.machineID;
+        NSNumber *machineid = machine.machineID;
         machine = nil;
         machine = [[Machines alloc] initWithDescription: description.text andFKBusinessID:business.businessID andRows: [NSNumber numberWithInteger:[rows.text integerValue] ] andColumns: [NSNumber numberWithInteger:[columns.text integerValue] ] ];
-        machine.machineID = machineId;
+        machine.machineID = machineid;
         [machineDb updateMachine:machine andConnection:myDb];
         [self loadEditBusiness];
     }
+}
+
+- (IBAction)deleteMachine:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,15 +78,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"inventory"]){
+        Machines *pass = [Machines getMachine];
+        pass.machineID = machine.machineID;
+        pass.fk_BusinessID = machine.fk_BusinessID;
+    }
 }
-*/
 
 @end

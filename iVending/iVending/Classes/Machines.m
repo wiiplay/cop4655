@@ -12,6 +12,16 @@
 
 @synthesize machineID, fk_BusinessID, description, numOfColumns, numOfRows;
 
++(Machines *) getMachine{
+    static Machines *myMachine;
+    
+    if (myMachine == nil) {
+        myMachine = [[Machines alloc] init];
+    }
+    
+    return myMachine;
+}
+
 - (instancetype) initWithDescription: (NSString *) descriptionMachine andFKBusinessID: (NSNumber *) businessID andRows: (NSNumber *) numberofRows andColumns: (NSNumber *) numberofColumns
 {
     self = [super init];

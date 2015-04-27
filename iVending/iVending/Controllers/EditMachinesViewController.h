@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "machinesDb.h"
+#import "TakeInventoryTableViewController.h"
 
 @interface EditMachinesViewController : UIViewController
 
@@ -20,7 +21,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *description;
 @property (strong, nonatomic) IBOutlet UITextField *rows;
 @property (strong, nonatomic) IBOutlet UITextField *columns;
+@property (strong, nonatomic) IBOutlet UITextField *machineId;
+@property (strong, nonatomic) IBOutlet UIButton *performInventory;
 
 - (IBAction)editButton:(id)sender;
+- (IBAction)deleteMachine:(id)sender;
 
 @end

@@ -30,7 +30,6 @@
 		062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9731AE6F3D70003CED9 /* VendingContent.m */; };
 		062DA9801AE6F3D70003CED9 /* VendingContentDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9751AE6F3D70003CED9 /* VendingContentDb.m */; };
 		062DA9831AE74DD90003CED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9821AE74DD90003CED9 /* LoginViewController.m */; };
-		0679CBF51AEC79DE0039F3FC /* TakeInventoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0679CBF41AEC79DE0039F3FC /* TakeInventoryTableViewController.m */; };
 		068DF2A51AEC31B800A6926E /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 068DF29F1AEC31B800A6926E /* libzbar.a */; };
 		068DF2A61AEC31B800A6926E /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 068DF2A11AEC31B800A6926E /* zbar-back.png */; };
 		068DF2A71AEC31B800A6926E /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 068DF2A21AEC31B800A6926E /* zbar-help.html */; };
@@ -46,6 +45,7 @@
 		06BCCDBD1AED26830031676C /* UserDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDBC1AED26830031676C /* UserDb.m */; };
 		06BCCDC11AED26A00031676C /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDC01AED26A00031676C /* Inventory.m */; };
 		06BCCDC41AED26B20031676C /* InventoryDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDC31AED26B20031676C /* InventoryDb.m */; };
+		06BCCDC71AED75D50031676C /* TakeInventoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BCCDC61AED75D50031676C /* TakeInventoryTableViewController.m */; };
 		1AB231F81ADDC06C0045D319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F71ADDC06C0045D319 /* Foundation.framework */; };
 		1AB231FA1ADDC06C0045D319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */; };
 		1AB231FC1ADDC06C0045D319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB231FB1ADDC06C0045D319 /* UIKit.framework */; };
@@ -119,8 +119,6 @@
 		062DA9751AE6F3D70003CED9 /* VendingContentDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentDb.m; sourceTree = "<group>"; };
 		062DA9811AE74DD90003CED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		062DA9821AE74DD90003CED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		0679CBF31AEC79DE0039F3FC /* TakeInventoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeInventoryTableViewController.h; sourceTree = "<group>"; };
-		0679CBF41AEC79DE0039F3FC /* TakeInventoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeInventoryTableViewController.m; sourceTree = "<group>"; };
 		068DF28B1AEC31B800A6926E /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		068DF28C1AEC31B800A6926E /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		068DF28D1AEC31B800A6926E /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -160,6 +158,8 @@
 		06BCCDC01AED26A00031676C /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
 		06BCCDC21AED26B20031676C /* InventoryDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryDb.h; sourceTree = "<group>"; };
 		06BCCDC31AED26B20031676C /* InventoryDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryDb.m; sourceTree = "<group>"; };
+		06BCCDC51AED75D50031676C /* TakeInventoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeInventoryTableViewController.h; sourceTree = "<group>"; };
+		06BCCDC61AED75D50031676C /* TakeInventoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeInventoryTableViewController.m; sourceTree = "<group>"; };
 		1AB231F41ADDC06C0045D319 /* iVending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB231F71ADDC06C0045D319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AB231F91ADDC06C0045D319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -242,8 +242,8 @@
 				062DA9511AE6F3830003CED9 /* ScanViewController.m */,
 				062DA9811AE74DD90003CED9 /* LoginViewController.h */,
 				062DA9821AE74DD90003CED9 /* LoginViewController.m */,
-				0679CBF31AEC79DE0039F3FC /* TakeInventoryTableViewController.h */,
-				0679CBF41AEC79DE0039F3FC /* TakeInventoryTableViewController.m */,
+				06BCCDC51AED75D50031676C /* TakeInventoryTableViewController.h */,
+				06BCCDC61AED75D50031676C /* TakeInventoryTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -553,6 +553,7 @@
 				062DA9551AE6F3830003CED9 /* AddMachinesViewController.m in Sources */,
 				062DA9831AE74DD90003CED9 /* LoginViewController.m in Sources */,
 				062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */,
+				06BCCDC71AED75D50031676C /* TakeInventoryTableViewController.m in Sources */,
 				062DA95C1AE6F3830003CED9 /* MainMenuViewController.m in Sources */,
 				06BCCDC11AED26A00031676C /* Inventory.m in Sources */,
 				062DA9591AE6F3830003CED9 /* EditMachinesViewController.m in Sources */,
@@ -563,7 +564,6 @@
 				062DA97D1AE6F3D70003CED9 /* SqlDB.m in Sources */,
 				062DA97E1AE6F3D70003CED9 /* TestData.m in Sources */,
 				062DA95F1AE6F3830003CED9 /* VendingContentTableViewController.m in Sources */,
-				0679CBF51AEC79DE0039F3FC /* TakeInventoryTableViewController.m in Sources */,
 				062DA9571AE6F3830003CED9 /* EditBusinessViewController.m in Sources */,
 				062DA9771AE6F3D70003CED9 /* BusinessDb.m in Sources */,
 				062DA9791AE6F3D70003CED9 /* Machines.m in Sources */,

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface MainMenuViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIToolbar *mainToolBar;
+
+- (IBAction)scanQr:(id)sender;
+- (IBAction)searchEdit:(id)sender;
 
 @end

@@ -10,40 +10,28 @@
 
 @implementation ScanViewController
 
-@synthesize resultImageView, resultTextView, imgPicker, business, businessDb, machine, machineDb, myDb;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize resultImageView, resultTextView, imgPicker, business, businessDb, machine, machineDb, myDb, takeInventory;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     myDb = [SqlDB getSqlDB];
-    machine = [[Machines alloc] init];
+    machine = [Machines getMachine];
     business = [[Business alloc] init];
     businessDb = [[BusinessDb alloc]init];
     machineDb = [[MachinesDb alloc]init];
-    
-    ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
-    codeReader.readerDelegate=self;
-    codeReader.supportedOrientationsMask = ZBarOrientationMaskAll;
-    
-    ZBarImageScanner *scanner = codeReader.scanner;
-    [scanner setSymbology: ZBAR_I25 config: ZBAR_CFG_ENABLE to: 0];
-    
-    [self presentViewController:codeReader animated:YES completion:nil];
+    [self scanBarcode:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  
+    myDb = [SqlDB getSqlDB];
+    machine = [Machines getMachine];
+    business = [[Business alloc] init];
+    businessDb = [[BusinessDb alloc]init];
+    machineDb = [[MachinesDb alloc]init];
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated {
     resultTextView.text = @"Content";
@@ -69,6 +57,10 @@
     
 }
 
+- (IBAction)takeInventory:(id)sender {
+    [self performSegueWithIdentifier:@"inventory" sender:self];
+}
+
 - (void) readerControllerDidFailToRead: (ZBarReaderController*) reader
                              withRetry: (BOOL) retry{
     NSLog(@"the image picker failing to read");
@@ -91,14 +83,14 @@
     
     resultImageView.image = [info objectForKey: UIImagePickerControllerOriginalImage];
     
-    [self processSymbolData: symbol];
     
     if ( [self processSymbolData: symbol] ) {
-        [self performSegueWithIdentifier:@"inventory" sender:self];
+        [takeInventory setHidden: NO];
     }
     
     // dismiss the controller
     [reader dismissViewControllerAnimated:YES completion:nil];
+    
 }
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -112,27 +104,25 @@
     business.businessID = [NSNumber numberWithInt: [splitContent[1] intValue]];
     business = [businessDb getBusinessByID: business andProd: myDb];
     
-    machine.machineID = [NSNumber numberWithInteger:[splitContent[3] integerValue]];
-    machine = [machineDb getMachineByID:machine andConnection:myDb];
+    Machines *current = [[Machines alloc] init];
+    current.machineID = [NSNumber numberWithInteger:[splitContent[3] integerValue]];
+    current = [machineDb getMachineByID:current andConnection:myDb];
     
     if (business != nil && machine != nil) {
+        machine.machineID = current.machineID;
+        machine.fk_BusinessID = current.fk_BusinessID;
         exists = YES;
     }
     return exists;
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"inventory"]){
-        TakeInventoryTableViewController *vc = (TakeInventoryTableViewController *)segue.destinationViewController;
-        vc.machine = machine;
-        vc.business = business;
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        //[self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
-
-
 
 
 

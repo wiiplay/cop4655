@@ -22,6 +22,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *resultTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *resultImageView;
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
+@property (strong, nonatomic) IBOutlet UIButton *takeInventory;
 - (IBAction)scanBarcode:(id)sender;
+- (IBAction)takeInventory:(id)sender;
 
 @end

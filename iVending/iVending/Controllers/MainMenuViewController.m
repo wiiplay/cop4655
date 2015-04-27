@@ -28,10 +28,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated: animated];
-    [super viewWillAppear:animated];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    [mainToolBar setFrame: CGRectMake(0, 0, screenRect.size.width, (screenRect.size.height * .30) )];
+    [self.navigationController setNavigationBarHidden:YES animated: YES];
+    [super viewWillAppear:YES];
+    //CGRect screenRect = [[UIScreen mainScreen] bounds];
+    //[mainToolBar setFrame: CGRectMake(0, 0, screenRect.size.width, (screenRect.size.height * .30) )];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -45,15 +45,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+- (IBAction)scanQr:(id)sender {
+    [self performSegueWithIdentifier:@"scan" sender:self];
+}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (IBAction)searchEdit:(id)sender {
+    [self performSegueWithIdentifier:@"businesses" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"scan"]){
+        //[self.navigationController popViewControllerAnimated:YES];
+    }
+    if([segue.identifier isEqualToString:@"businesses"]){
+        //[self.navigationController popViewControllerAnimated:YES];
+    }
+
 }
-*/
+
+
+
+
+
+
 
 @end

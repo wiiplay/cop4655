@@ -165,7 +165,7 @@
     }
     
     if([segue.identifier isEqualToString:@"addContent"]){
-        AddContentViewController *vc = (AddContentViewController*)segue.destinationViewController;
+        AddContentViewController *vc = (AddContentViewController*)[segue destinationViewController];
         vc.machine = machine;
         vc.content = content;
     }

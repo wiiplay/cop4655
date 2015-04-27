@@ -10,7 +10,7 @@
 
 @implementation EditBusinessViewController
 
-@synthesize myDb, business, businessDb, businessName, address, address2, city, state, zip;
+@synthesize myDb, business, businessDb, businessName, address, address2, city, state, zip,businessId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,6 +53,7 @@
     city.text = business.city;
     state.text = business.state;
     zip.text = [NSString stringWithFormat:@"%@",  business.zip];
+    businessId.text = [NSString stringWithFormat:@"%@",  business.businessID];
 }
 
 /*
@@ -86,13 +87,16 @@
         city.enabled = NO;
         state.enabled = NO;
         zip.enabled = NO;
-        NSNumber *businessId = business.businessID;
+        NSNumber *businessid = business.businessID;
         business = nil;
         business = [[Business alloc] initWithName:businessName.text andAddress:address.text andAddress2:address2.text andCity:city.text andStat:state.text andZip: [NSNumber numberWithInteger:[zip.text integerValue]] ];
-        business.businessID = businessId;
+        business.businessID = businessid;
         [businessDb updateBusiness: business andProd: myDb ];
         [self loadEditBusiness];
     }
+}
+
+- (IBAction)deleteBusiness:(id)sender {
 }
 
 

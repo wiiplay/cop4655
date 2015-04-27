@@ -64,7 +64,7 @@
                     <connections>
                         <outlet property="passwordText" destination="QxW-r5-a0F" id="3Ca-7h-zhO"/>
                         <outlet property="userNameText" destination="dwf-fs-lod" id="eU9-9E-gYI"/>
-                        <segue destination="dOL-2B-uL4" kind="push" identifier="toMenu" id="lSQ-qu-uI7"/>
+                        <segue destination="dOL-2B-uL4" kind="push" identifier="toMenu" id="TXe-W0-bfg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peq-8t-cra" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,13 +90,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c5z-oP-x6E"/>
                                     <barButtonItem image="qr-simple-scnner.png" id="jyV-ef-xHf">
                                         <connections>
-                                            <segue destination="ia2-hj-5yx" kind="push" identifier="scanQr" id="kC8-KQ-Ozr"/>
+                                            <segue destination="ia2-hj-5yx" kind="push" id="EfF-RN-8QF"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="F5M-Qh-u4K"/>
                                     <barButtonItem image="Folder_3.png" id="uF1-KV-Xfl">
                                         <connections>
-                                            <segue destination="IVn-2i-sLg" kind="push" identifier="businesses" id="Lb5-uF-A0N"/>
+                                            <segue destination="IVn-2i-sLg" kind="push" id="2dc-pi-TyW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QQs-Yb-RF9"/>
@@ -149,6 +149,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgm-ip-zQG">
+                                <rect key="frame" x="324" y="531" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Inventory">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takeInventory:" destination="ia2-hj-5yx" eventType="touchUpInside" id="GkW-qP-OXf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -156,7 +166,8 @@
                     <connections>
                         <outlet property="resultImageView" destination="ozc-Sn-ilw" id="lRE-Z0-lnv"/>
                         <outlet property="resultTextView" destination="Fu0-Zd-mvp" id="0lc-d6-YgT"/>
-                        <segue destination="r6M-i7-pQj" kind="push" identifier="inventory" id="Hoh-MV-Dbd"/>
+                        <outlet property="takeInventory" destination="Vgm-ip-zQG" id="YKg-wP-4TW"/>
+                        <segue destination="r6M-i7-pQj" kind="push" identifier="inventory" id="Fdn-0r-GF5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEz-am-x43" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,6 +317,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-ND-t5Y">
+                                <rect key="frame" x="209" y="165" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29i-dd-hfl">
+                                <rect key="frame" x="63" y="169" width="138" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDv-ju-US9">
                                 <rect key="frame" x="600" y="503" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -313,6 +337,9 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteBusiness:" destination="1ed-oG-kxB" eventType="touchUpInside" id="cec-hY-k6k"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -327,6 +354,7 @@
                     <connections>
                         <outlet property="address" destination="xch-Uz-zYU" id="ngq-W6-G4b"/>
                         <outlet property="address2" destination="O1u-L9-T5S" id="Tb1-QY-qZA"/>
+                        <outlet property="businessId" destination="nfO-ND-t5Y" id="IzP-UG-AFR"/>
                         <outlet property="businessName" destination="Cki-Gz-cPt" id="7bu-XN-Spe"/>
                         <outlet property="city" destination="pu4-LD-8UZ" id="DH2-rh-C9w"/>
                         <outlet property="state" destination="69F-OP-dfa" id="L6E-Vb-sgV"/>
@@ -475,7 +503,9 @@
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="sRc-Au-Dv9"/>
-                                <barButtonItem title="Take Inventory" id="soW-q6-krA"/>
+                                <barButtonItem title="Machine List" id="RIn-dI-2na">
+                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="V3D-8s-vNK"/>
                                 <barButtonItem systemItem="add" id="MZc-QK-hAr">
                                     <connections>
@@ -506,7 +536,6 @@
                     <navigationItem key="navigationItem" title="Machines" id="48P-YK-FB6"/>
                     <connections>
                         <segue destination="srE-Mp-4jg" kind="push" identifier="editMachine" id="jRX-L7-ncL"/>
-                        <segue destination="r6M-i7-pQj" kind="push" identifier="takeInventory" id="8sS-oh-XB6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8x-D0-eBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -552,6 +581,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qao-j5-X8h">
+                                <rect key="frame" x="61" y="165" width="222" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VR9-bc-WdI">
+                                <rect key="frame" x="329" y="161" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of rows:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCo-Nq-VXF">
                                 <rect key="frame" x="61" y="279" width="222" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -585,6 +627,19 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteMachine:" destination="srE-Mp-4jg" eventType="touchUpInside" id="iZl-Tq-ASZ"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6E-lE-5OO">
+                                <rect key="frame" x="316" y="103" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Perform Inventory">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="r6M-i7-pQj" kind="push" identifier="inventory" id="D6I-vZ-Fdz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -600,6 +655,8 @@
                         <outlet property="assignedBusiness" destination="Ddt-6p-BdX" id="0D9-de-cWr"/>
                         <outlet property="columns" destination="28E-4S-EKY" id="RV8-mb-I0X"/>
                         <outlet property="description" destination="M0v-hi-RXz" id="Z0m-y1-E64"/>
+                        <outlet property="machineId" destination="VR9-bc-WdI" id="tER-TJ-rNK"/>
+                        <outlet property="performInventory" destination="M6E-lE-5OO" id="txj-yz-BLk"/>
                         <outlet property="rows" destination="b17-fa-X4N" id="Bey-AH-uyU"/>
                     </connections>
                 </viewController>
@@ -607,16 +664,16 @@
             </objects>
             <point key="canvasLocation" x="6711" y="1621"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Take Inventory Table View Controller-->
         <scene sceneID="nlI-rr-KTt">
             <objects>
-                <tableViewController id="r6M-i7-pQj" sceneMemberID="viewController">
+                <tableViewController id="r6M-i7-pQj" customClass="TakeInventoryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r2r-7e-IVk">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="inventoryCell" id="7Xj-48-PaH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="inventoryCell" id="7Xj-48-PaH" customClass="inventory">
                                 <rect key="frame" x="0.0" y="86" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Xj-48-PaH" id="7Zl-UP-0Xd">
@@ -630,11 +687,20 @@
                             <outlet property="delegate" destination="r6M-i7-pQj" id="sGO-7T-DGx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6a9-Rz-3Oe"/>
+                    <navigationItem key="navigationItem" id="6a9-Rz-3Oe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AtN-Uv-ARO">
+                            <connections>
+                                <action selector="saveInventory:" destination="r6M-i7-pQj" id="viW-Z8-sZm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mainTableView" destination="r2r-7e-IVk" id="gf4-WA-AWw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYQ-9I-3F1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6711" y="-1233"/>
+            <point key="canvasLocation" x="7659" y="-1233"/>
         </scene>
         <!--Add Machines View Controller - Add Machine-->
         <scene sceneID="Mfe-WU-K93">
@@ -990,6 +1056,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Hoh-MV-Dbd"/>
+        <segue reference="D6I-vZ-Fdz"/>
     </inferredMetricsTieBreakers>
 </document>

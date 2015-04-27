@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSString  *state;
 @property (strong, nonatomic) NSNumber  *zip;
 
++(Business *) getBusiness;
+
 - (instancetype) initWithName: (NSString *) nameBusiness andAddress: (NSString *) addressBusiness andAddress2: (NSString *) address2Business andCity: (NSString *) cityBusiness andStat: (NSString *) stateBusines andZip: (NSNumber *) zipBusiness;
 
 @end

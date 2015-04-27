@@ -16,6 +16,8 @@
 @property (strong, nonatomic) NSNumber *numOfRows;
 @property (strong, nonatomic) NSNumber *numOfColumns;
 
++(Machines *) getMachine;
+
 - (instancetype) initWithDescription: (NSString *) descriptionMachine andFKBusinessID: (NSNumber *) businessID andRows: (NSNumber *) numberofRows andColumns: (NSNumber *) numberofColumns;
 
 @end
