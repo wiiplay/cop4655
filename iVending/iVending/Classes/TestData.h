@@ -1,10 +1,9 @@
-//
-//  TestData.h
-//  iVending
-//
-//  Created by Manny Pino on 4/20/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
 
 #import <Foundation/Foundation.h>
 #import "BusinessDb.h"
@@ -41,6 +40,7 @@
     NSMutableArray *contentList8;
 }
 
+//populate the tables with data for testing/demo purposes and view results
 - (void) populateData;
 
 @end

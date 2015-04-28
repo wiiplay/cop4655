@@ -1,15 +1,15 @@
-//
-//  TestData.m
-//  iVending
-//
-//  Created by Manny Pino on 4/20/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
 
 #import "TestData.h"
 
 @implementation TestData
 
+//populate the tables with data for testing/demo purposes and view results
 - (void) populateData
 {
     
@@ -257,10 +257,11 @@
     NSMutableDictionary *listofMachines2 = [machineDb getMachineList: temp  andConnection:myDB];
     NSMutableDictionary *listOfVendingItems1 = [contentDb getContentListForLocation:business andConnection:myDB];
     NSMutableDictionary *listOfVendingItems2 = [contentDb getContentListForLocation:temp andConnection:myDB];
-   */
+   
     user = [[User alloc] init];
     user.userName = @"admin";
     user = [userDb getUser: user andConnection:myDB];
+     */
 }
 
 @end

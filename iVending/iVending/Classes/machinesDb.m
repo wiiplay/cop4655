@@ -1,10 +1,9 @@
-//
-//  machinesDb.m
-//  iVending
-//
-//  Created by Manuel Pino on 4/18/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
 
 #import "MachinesDb.h"
 
@@ -12,6 +11,7 @@
 
 @synthesize vendingMachine;
 
+//Extract a vending machine record from the databased by its ID
 - (Machines *) getMachineByID: (Machines *) passed andConnection: (SqlDB *) connection
 {
     sqlite3_stmt * statement;
@@ -49,6 +49,7 @@
     return vendingMachine;
 }
 
+//Extract all vending machine records for a specific business ID
 - (NSMutableDictionary *) getMachineList: (Business *) passed andConnection: (SqlDB *) connection
 {
     NSMutableDictionary * machineDictionary = [[NSMutableDictionary alloc] init];
@@ -89,6 +90,7 @@
     return machineDictionary;
 }
 
+//allow you to insert a vending machine record into the machines database
 - (BOOL) insertMachine: (Machines *) machine andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
@@ -112,6 +114,7 @@
     return YES;
 }
 
+//allow you to update a vending machine record from the machines database
 - (BOOL) updateMachine: (Machines *) machine andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
@@ -135,6 +138,7 @@
     return YES;
 }
 
+//allow you to delete a vending machine record from the machines database
 - (BOOL) deleteMachine: (Machines *) machine andConnection: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];

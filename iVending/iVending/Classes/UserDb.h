@@ -1,10 +1,9 @@
-//
-//  UserDb.h
-//  iVending
-//
-//  Created by Manuel Pino on 4/26/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
 
 #import <Foundation/Foundation.h>
 #import "SqlDB.h"
@@ -14,8 +13,12 @@
 
 @property (strong, nonatomic) SqlDB *myDb;
 @property (strong, nonatomic) User *user;
+
+//Insert a new user record into the user table from a user object
 - (BOOL) insertUser: (User *) passed andConnection: (SqlDB *) connection;
+//get a user record from the user table by the user name
 - (User *) getUser: (User *) passed andConnection: (SqlDB *) connection;
+//determine if the user name passed exists in the user table
 - (BOOL) userExist: (User *) passed andConnection: (SqlDB *) connection;
 
 @end

@@ -1,10 +1,9 @@
-//
-//  Inventory.m
-//  iVending
-//
-//  Created by Manuel Pino on 4/26/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
 
 #import "Inventory.h"
 
@@ -12,6 +11,7 @@
 
 @synthesize inventoryID, businessID, machineID, inventoryDate, productID, row, column, quantity, userID;
 
+//initialize an Inventory object with its editable properties
 -(instancetype) initWithBusinessID: (NSNumber *) businessId andMachineID: (NSNumber *) machineId andInventoryDate: (NSDate *) date andProductID: (NSNumber *) productId andRow: (NSNumber *) itemRow andColumn: (NSNumber *) itemColumn andQuantity: (NSNumber *) quantityCount andUserID: (NSNumber *) userId
 {
     self = [super init];

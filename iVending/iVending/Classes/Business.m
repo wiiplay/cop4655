@@ -1,10 +1,12 @@
-//
-//  Business.m
-//  iVending
-//
-//  Created by Manuel Pino on 4/18/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
+/*
+ Used to represent a business object containing business information.
+ */
 
 #import "Business.h"
 
@@ -12,6 +14,7 @@
 
 @synthesize businessName, businessID, address, address2, city, state, zip;
 
+//Allows you to get a reference to a business satatic object
 +(Business *) getBusiness{
     static Business *myBusiness;
     
@@ -22,6 +25,7 @@
     return myBusiness;
 }
 
+//Allow you to initialize a business object with all of its paramaters that will change
 - (instancetype) initWithName: (NSString *) nameBusiness andAddress: (NSString *) addressBusiness andAddress2: (NSString *) address2Business andCity: (NSString *) cityBusiness andStat: (NSString *) stateBusines andZip: (NSNumber *) zipBusiness
 {
     self = [super init];

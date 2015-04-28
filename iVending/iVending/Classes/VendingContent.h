@@ -1,10 +1,9 @@
-//
-//  VendingContent.h
-//  iVending
-//
-//  Created by Manuel Pino on 4/18/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
 
 #import <Foundation/Foundation.h>
 @class Machines;
@@ -23,6 +22,7 @@
 @property (strong, nonatomic) NSNumber *quanity;
 @property (nonatomic) float cost;
 
+//initialize a vending machine content item in the vendingMachine table
 - (instancetype) initWithMachineFk: (NSNumber *) machineId andProductFk: (NSNumber *) productId andItemRow: (NSNumber *) row andItemColumn: (NSNumber *) column andItemQuantity: (NSNumber *) itemQuantity andCost: (float) itemCost;
 
 @end

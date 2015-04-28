@@ -1,10 +1,12 @@
-//
-//  sqlDB.m
-//  iVending
-//
-//  Created by Manny Pino on 4/14/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
+/*
+ created to initialize the database uppon first installing the app. After that it will serve as an initializer of the path to the DB
+ */
 
 #import "SqlDB.h"
 
@@ -12,6 +14,7 @@
 
 @synthesize databasePath, vendingDB, documentsDirectory;
 
+// Singleton of the class initialized with the location of the DB and initialize the DB with tables if no DB located
 + (SqlDB *) getSqlDB
 {
     static SqlDB *mySqlDB;

@@ -1,10 +1,10 @@
-//
-//  Business.m
-//  iVending
-//
-//  Created by Manuel Pino on 4/18/15.
-//  Copyright (c) 2015 student. All rights reserved.
-//
+//  PROGRAMMER:     Manuel Pino
+//  PANTHERID:      2333234
+//  CLASS:          COP 465501 MW 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Class Project
+//  DUE:            Wednesday 4/29/15
+
 
 #import "BusinessDb.h"
 
@@ -12,6 +12,7 @@
 
 @synthesize business;
 
+//allows you to get all of a business content from the business table by a business name
 - (Business *) getBusinessByName: (NSString *) name andDb: (SqlDB *) connection
 {
     sqlite3_stmt * statement;
@@ -48,6 +49,7 @@
     return business;
 }
 
+//allows you to get all of a business content from the business table by a business ID
 - (Business *) getBusinessByID: (Business *) passed andProd: (SqlDB *) connection
 {
     sqlite3_stmt * statement;
@@ -84,6 +86,7 @@
     return business;
 }
 
+//allows you to get a dictionary of business objects from the business table
 - (NSMutableDictionary *) getBusinessList: (SqlDB *) connection
 {
     NSMutableDictionary * businessDictionary = [[NSMutableDictionary alloc] init];
@@ -122,6 +125,7 @@
     return businessDictionary;
 }
 
+// allows you to enter a business into the system by passing a business object
 - (BOOL) insertBusiness: (Business *) passed andProd: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
@@ -145,6 +149,8 @@
     return YES;
 }
 
+
+//allows you to update a business record by passing a bussiness object
 - (BOOL) updateBusiness: (Business *) passed andProd: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
@@ -168,6 +174,7 @@
     return YES;
 }
 
+//allows you to delete a business record in the business table by passing a bussiness object
 - (BOOL) deleteBusiness: (Business *) passed andProd: (SqlDB *) connection
 {
     const char *dbpath = [connection.databasePath UTF8String];
