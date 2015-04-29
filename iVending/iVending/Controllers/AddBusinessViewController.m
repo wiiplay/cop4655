@@ -60,16 +60,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)saveBusiness:(id)sender {
     
     if ( [businessDb getBusinessByName:businessName.text andDb:myDb]) {
@@ -83,7 +73,42 @@
     }
 }
 
+// if the keyboard is showing and you touch anywhere in the view it will hide the keyboard
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch* touch = [[event allTouches] anyObject];
+    if( [businessName isFirstResponder] && [touch view] != businessName ){
+        [businessName resignFirstResponder];
+    }
+    
+    if( [address isFirstResponder] && [touch view] != address ){
+        [address resignFirstResponder];
+    }
+    
+    if( [address2 isFirstResponder] && [touch view] != address2 ){
+        [address2 resignFirstResponder];
+    }
+    
+    if( [city isFirstResponder] && [touch view] != city ){
+        [city resignFirstResponder];
+    }
+    
+    if( [state isFirstResponder] && [touch view] != state ){
+        [state resignFirstResponder];
+    }
+    
+    if( [zip isFirstResponder] && [touch view] != zip ){
+        [zip resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+}
 
+//when the return button is pressed it will return focus to the view
+- (IBAction)textFieldReturn:(id)sender{
+    
+    [sender resignFirstResponder];
+}
 
 
 

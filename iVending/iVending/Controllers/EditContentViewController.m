@@ -181,7 +181,22 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
  
+// if the keyboard is showing and you touch anywhere in the view it will hide the keyboard
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch* touch = [[event allTouches] anyObject];
+    if( [price isFirstResponder] && [touch view] != price ){
+        [price resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+}
 
+//when the return button is pressed it will return focus to the view
+- (IBAction)textFieldReturn:(id)sender{
+    
+    [sender resignFirstResponder];
+}
  
 
 

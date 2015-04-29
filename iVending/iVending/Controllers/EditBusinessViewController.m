@@ -99,7 +99,42 @@
 - (IBAction)deleteBusiness:(id)sender {
 }
 
+// if the keyboard is showing and you touch anywhere in the view it will hide the keyboard
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch* touch = [[event allTouches] anyObject];
+    if( [businessName isFirstResponder] && [touch view] != businessName ){
+        [businessName resignFirstResponder];
+    }
+    
+    if( [address isFirstResponder] && [touch view] != address ){
+        [address resignFirstResponder];
+    }
+    
+    if( [address2 isFirstResponder] && [touch view] != address2 ){
+        [address2 resignFirstResponder];
+    }
+    
+    if( [city isFirstResponder] && [touch view] != city ){
+        [city resignFirstResponder];
+    }
+    
+    if( [state isFirstResponder] && [touch view] != state ){
+        [state resignFirstResponder];
+    }
+    
+    if( [zip isFirstResponder] && [touch view] != zip ){
+        [zip resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+}
 
+//when the return button is pressed it will return focus to the view
+- (IBAction)textFieldReturn:(id)sender{
+    
+    [sender resignFirstResponder];
+}
 
 
 

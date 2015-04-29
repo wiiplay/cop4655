@@ -77,6 +77,7 @@
         valueTextField.tag = 100;
         valueTextField.borderStyle = UITextBorderStyleRoundedRect;
         valueTextField.textAlignment = UITextAlignmentCenter;
+        [valueTextField setKeyboardType : UIKeyboardTypeNumberPad];
         [valueTextField addTarget:self action:@selector(valueEntered:) forControlEvents:UIControlEventEditingChanged];
         [cell.contentView addSubview: valueTextField];
     }
@@ -118,7 +119,11 @@
     }
 }
 
-
+//when the return button is pressed it will return focus to the view
+- (IBAction)textFieldReturn:(id)sender{
+    
+    [sender resignFirstResponder];
+}
 
 
 

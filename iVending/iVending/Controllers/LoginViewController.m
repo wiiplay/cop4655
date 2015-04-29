@@ -68,7 +68,6 @@
     }
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"toMenu"]){
@@ -80,6 +79,26 @@
     }
 }
 
+// if the keyboard is showing and you touch anywhere in the view it will hide the keyboard
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch* touch = [[event allTouches] anyObject];
+    if( [userNameText isFirstResponder] && [touch view] != userNameText ){
+        [userNameText resignFirstResponder];
+    }
+    
+    if( [passwordText isFirstResponder] && [touch view] != passwordText){
+        [passwordText resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+}
+
+//when the return button is pressed it will return focus to the view
+- (IBAction)textFieldReturn:(id)sender{
+    
+    [sender resignFirstResponder];
+}
 
 
 

@@ -15,13 +15,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,6 +36,15 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
+    myDB = [SqlDB getSqlDB];
+    businessDb = [[BusinessDb alloc] init];
+    businessList = [businessDb getBusinessList: myDB];
+    keys = [businessList allKeys];
+    
+    lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
+    
+    [self.tableView addGestureRecognizer:self.lpgr];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

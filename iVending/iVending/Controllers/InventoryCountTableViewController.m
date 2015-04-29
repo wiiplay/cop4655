@@ -51,7 +51,8 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return restockList.count;
+    //return restockList.count;
+    return contentList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,20 +71,28 @@
     content = [contentList objectForKey: [contentKeys objectAtIndex: indexPath.row] ];
     
     //int restock = [content.quanity intValue] - [inventory.quantity intValue];
-    int restock = [content.quanity intValue] - (int)[sold objectAtIndex:indexPath.row];
+    int restock = [content.quanity intValue] - [[sold objectAtIndex:indexPath.row] intValue];
     
-    product.productID = inventory.fk_ProductID;
+    //product.productID = inventory.fk_ProductID;
+    product.productID = content.fk_ProductID;
     product = [ productDb getProductByID: product andConnection:myDb];
-    cell.textLabel.text = [NSString stringWithFormat:@"Row: %@ - Column: %@ - %@                                Restock: %d", inventory.row , inventory.column, product.productName, restock ];
+    //cell.textLabel.text = [NSString stringWithFormat:@"Row: %@ - Column: %@ - %@                                Restock: %d", inventory.row , inventory.column, product.productName, restock ];
+    cell.textLabel.text = [NSString stringWithFormat:@"Row: %@ - Column: %@ - %@                                Restock: %d", content.itemRow , content.itemColumn, product.productName, restock ];
     
     return cell;
 }
 
 - (IBAction)doneButon:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    UINavigationController *navigationController = self.navigationController;
+    [navigationController popViewControllerAnimated: NO];
+    [navigationController popViewControllerAnimated: NO];
+    [navigationController popViewControllerAnimated:YES];
 }
+
+
+
+
+
 
 
 @end

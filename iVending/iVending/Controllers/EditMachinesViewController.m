@@ -87,4 +87,40 @@
     }
 }
 
+// if the keyboard is showing and you touch anywhere in the view it will hide the keyboard
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch* touch = [[event allTouches] anyObject];
+    if( [description isFirstResponder] && [touch view] != description ){
+        [description resignFirstResponder];
+    }
+    
+    if( [rows isFirstResponder] && [touch view] != rows ){
+        [rows resignFirstResponder];
+    }
+    
+    if( [columns isFirstResponder] && [touch view] != columns ){
+        [columns resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+}
+
+//when the return button is pressed it will return focus to the view
+- (IBAction)textFieldReturn:(id)sender{
+    
+    [sender resignFirstResponder];
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @end

@@ -75,16 +75,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+// if the keyboard is showing and you touch anywhere in the view it will hide the keyboard
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UITouch* touch = [[event allTouches] anyObject];
+    if( [description isFirstResponder] && [touch view] != description ){
+        [description resignFirstResponder];
+    }
+    
+    if( [rows isFirstResponder] && [touch view] != rows ){
+        [rows resignFirstResponder];
+    }
+    
+    if( [columns isFirstResponder] && [touch view] != columns ){
+        [columns resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
 }
-*/
+
+//when the return button is pressed it will return focus to the view
+- (IBAction)textFieldReturn:(id)sender{
+    
+    [sender resignFirstResponder];
+}
+
+
+
+
+
+
+
+
+
 
 
 
