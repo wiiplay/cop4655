@@ -10,7 +10,7 @@
 
 @implementation TakeInventoryTableViewController
 
-@synthesize myDb, business, machine, product, productDb, productList, content, contentDb, contentList, contentKeys, inventoryValues, mainTableView;
+@synthesize myDb, machine, product, productDb, content, contentDb, contentList, contentKeys, inventoryValues, inventoryDb;
 
 - (void)viewDidLoad{
     
@@ -20,9 +20,9 @@
     machine = [Machines getMachine];
     product = [[Product alloc] init];
     productDb = [[ProductDb alloc] init];
-    productList = [productDb getProductList:myDb];
     contentDb = [[VendingContentDb alloc]init];
-    contentList = [contentDb getContentByMachine:machine andConnection:myDb];
+    inventoryDb = [[InventoryDb alloc] init];
+    contentList = [contentDb getContentByMachine: machine andConnection:myDb];
     contentKeys = [contentList allKeys];
     inventoryValues = [[NSMutableArray alloc] init];
     
@@ -88,8 +88,7 @@
     product.productID = content.fk_ProductID;
     product = [ productDb getProductByID:product andConnection:myDb];
     cell.textLabel.text = [NSString stringWithFormat:@"Row: %@ - Column: %@ - %@", content.itemRow , content.itemColumn, product.productName ];
-    
-    
+        
     return cell;
 }
 
@@ -97,17 +96,27 @@
 {
     UITableViewCell *passedCell = (UITableViewCell *)[[[sender superview] superview] superview];
 
-    NSIndexPath *indexPath = [mainTableView indexPathForCell: passedCell ];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell: passedCell ];
     [inventoryValues replaceObjectAtIndex: indexPath.row withObject: sender.text];
 }
 
-/*- (IBAction)saveInventory:(id)sender {
-    if (contentList.count != nil) {
-        <#statements#>
+- (IBAction)saveInventory:(id)sender {
+    if (contentList.count != 0) {
+        if ([inventoryDb saveInventory: contentList andValues:inventoryValues andConnection:myDb]) {
+            [self performSegueWithIdentifier:@"reviewCount" sender:self];
+        }
     }
-}*/
+}
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"reviewCount"]){
+        InventoryCountTableViewController *vc = (InventoryCountTableViewController *) segue.destinationViewController;
+        vc.machine = machine;
+        vc.sold = inventoryValues;
+        vc.contentList = contentList;
+    }
+}
 
 
 

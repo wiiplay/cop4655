@@ -11,6 +11,7 @@
 #import "ProductDb.h"
 #import "VendingContentDb.h"
 #import "UserDb.h"
+#import "InventoryDb.h"
 
 @interface TestData : NSObject
 {
@@ -25,6 +26,7 @@
     VendingContentDb *contentDb;
     User *user;
     UserDb *userDb;
+    InventoryDb *inventoryDb;
     NSArray *productList;
     NSMutableArray *listOfProducts;
     NSMutableArray *businessList;

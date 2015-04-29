@@ -23,6 +23,7 @@
     content = [[VendingContent alloc] init];
     contentDb = [[VendingContentDb alloc]init];
     userDb = [[UserDb alloc] init];
+    inventoryDb = [[InventoryDb alloc] init];
     
     NSMutableDictionary *list = [productDb getProductList: myDB];
     if ( list.count == 0) {
@@ -262,6 +263,10 @@
     user.userName = @"admin";
     user = [userDb getUser: user andConnection:myDB];
      */
+    machine = [[Machines alloc] init];
+    machine.machineID = [NSNumber numberWithInt:5];
+    //NSMutableDictionary *inventoryList = [inventoryDb getLastInventory: machine andDate: @"2015-04-28" andConnection: myDB];
+    
 }
 
 @end

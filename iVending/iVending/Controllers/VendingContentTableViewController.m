@@ -43,14 +43,6 @@
     [self.navigationController setNavigationBarHidden:YES animated: animated];
     [super viewWillAppear: animated];
     
-    myDb = [SqlDB getSqlDB];
-    product = [[Product alloc]init];
-    productDb = [[ProductDb alloc]init];
-    contentDb = [[VendingContentDb alloc] init];
-    contentList = [[NSMutableDictionary alloc] init];
-    contentList = [contentDb getContentByMachine: machine andConnection: myDb];
-    keys = [contentList allKeys];
-    
     [self.tableView reloadData];
 }
 

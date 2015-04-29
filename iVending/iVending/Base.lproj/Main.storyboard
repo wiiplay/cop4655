@@ -143,7 +143,7 @@
                                 </connections>
                             </button>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fu0-Zd-mvp">
-                                <rect key="frame" x="256" y="483" width="257" height="21"/>
+                                <rect key="frame" x="104" y="482" width="561" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -695,12 +695,47 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mainTableView" destination="r2r-7e-IVk" id="gf4-WA-AWw"/>
+                        <segue destination="geV-CD-A7u" kind="push" identifier="reviewCount" id="UXa-IE-jLi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYQ-9I-3F1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7659" y="-1233"/>
+        </scene>
+        <!--Inventory Count Table View Controller - Restocking-->
+        <scene sceneID="Y8y-Th-fYR">
+            <objects>
+                <tableViewController id="geV-CD-A7u" customClass="InventoryCountTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Dn-gu-KTc">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="restock" id="Y38-z2-OSd">
+                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y38-z2-OSd" id="3fq-Fc-IoF">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="geV-CD-A7u" id="bvD-GS-hqr"/>
+                            <outlet property="delegate" destination="geV-CD-A7u" id="Zjy-if-AWu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Restocking" id="h2c-55-s4M">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="sGA-e4-VHJ">
+                            <connections>
+                                <action selector="doneButon:" destination="geV-CD-A7u" id="fPJ-YR-GSR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jda-oW-rrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8685" y="-1233"/>
         </scene>
         <!--Add Machines View Controller - Add Machine-->
         <scene sceneID="Mfe-WU-K93">
@@ -1048,7 +1083,7 @@
     </scenes>
     <resources>
         <image name="Folder_3.png" width="42" height="42"/>
-        <image name="qr-simple-scnner.png" width="133" height="133"/>
+        <image name="qr-simple-scnner.png" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1056,6 +1091,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="D6I-vZ-Fdz"/>
+        <segue reference="Fdn-0r-GF5"/>
     </inferredMetricsTieBreakers>
 </document>

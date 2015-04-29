@@ -30,6 +30,8 @@
 		062DA97F1AE6F3D70003CED9 /* VendingContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9731AE6F3D70003CED9 /* VendingContent.m */; };
 		062DA9801AE6F3D70003CED9 /* VendingContentDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9751AE6F3D70003CED9 /* VendingContentDb.m */; };
 		062DA9831AE74DD90003CED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062DA9821AE74DD90003CED9 /* LoginViewController.m */; };
+		06887D581AF035F00061A9FF /* InventoryCountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06887D571AF035F00061A9FF /* InventoryCountTableViewController.m */; };
+		06887D5A1AF064D60061A9FF /* vend_pop_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06887D591AF064D60061A9FF /* vend_pop_icon.png */; };
 		068DF2A51AEC31B800A6926E /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 068DF29F1AEC31B800A6926E /* libzbar.a */; };
 		068DF2A61AEC31B800A6926E /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 068DF2A11AEC31B800A6926E /* zbar-back.png */; };
 		068DF2A71AEC31B800A6926E /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 068DF2A21AEC31B800A6926E /* zbar-help.html */; };
@@ -119,6 +121,9 @@
 		062DA9751AE6F3D70003CED9 /* VendingContentDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendingContentDb.m; sourceTree = "<group>"; };
 		062DA9811AE74DD90003CED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		062DA9821AE74DD90003CED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		06887D561AF035F00061A9FF /* InventoryCountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCountTableViewController.h; sourceTree = "<group>"; };
+		06887D571AF035F00061A9FF /* InventoryCountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCountTableViewController.m; sourceTree = "<group>"; };
+		06887D591AF064D60061A9FF /* vend_pop_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vend_pop_icon.png; sourceTree = "<group>"; };
 		068DF28B1AEC31B800A6926E /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		068DF28C1AEC31B800A6926E /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		068DF28D1AEC31B800A6926E /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -244,6 +249,8 @@
 				062DA9821AE74DD90003CED9 /* LoginViewController.m */,
 				06BCCDC51AED75D50031676C /* TakeInventoryTableViewController.h */,
 				06BCCDC61AED75D50031676C /* TakeInventoryTableViewController.m */,
+				06887D561AF035F00061A9FF /* InventoryCountTableViewController.h */,
+				06887D571AF035F00061A9FF /* InventoryCountTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -350,6 +357,7 @@
 		1A0007761AE84B4F00936386 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				06887D591AF064D60061A9FF /* vend_pop_icon.png */,
 				068DF2B41AEC3B2A00A6926E /* Folder_3.png */,
 				060538E41AE9E459000075B6 /* qr-simple-scnner.png */,
 			);
@@ -520,6 +528,7 @@
 				060538E51AE9E459000075B6 /* qr-simple-scnner.png in Resources */,
 				068DF2A91AEC31B800A6926E /* zbar-samples.png in Resources */,
 				068DF2A71AEC31B800A6926E /* zbar-help.html in Resources */,
+				06887D5A1AF064D60061A9FF /* vend_pop_icon.png in Resources */,
 				068DF2A61AEC31B800A6926E /* zbar-back.png in Resources */,
 				068DF2A81AEC31B800A6926E /* zbar-helpicons.png in Resources */,
 			);
@@ -558,6 +567,7 @@
 				06BCCDC11AED26A00031676C /* Inventory.m in Sources */,
 				062DA9591AE6F3830003CED9 /* EditMachinesViewController.m in Sources */,
 				1AD5981C1AEAB32C0092BE88 /* AddContentViewController.m in Sources */,
+				06887D581AF035F00061A9FF /* InventoryCountTableViewController.m in Sources */,
 				062DA97C1AE6F3D70003CED9 /* ProductDb.m in Sources */,
 				062DA95E1AE6F3830003CED9 /* ScanViewController.m in Sources */,
 				062DA9541AE6F3830003CED9 /* AddBusinessViewController.m in Sources */,

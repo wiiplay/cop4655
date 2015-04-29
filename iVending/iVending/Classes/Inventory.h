@@ -12,14 +12,14 @@
 @property (strong, nonatomic) NSNumber * inventoryID;
 @property (strong, nonatomic) NSNumber * businessID;
 @property (strong, nonatomic) NSNumber * machineID;
-@property (strong, nonatomic) NSDate   * inventoryDate;
-@property (strong, nonatomic) NSNumber * productID;
+@property (strong, nonatomic) NSString * inventoryDate;
+@property (strong, nonatomic) NSNumber * fk_ProductID;
 @property (strong, nonatomic) NSNumber * row;
 @property (strong, nonatomic) NSNumber * column;
 @property (strong, nonatomic) NSNumber * quantity;
 @property (strong, nonatomic) NSNumber * userID;
 
 //initialize an Inventory object with its editable properties
--(instancetype) initWithBusinessID: (NSNumber *) businessId andMachineID: (NSNumber *) machineId andInventoryDate: (NSDate *) date andProductID: (NSNumber *) productId andRow: (NSNumber *) itemRow andColumn: (NSNumber *) itemColumn andQuantity: (NSNumber *) quantityCount andUserID: (NSNumber *) userId;
+-(instancetype) initWithBusinessID: (NSNumber *) businessId andMachineID: (NSNumber *) machineId andInventoryDate: (NSString *) date andProductID: (NSNumber *) productId andRow: (NSNumber *) itemRow andColumn: (NSNumber *) itemColumn andQuantity: (NSNumber *) quantityCount andUserID: (NSNumber *) userId;
 
 @end

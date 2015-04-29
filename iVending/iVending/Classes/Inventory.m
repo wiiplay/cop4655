@@ -9,17 +9,17 @@
 
 @implementation Inventory
 
-@synthesize inventoryID, businessID, machineID, inventoryDate, productID, row, column, quantity, userID;
+@synthesize inventoryID, businessID, machineID, inventoryDate, fk_ProductID, row, column, quantity, userID;
 
 //initialize an Inventory object with its editable properties
--(instancetype) initWithBusinessID: (NSNumber *) businessId andMachineID: (NSNumber *) machineId andInventoryDate: (NSDate *) date andProductID: (NSNumber *) productId andRow: (NSNumber *) itemRow andColumn: (NSNumber *) itemColumn andQuantity: (NSNumber *) quantityCount andUserID: (NSNumber *) userId
+-(instancetype) initWithBusinessID: (NSNumber *) businessId andMachineID: (NSNumber *) machineId andInventoryDate: (NSString *) date andProductID: (NSNumber *) productId andRow: (NSNumber *) itemRow andColumn: (NSNumber *) itemColumn andQuantity: (NSNumber *) quantityCount andUserID: (NSNumber *) userId
 {
     self = [super init];
     if (self) {
         businessID = businessId;
         machineID = machineId;
         inventoryDate = date;
-        productID = productId;
+        fk_ProductID = productId;
         row = itemRow;
         column = itemColumn;
         quantity = quantityCount;

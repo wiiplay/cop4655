@@ -79,7 +79,17 @@
         break;
     
     // showing the result on textview
-    resultTextView.text = symbol.data;
+    NSString *content = symbol.data;
+    NSArray *splitContent = [content componentsSeparatedByString:@";"];
+    Business *localbusiness = [[Business alloc] init];
+    localbusiness.businessID = [NSNumber numberWithInt: [splitContent[1] intValue] ];
+    localbusiness = [businessDb getBusinessByID:localbusiness andProd:myDb];
+    
+    Machines *localmachine = [[Machines alloc] init];
+    localmachine.machineID = [NSNumber numberWithInt: [splitContent[3] intValue] ];
+    localmachine = [machineDb getMachineByID:localmachine andConnection:myDb];
+    
+    resultTextView.text = [NSString stringWithFormat:@"Business: %@  Machine: %@", localbusiness.businessName, localmachine.description ];
     
     resultImageView.image = [info objectForKey: UIImagePickerControllerOriginalImage];
     

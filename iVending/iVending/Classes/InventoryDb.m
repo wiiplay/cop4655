@@ -9,10 +9,10 @@
 
 @implementation InventoryDb
 
-@synthesize myDb, user, inventory;
+@synthesize user, inventory, content, business, businessDb, machine, machineDb;
 
 //get an inventory record from the inventory table by inventory object (businessId, machineId, date)
-- (NSMutableDictionary *) getInventoryByDay: (Inventory *) passed andConnection: (SqlDB *) connection
+- (NSMutableDictionary *) getLastInventory: (Machines *) passed andDate: (NSString *) date andConnection: (SqlDB *) connection
 {
     NSMutableDictionary *inventoryList = [[NSMutableDictionary alloc] init];
     sqlite3_stmt * statement;
@@ -22,7 +22,8 @@
     if (sqlite3_open(dbpath, &(vendingDb)) == SQLITE_OK) {
         const char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM inventory WHERE business_ID = %d AND machine_ID = %d AND inventoryDate = '%@' ", [passed.businessID intValue], [passed.machineID intValue], passed.inventoryDate ];
+        NSString * querySQL = [NSString stringWithFormat: @"SELECT * FROM inventory"];//WHERE machine_ID = %d AND inventoryDate = '%@'
+                               
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(vendingDb, query_statement, -1, &statement, &errMsg) == SQLITE_OK) {
@@ -33,10 +34,7 @@
                 NSNumber *businessId = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 1)];
                 NSNumber *machineId= [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 2)];
                 
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-                NSDate *dateFromString = [[NSDate alloc] init];
-                dateFromString = [dateFormatter dateFromString: [[NSString alloc] initWithString: [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 3)] ] ];
+                NSString *date = [NSString stringWithUTF8String: (char *) sqlite3_column_text(statement, 3)];
                 
                 NSNumber *productId = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 4)];
                 NSNumber *row = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 5)];
@@ -44,7 +42,7 @@
                 NSNumber *itemQuanity = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 7)];
                 NSNumber *userId = [[NSNumber alloc] initWithInt:sqlite3_column_int(statement, 8)];
                 
-                inventory = [[Inventory alloc] initWithBusinessID:businessId andMachineID:machineId andInventoryDate: dateFromString andProductID:productId andRow: row andColumn: column andQuantity: itemQuanity andUserID: userId];
+                inventory = [[Inventory alloc] initWithBusinessID:businessId andMachineID:machineId andInventoryDate: date andProductID:productId andRow: row andColumn: column andQuantity: itemQuanity andUserID: userId];
                 inventory.inventoryID = inventoryId;
                 
                 [inventoryList setObject: inventory forKey: [NSString stringWithFormat:@"row%d col%d", [row intValue], [column intValue] ]];
@@ -70,7 +68,7 @@
     if (sqlite3_open(dbpath, &(vendingDB)) == SQLITE_OK) {
         char *errMsg;
         
-        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO inventory VALUES (null, %d,%d, '%@' ,%d,%d,%d,%d,%d)", [passed.businessID intValue], [passed.machineID intValue], passed.inventoryDate, [passed.productID intValue], [passed.row intValue], [passed.column intValue], [passed.quantity intValue], [passed.userID intValue] ];
+        NSString * querySQL = [NSString stringWithFormat: @"INSERT INTO inventory VALUES (null, %d, %d, '%@', %d, %d, %d, %d, %d)", [passed.businessID intValue], [passed.machineID intValue], passed.inventoryDate, [passed.fk_ProductID intValue], [passed.row intValue], [passed.column intValue], [passed.quantity intValue], [passed.userID intValue] ];
         const char *query_statement = [querySQL UTF8String];
         
         if (sqlite3_exec(vendingDB, query_statement, NULL, NULL, &errMsg) != SQLITE_OK) {
@@ -86,7 +84,54 @@
     return YES;
 }
 
-//- (void) saveInventory:
+//Save the conntent in an vending machine when performing an inventory
+- (BOOL) saveInventory: (NSMutableDictionary *) contentList andValues: (NSMutableArray *) inventoryValues andConnection: (SqlDB *) connection
+{
+    BOOL success = NO;
+    int counter = 0;
+    
+    for(id key in contentList){
+        content = [contentList objectForKey:key];
+        
+        user = [User getUser];
+        businessDb = [[BusinessDb alloc]init];
+        machineDb = [[MachinesDb alloc] init];
+        machine = [[Machines alloc] init];
+        machine.machineID = content.fk_MachineID;
+        
+        machine = [machineDb getMachineByID: machine andConnection: connection];
+        
+        NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+        [dateformate setDateFormat:@"YYYY-MM-dd"];
+        NSString *date_String=[dateformate stringFromDate:[NSDate date]];
+        
+        inventory = [[Inventory alloc] initWithBusinessID: machine.fk_BusinessID andMachineID: content.fk_MachineID andInventoryDate: date_String andProductID: content.fk_ProductID andRow: content.itemRow andColumn: content.itemColumn andQuantity: [inventoryValues objectAtIndex: counter] andUserID: user.userID];
+        
+        counter++;
+        
+        success = [self insertInventory: inventory andConnection:connection];
+        
+        inventory = nil;
+        machine = nil;       
+    }
+    return success;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end
